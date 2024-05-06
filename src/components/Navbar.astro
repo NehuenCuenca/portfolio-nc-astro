@@ -1,0 +1,79 @@
+---
+import { Icon } from 'astro-icon/components';
+
+---
+<nav>
+    <div class="nav-mobile">
+        <a class="nav-link home-link" href="#">Inicio</a>
+        <button class="nav-button">
+            <Icon name="bx:menu" size={30}/>
+        </button>
+    </div>
+    <div class="nav-desktop">
+        <a class="nav-link home-link" href="#">Inicio</a>
+        <ul class="nav-desktop__sections-links-list">
+            <a class="nav-link" href="#">Formacion</a>
+            <a class="nav-link" href="#">Proyectos</a>
+            <a class="nav-link" href="#">Servicios</a>
+            <a class="nav-link" href="#">Contacto</a>
+        </ul>
+        <button class="nav-button">
+            <Icon name="bx:moon" size={30}/>
+        </button>
+    </div>
+</nav>
+
+<style>
+.nav-mobile, .nav-desktop{
+    width: 100%;
+    min-height: 15vh;
+    padding: 0 1rem;
+    background: rgb(0,60,67);
+    background: var(--navbar-fade-bg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.nav-desktop{
+    display: none;
+}
+
+.nav-link{
+    font: normal normal 500 1.3rem var(--display-font, Tahoma);
+    text-decoration: none;
+}
+
+.home-link{
+    font-size: 1.8rem;
+}
+
+.nav-button{
+    color: var(--font-color);
+}
+
+
+
+@media (width >= 768px) {
+    .nav-mobile {
+        display: none;
+    }
+    .nav-desktop{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 1rem;
+    }
+
+    .home-link{
+        margin: 0 auto 0 0;
+    }
+
+    .nav-desktop__sections-links-list{
+        display: flex;
+        gap: 0 1rem;
+    }
+}
+
+</style>

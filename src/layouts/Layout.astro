@@ -8,6 +8,7 @@ const { title } = Astro.props;
 // FONTS
 import '@fontsource/manjari';
 import '@fontsource/lemon';
+import Navbar from '@components/Navbar.astro';
 
 ---
 
@@ -23,14 +24,14 @@ import '@fontsource/lemon';
 	</head>
 	<body>
 		<header>
-			Aca va el navbar jej
+			<Navbar />
 		</header>
 		<slot />
 	</body>
 </html>
 <style is:global>
 	:root {
-		--logo-font: 'Lemon', Tahoma;
+		--display-font: 'Lemon', Tahoma;
 		--default-font: 'Manjari', sans-serif, Arial;
 		--black: #000000;
 		--white: #FFFFFF;
@@ -45,6 +46,7 @@ import '@fontsource/lemon';
 		--color-bg: var(--aqua-green-light);
 		--color-font: var(--aqua-green-dark);
 		--color-shadow: rgba(0,0,0, 0.4);
+		--navbar-fade-bg: linear-gradient(180deg, var(--aqua-green-dark) 0%, var(--aqua-green-mid-light) 40%, var(--aqua-green-light) 100%);
 		background-color: var(--color-bg);
 		color: var(--color-font);
 	}
@@ -53,6 +55,7 @@ import '@fontsource/lemon';
 		--color-bg: var(--aqua-green-dark);
 		--color-font: var(--aqua-green-light);
 		--color-shadow: transparent;
+		--navbar-fade-bg: linear-gradient(180deg, var(--aqua-green-light) 0%, var(--aqua-green-dark-soft) 40%, var(--aqua-green-dark) 100% );
 		background-color: var(--color-bg);
 		color: var(--color-font);
 	}
@@ -82,6 +85,12 @@ import '@fontsource/lemon';
 
 	a { 
 		color:inherit;
+	}
+
+	button{
+		background-color: transparent;
+		border: none;
+		cursor: pointer;
 	}
 	
 	ul,ol { 

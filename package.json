@@ -12,9 +12,10 @@
   "dependencies": {
     "@fontsource/lemon": "^5.0.20",
     "@fontsource/manjari": "^5.0.21",
-    "astro": "^4.7.1"
+    "astro": "^4.7.1",
+    "astro-icon": "^1.1.0"
   },
   "devDependencies": {
-    "astro-icon": "^1.1.0"
+    "@iconify-json/bx": "^1.1.10"
   }
 }
