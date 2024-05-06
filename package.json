@@ -1,0 +1,20 @@
+{
+  "name": "nc-portfolio-astro",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@fontsource/lemon": "^5.0.20",
+    "@fontsource/manjari": "^5.0.21",
+    "astro": "^4.7.1"
+  },
+  "devDependencies": {
+    "astro-icon": "^1.1.0"
+  }
+}
