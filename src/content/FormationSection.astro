@@ -1,0 +1,87 @@
+---
+
+---
+
+<section class="formation-container" id="formation-section">
+    <h1 class="formation-container__title">Mi formacion</h1>
+    <ul class="formation-list">
+        <li class="formation-list-item">
+            <h2 class="formation-list-item__title">Técnico Superior en Análisis y Desarrollo de Software (2018 - 2022)</h2>
+            <p class="formation-list-item__paragraph">Estudie la tecnicatura en el instituto Sedes Sapientiae, donde conocí las bases de la programación, lógica, base de datos, redes. </p>
+        </li>
+        <li class="formation-list-item">
+            <h2 class="formation-list-item__title">Cursos en plataformas online</h2>
+            <p class="formation-list-item__paragraph">Me profesionalizo tomando cursos en plataformas como Udemy, FreeCodeCamp y Youtube. He reclamado certificaciones de Vue 3, Git y GitHub, Node.js, etc...</p>
+        </li>
+        <li class="formation-list-item">
+            <h2 class="formation-list-item__title">Aprendizaje continuo</h2>
+            <p class="formation-list-item__paragraph">A dia de hoy trato de mantenerme actualizado con las tecnologías y novedades que emergen en la comunidad IT, realizando proyectos personales. </p>
+        </li>
+    </ul>
+    <a class="download-cv-button" href="/src/assets/NehuenCuenca-CV-ESP.pdf" download>Descargar CV</a>
+</section>
+
+<style>
+    .formation-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        padding: 2rem 1rem;
+    }
+
+    .formation-container__title{
+        font: normal normal 600 clamp(2.2rem, 6vw, 3rem) var(--display-font, Tahoma);
+    }
+
+    .formation-list, .formation-list-item{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .formation-list{
+        padding: 0 2rem;
+        gap: 1.5rem;
+    }
+    .formation-list-item{
+        gap: 1rem;
+    }
+
+    .formation-list-item__title, .formation-list-item__paragraph{
+        text-align: center;
+        text-wrap: balance;
+    }
+
+    .formation-list-item__title{
+        font: normal normal 600 clamp(1.5rem, 6vw, 2rem) var(--display-font, Tahoma);
+    }
+    .formation-list-item__paragraph{
+        font: normal normal 200 clamp(1.2rem, 6vw, 1.5rem) var(--default-font, Arial);
+    }
+    
+    .download-cv-button{
+        margin-top: 2rem;
+        padding: 1rem 2rem;
+        font: normal normal 400 clamp(1.3rem, 4vw, 1.6rem) var(--display-font, Tahoma);
+        background-color: var(--color-font);
+        color: var(--color-bg);
+        border-radius: 10px;
+    }
+    @media (width >= 700px) {
+        .formation-list{
+            gap: 3rem;
+        }
+        .formation-list-item{
+            flex-direction: row;
+            justify-content: center;
+        }
+        .formation-list-item__title, .formation-list-item__paragraph{
+            width: 50%;
+        }
+
+        .formation-list-item:nth-child(even){
+            flex-direction: row-reverse;
+        }
+    }
+</style>

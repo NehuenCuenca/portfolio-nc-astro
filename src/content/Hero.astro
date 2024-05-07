@@ -6,7 +6,7 @@ import { Icon } from 'astro-icon/components';
     <h2 class="hero-container__subtitle">y soy un desarrollador web<br>en proceso 🤓.</h2>
     <div class="divider">
         <div class="divider__line"></div>
-        <a href="#" class="arrow-button">
+        <a href="#formation-section" class="arrow-button">
             <Icon class='arrow-button__icon' name="bx:down-arrow-circle" size={40} />
         </a>
         <div class="divider__line"></div>
@@ -15,11 +15,12 @@ import { Icon } from 'astro-icon/components';
 
 <style>
     .hero-container{
-        padding-top: 1rem;
+        padding: 2rem 0;
+        height: 85vh;
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 1.5rem;
+        justify-content: space-evenly;
     }
 
     .hero-container__title, .hero-container__subtitle {
@@ -31,7 +32,7 @@ import { Icon } from 'astro-icon/components';
     }
 
     .hero-container__subtitle{
-        font: normal normal 150 clamp(1.5rem, 3vw, 2.2rem) var(--default-font, Arial);
+        font: normal normal 150 clamp(1.5rem, 5vw, 2.3rem) var(--default-font, Arial);
         text-wrap: balance;
         color: var(--aqua-green-dark-soft);
     }
