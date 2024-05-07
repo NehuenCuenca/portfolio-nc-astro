@@ -44,7 +44,9 @@ import Navbar from '@components/Navbar.astro';
 
 	[data-theme="light"] {
 		--color-bg: var(--aqua-green-light);
-		--color-font: var(--aqua-green-dark);
+		--color-font: var(--aqua-green-dark-soft);
+		--color-titles: var(--aqua-green-dark);
+		--color-details: var(--aqua-green-mid-light);
 		--color-shadow: rgba(0,0,0, 0.4);
 		--navbar-fade-bg: linear-gradient(180deg, var(--aqua-green-dark) 0%, var(--aqua-green-mid-light) 40%, var(--aqua-green-light) 100%);
 		background-color: var(--color-bg);
@@ -53,7 +55,9 @@ import Navbar from '@components/Navbar.astro';
 
 	[data-theme="dark"] {
 		--color-bg: var(--aqua-green-dark);
-		--color-font: var(--aqua-green-light);
+		--color-font: var(--aqua-green-mid-light);
+		--color-titles: var(--aqua-green-light);
+		--color-details: var(--aqua-green-dark-soft);
 		--color-shadow: transparent;
 		--navbar-fade-bg: linear-gradient(180deg, var(--aqua-green-light) 0%, var(--aqua-green-dark-soft) 40%, var(--aqua-green-dark) 100% );
 		background-color: var(--color-bg);

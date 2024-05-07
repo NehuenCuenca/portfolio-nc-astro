@@ -29,12 +29,12 @@ import { Icon } from 'astro-icon/components';
 
     .hero-container__title{
         font: normal normal 800 clamp(2.3rem, 6vw, 4rem) var(--display-font, Tahoma);
+        color: var(--color-titles);
     }
 
     .hero-container__subtitle{
         font: normal normal 150 clamp(1.5rem, 5vw, 2.3rem) var(--default-font, Arial);
         text-wrap: balance;
-        color: var(--aqua-green-dark-soft);
     }
 
     .divider{
@@ -43,17 +43,15 @@ import { Icon } from 'astro-icon/components';
         align-items: center;
         justify-content: center;
         gap: 1rem;
+        color: var(--color-titles);
     }
 
     .divider__line{
         width: calc(((100% / 2) - 2rem) - 10vw);
         height: 2px;
-        background-color: var(--aqua-green-dark);
+        background-color: var(--color-titles);
     }
 
-    .arrow-button{
-        color: var(--font-color);
-    }
     .arrow-button__icon{
         width: clamp(40px, 10vw, 70px);
         height: clamp(40px, 10vh, 70px);
