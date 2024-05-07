@@ -1,0 +1,144 @@
+---
+
+---
+<section class="projects-container" id="projects-section">
+    <div class="projects-container__divider">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+        </svg>
+    </div>
+    <h1 class="formation-container__title">Mis proyectos</h1>
+    <ul class="projects-list">
+        <li class="projects-list-item">
+            <img src="/src/assets/projects/Buscaminas.webp" alt="Tablero inicial del juego Buscaminas" class="projects-list-item__image">
+            <span class="projects-list-item__title">Buscaminas</span>
+            <div class="projects-list-item__links">
+                <a href="https://buscaminas-nc.netlify.app/" target="_blank">Demo</a>
+                <a href="https://github.com/NehuenCuenca/buscaminas-vue" target="_blank">Repositorio</a>
+            </div>
+        </li>
+        <li class="projects-list-item">
+            <img src="/src/assets/projects/BanderasDelMundo.webp" alt="Collage de banderas de paises del mundo" class="projects-list-item__image">
+            <span class="projects-list-item__title">Buscador de banderas</span>
+            <div class="projects-list-item__links">
+                <a href="https://countries-api-vue-nc.netlify.app/" target="_blank">Demo</a>
+                <a href="https://github.com/NehuenCuenca/FM-RestCountriesApiVue" target="_blank">Repositorio</a>
+            </div>
+        </li>
+        <li class="projects-list-item">
+            <img src="/src/assets/projects/PostMalonePicture.webp" alt="Post Malone cantando" class="projects-list-item__image">
+            <span class="projects-list-item__title">Tributo a Post Malone</span>
+            <div class="projects-list-item__links">
+                <a href="https://jxphin.csb.app/" target="_blank">Demo</a>
+                <a href="https://codesandbox.io/p/sandbox/tribute-page-pm-nc-jxphin?file=%2Fsrc%2Findex.js" target="_blank">Repositorio</a>
+            </div>
+        </li>
+        <li class="projects-list-item">
+            <img src="/src/assets/projects/CuentasMatematicas.webp" alt="Cuentas simples de matematica" class="projects-list-item__image">
+            <span class="projects-list-item__title">Minijuego de Matematicas</span>
+            <div class="projects-list-item__links">
+                <a href="https://math-minigame-nc.netlify.app/" target="_blank">Demo</a>
+                <a href="https://github.com/NehuenCuenca/math-minigame" target="_blank">Repositorio</a>
+            </div>
+        </li>
+        <li class="projects-list-item">
+            <img src="/src/assets/projects/MegaLogo.webp" alt="Logo de un gimnasio" class="projects-list-item__image">
+            <span class="projects-list-item__title">Landing page para gimnasio</span>
+            <div class="projects-list-item__links">
+                <a href="https://megagym-gchu.netlify.app/" target="_blank">Demo</a>
+                <a href="https://github.com/NehuenCuenca/megagym-nc" target="_blank">Repositorio</a>
+            </div>
+        </li>
+        <li class="projects-list-item">
+            <img src="/src/assets/projects/ArenaMobileInicio.webp" alt="Inicio de la pagina Arena Mobile" class="projects-list-item__image">
+            <span class="projects-list-item__title">Arena Mobile</span>
+            <div class="projects-list-item__links">
+                <a href="https://arena-mobile.vercel.app/" target="_blank">Demo</a>
+                <a href="https://github.com/No-Country/c16-81-t-php" target="_blank">Repositorio</a>
+            </div>
+        </li>
+    </ul>
+</section>
+
+<style>
+    .projects-container{
+        background: var(--projects-fade-bg);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .projects-container__divider {
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+    }
+
+    .projects-container__divider svg {
+        position: relative;
+        display: block;
+        width: calc(100% + 1.3px);
+        height: 150px;
+    }
+
+    .projects-container__divider .shape-fill {
+        fill: var(--color-bg);
+    }
+
+    .formation-container__title{
+        font: normal normal 600 clamp(2.2rem, 6vw, 3rem) var(--display-font, Tahoma);
+        color: var(--color-titles);
+    }
+    .projects-list{
+        margin-top: 5rem;
+        padding: 0 1rem 7rem 1rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 7rem;
+        flex-wrap: wrap;
+    }
+    .projects-list-item{
+        width: 260px;
+        height: clamp(300px, 60vh, 420px);
+        background-color: var(--color-bg);
+        border-radius: 10px;
+        box-shadow: 3px 3px var(--color-shadow);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+    }
+
+    .projects-list-item__image,
+    .projects-list-item__title{
+        position: relative;
+    }
+
+    .projects-list-item__image{
+        object-fit: cover;
+        border-radius: 10px;
+        max-width: 210px;
+        height: 50vh;
+        top: -4rem;
+    }
+
+    .projects-list-item__title{
+        font: normal normal 500 1.5rem var(--display-font);
+        text-wrap: balance;
+        text-align: center;
+        top: -3rem;
+        padding-bottom: 1rem;
+    }
+
+    .projects-list-item__links{
+        position: absolute;
+        font: normal normal 500 1.3rem var(--default-font);
+        text-decoration: underline;
+        display: flex;
+        gap: 1rem;
+        bottom: 1.5rem;
+    }
+</style>
