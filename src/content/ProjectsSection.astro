@@ -1,4 +1,6 @@
 ---
+import { Icon } from "astro-icon/components";
+
 
 ---
 <section class="projects-container" id="projects-section">
@@ -11,7 +13,11 @@
     <ul class="projects-list">
         <li class="projects-list-item">
             <img src="/src/assets/projects/Buscaminas.webp" alt="Tablero inicial del juego Buscaminas" class="projects-list-item__image">
-            <span class="projects-list-item__title">Buscaminas</span>
+            <span class="title-project">Buscaminas
+                <button class="title-project__info-button">
+                    <Icon name="bx:info-circle" size={25}/>
+                </button>
+            </span>
             <div class="projects-list-item__links">
                 <a href="https://buscaminas-nc.netlify.app/" target="_blank">Demo</a>
                 <a href="https://github.com/NehuenCuenca/buscaminas-vue" target="_blank">Repositorio</a>
@@ -19,7 +25,12 @@
         </li>
         <li class="projects-list-item">
             <img src="/src/assets/projects/BanderasDelMundo.webp" alt="Collage de banderas de paises del mundo" class="projects-list-item__image">
-            <span class="projects-list-item__title">Buscador de banderas</span>
+            
+            <span class="title-project">Buscador de banderas 
+                <button class="title-project__info-button">
+                    <Icon name="bx:info-circle" size={25}/>
+                </button>
+            </span>
             <div class="projects-list-item__links">
                 <a href="https://countries-api-vue-nc.netlify.app/" target="_blank">Demo</a>
                 <a href="https://github.com/NehuenCuenca/FM-RestCountriesApiVue" target="_blank">Repositorio</a>
@@ -27,7 +38,11 @@
         </li>
         <li class="projects-list-item">
             <img src="/src/assets/projects/PostMalonePicture.webp" alt="Post Malone cantando" class="projects-list-item__image">
-            <span class="projects-list-item__title">Tributo a Post Malone</span>
+            <span class="title-project">Tributo a Post Malone 
+                <button class="title-project__info-button">
+                    <Icon name="bx:info-circle" size={25}/>
+                </button>
+            </span>
             <div class="projects-list-item__links">
                 <a href="https://jxphin.csb.app/" target="_blank">Demo</a>
                 <a href="https://codesandbox.io/p/sandbox/tribute-page-pm-nc-jxphin?file=%2Fsrc%2Findex.js" target="_blank">Repositorio</a>
@@ -35,7 +50,11 @@
         </li>
         <li class="projects-list-item">
             <img src="/src/assets/projects/CuentasMatematicas.webp" alt="Cuentas simples de matematica" class="projects-list-item__image">
-            <span class="projects-list-item__title">Minijuego de Matematicas</span>
+            <span class="title-project">Minijuego de Matematicas 
+                <button class="title-project__info-button">
+                    <Icon name="bx:info-circle" size={25}/>
+                </button>
+            </span>
             <div class="projects-list-item__links">
                 <a href="https://math-minigame-nc.netlify.app/" target="_blank">Demo</a>
                 <a href="https://github.com/NehuenCuenca/math-minigame" target="_blank">Repositorio</a>
@@ -43,7 +62,11 @@
         </li>
         <li class="projects-list-item">
             <img src="/src/assets/projects/MegaLogo.webp" alt="Logo de un gimnasio" class="projects-list-item__image">
-            <span class="projects-list-item__title">Landing page para gimnasio</span>
+            <span class="title-project">Landing page para gimnasio 
+                <button class="title-project__info-button">
+                    <Icon name="bx:info-circle" size={25}/>
+                </button>
+            </span>
             <div class="projects-list-item__links">
                 <a href="https://megagym-gchu.netlify.app/" target="_blank">Demo</a>
                 <a href="https://github.com/NehuenCuenca/megagym-nc" target="_blank">Repositorio</a>
@@ -51,7 +74,11 @@
         </li>
         <li class="projects-list-item">
             <img src="/src/assets/projects/ArenaMobileInicio.webp" alt="Inicio de la pagina Arena Mobile" class="projects-list-item__image">
-            <span class="projects-list-item__title">Arena Mobile</span>
+            <span class="title-project">Arena Mobile 
+                <button class="title-project__info-button">
+                    <Icon name="bx:info-circle" size={25}/>
+                </button>
+            </span>
             <div class="projects-list-item__links">
                 <a href="https://arena-mobile.vercel.app/" target="_blank">Demo</a>
                 <a href="https://github.com/No-Country/c16-81-t-php" target="_blank">Repositorio</a>
@@ -125,12 +152,27 @@
         top: -4rem;
     }
 
-    .projects-list-item__title{
+    /* .projects-list-item__info{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+    } */
+
+    .title-project{
         font: normal normal 500 1.5rem var(--display-font);
+        color: var(--color-titles);
         text-wrap: balance;
         text-align: center;
+        position: relative;
         top: -3rem;
         padding-bottom: 1rem;
+    }
+
+    .title-project__info-button{
+        color: var(--color-font);
+        padding: 0;
     }
 
     .projects-list-item__links{
