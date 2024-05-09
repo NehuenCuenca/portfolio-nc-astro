@@ -1,0 +1,158 @@
+---
+import { Icon } from "astro-icon/components";
+
+
+---
+<section class="services-container" id="services-section">
+    <div class="headings">
+        <h1 class="headings__title">Servicios</h1>
+        <h2 class="headings__subtitle">Apoya el mouse sobre una imagen</h1>
+    </div>
+    <ul class="services-list">
+        <li class="service-list-item flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img class="flip-card-front__image" src="/src/assets/services/design-service.png" alt="Avatar">
+                  </div>
+                  <div class="flip-card-back">
+                    <Icon class="flip-card-back__service-icon" name="bx:palette" size={130} />
+                    <h3 class="flip-card-back__service-title">Diseño</h3>
+                    <button class="flip-card-back__view-more-button flip-card-back__view-more-button_hover">Ver más</button>
+                  </div>
+            </div>
+        </li>
+        <li class="service-list-item flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img class="flip-card-front__image" src="/src/assets/services/frontend-service.png" alt="Avatar">
+                  </div>
+                  <div class="flip-card-back">
+                    <Icon class="flip-card-back__service-icon" name="bx:news" size={130} />
+                    <h3 class="flip-card-back__service-title">Frontend</h3>
+                    <button class="flip-card-back__view-more-button flip-card-back__view-more-button_hover">Ver más</button>
+                  </div>
+            </div>
+        </li>
+        <li class="service-list-item flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img class="flip-card-front__image" src="/src/assets/services/backend-service.png" alt="Avatar">
+                  </div>
+                  <div class="flip-card-back">
+                    <Icon class="flip-card-back__service-icon" name="bx:terminal" size={130} />
+                    <h3 class="flip-card-back__service-title">Backend</h3>
+                    <button class="flip-card-back__view-more-button flip-card-back__view-more-button_hover">Ver más</button>
+                  </div>
+            </div>
+        </li>
+    </ul>
+</section>
+
+<style>
+    .services-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        padding: 2rem 0;
+    }
+    .headings{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .headings__title{
+        font: normal normal 600 clamp(2.2rem, 6vw, 3rem) var(--display-font, Tahoma);
+        color: var(--color-titles);
+    }
+    .headings__subtitle{
+        font: normal normal 150 clamp(1.2rem, 5vw, 1.5rem) var(--default-font, Arial);
+        text-wrap: balance;
+        color: var(--color-font);
+    }
+
+    .services-list{
+        padding: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 5rem;
+    }
+
+    /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+    .flip-card {
+      background-color: transparent;
+      width: 250px;
+      height: 60vh;
+      perspective: 1000px; /* Remove this if you don't want the 3D effect */
+    }
+
+    /* This container is needed to position the front and back side */
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+
+    /* Do an horizontal flip when you move the mouse over the flip box container */
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    /* Position the front and back side */
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden; /* Safari */
+      backface-visibility: hidden;
+      border-radius: 10px;     
+      box-shadow: 5px 5px 4px var(--color-shadow);
+    }
+
+    /* Style the front side (fallback if image is missing) */
+    .flip-card-front {
+      background-color: transparent;
+      color: black;
+    }
+    .flip-card-front__image{
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Style the back side */
+    .flip-card-back {
+      background-color: var(--color-titles);
+      color: var(--color-bg);
+      transform: rotateY(180deg);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .flip-card-back__service-title{
+        font: normal normal 600 clamp(1.6rem, 6vw, 2rem) var(--display-font, Tahoma);
+    }
+
+    .flip-card-back__view-more-button{
+        font: normal normal 600 1.2rem var(--display-font, Tahoma);
+        background-color: var(--color-font);
+        color: var(--color-bg);
+        border-radius: 30px;
+        padding: .5rem 1.5rem;
+        opacity: .75;
+        transition: opacity .5s ease;
+    }
+
+    .flip-card-back__view-more-button_hover:hover{
+        opacity: 1;
+    }
+
+    
+</style>
