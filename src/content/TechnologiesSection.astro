@@ -1,0 +1,179 @@
+---
+import { Icon } from "astro-icon/components";
+
+
+---
+
+<section class="technologies-container" id="technologies-section">
+    <h1 class="technologies-container__title">Tecnologias</h1>
+    <ul class="skills-list">
+        <li class="skills-list-item skills-list-item_open">
+            <button class="skills-list-item__dropdown-button">
+                <Icon name="bx:slideshow" class="skill-icon" size={35}/>
+                <h2 class="skill-name">Frontend</h2>
+                <Icon name="bx:caret-down" size={40} class="arrow-button arrow-button_close" />
+            </button>
+            
+            <ul class="technologies-list">
+                <li class="technologies-list-item">
+                    <img src="/src/assets/technologies/html-logo-removebg-preview.webp" alt="HTML5" class="technologies-list-item__technology-image" title="HTML5">
+                </li>
+                <li class="technologies-list-item">
+                    <img src="/src/assets/technologies/css-logo-removebg-preview.webp" alt="CSS3" class="technologies-list-item__technology-image" title="CSS3">
+                </li>
+                <li class="technologies-list-item">
+                    <img src="/src/assets/technologies/javascript-logo-removebg-preview.webp" alt="Javascript" class="technologies-list-item__technology-image" title="Javascript">
+                </li>
+                <li class="technologies-list-item">
+                    <img src="/src/assets/technologies/vue-logo-removebg-preview.webp" alt="Vue.js" class="technologies-list-item__technology-image" title="Vue">
+                </li>
+                <li class="technologies-list-item">
+                    <img src="/src/assets/technologies/react-logo-removebg-preview.webp" alt="React" class="technologies-list-item__technology-image" title="React">
+                </li>
+            </ul>
+        </li>
+        <li class="skills-list-item skills-list-item_open">
+            <button class="skills-list-item__dropdown-button">
+                <Icon name="bx:data" class="skill-icon" size={35}/>
+                <h2 class="skill-name">Backend</h2>
+                <Icon name="bx:caret-down" size={40} class="arrow-button" />
+            </button>
+            
+            <ul class="technologies-list">
+                <li class="technologies-list-item">
+                    <img src="/src/assets/technologies/php-logo-removebg-preview.webp" alt="PHP" class="technologies-list-item__technology-image" title="PHP">
+                </li>
+                <li class="technologies-list-item">
+                    <img src="/src/assets/technologies/laravel-logo-removebg-preview.webp" alt="Laravel" class="technologies-list-item__technology-image" title="Laravel">
+                </li>
+                <li class="technologies-list-item">
+                    <img src="/src/assets/technologies/node-logo-removebg-preview.webp" alt="Node" class="technologies-list-item__technology-image" title="Node">
+                </li>
+                <li class="technologies-list-item">
+                    <img src="/src/assets/technologies/express-logo-removebg-preview.webp" alt="Express" class="technologies-list-item__technology-image" title="Express">
+                </li>
+                <li class="technologies-list-item">
+                    <img src="/src/assets/technologies/mysql-logo-removebg-preview.webp" alt="MySql" class="technologies-list-item__technology-image" title="MySql">
+                </li>
+                <li class="technologies-list-item">
+                    <img src="/src/assets/technologies/postgresql-logo-removebg-preview.webp" alt="PostgreSql" class="technologies-list-item__technology-image" title="PostgreSql">
+                </li>
+            </ul>
+        </li>
+        <li class="skills-list-item skills-list-item_open">
+            <button class="skills-list-item__dropdown-button">
+                <Icon name="bx:paint" class="skill-icon" size={35}/>
+                <h2 class="skill-name">Diseño</h2>
+                <Icon name="bx:caret-down" size={40} class="arrow-button arrow-button_close" />
+            </button>
+            
+            <ul class="technologies-list">
+                <li class="technologies-list-item">
+                    <img src="/src/assets/technologies/figma-logo-removebg-preview.webp" alt="Figma" class="technologies-list-item__technology-image" title="Figma">
+                </li>
+            </ul>
+        </li>
+        <li class="skills-list-item skills-list-item_open">
+            <button class="skills-list-item__dropdown-button">
+                <Icon name="bx:wrench" class="skill-icon" size={35}/>
+                <h2 class="skill-name">Otros</h2>
+                <Icon name="bx:caret-down" size={40} class="arrow-button arrow-button_close" />
+            </button>
+            
+            <ul class="technologies-list">
+                <li class="technologies-list-item">
+                    <img src="/src/assets/technologies/postman-logo-removebg-preview.webp" alt="Postman" class="technologies-list-item__technology-image" title="Postman">
+                </li>
+                <li class="technologies-list-item">
+                    <img src="/src/assets/technologies/notion-logo-removebg-preview.webp" alt="Notion" class="technologies-list-item__technology-image" title="Notion">
+                </li>
+                <li class="technologies-list-item">
+                    <img src="/src/assets/technologies/netlify-logo-removebg-preview.webp" alt="Netlify" class="technologies-list-item__technology-image" title="Netlify">
+                </li>
+                <li class="technologies-list-item">
+                    <img src="/src/assets/technologies/git-logo-removebg-preview.webp" alt="Git" class="technologies-list-item__technology-image" title="Git">
+                </li>
+                <li class="technologies-list-item">
+                    <img src="/src/assets/technologies/github-logo-removebg-preview.webp" alt="Github" class="technologies-list-item__technology-image" title="Github">
+                </li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<style>
+    .technologies-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        padding: 2rem 0;
+    }
+
+    .technologies-container__title{
+        font: normal normal 600 clamp(2.2rem, 6vw, 3rem) var(--display-font, Tahoma);
+        color: var(--color-titles);
+    }
+
+    .skills-list{
+        width: 100%;
+        padding: 2rem;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem 1rem;
+    }
+    .skills-list-item__dropdown-button{
+        width: 100%;
+        display: flex;
+        gap: 1rem;
+    }
+
+    .skills-list-item_open .arrow-button {
+        rotate: 180deg;
+    }
+
+    .skills-list-item_close{}
+    .skills-list-item_open{}
+    
+    .skills-list-item_close .technologies-list{
+        display: none;
+    }
+    .skills-list-item_open .technologies-list{
+        position: relative;
+        display: flex;
+        gap: .5rem;
+        left: 3rem;
+    }
+
+    .technologies-list-item{}
+    .technologies-list-item__technology-image{}
+
+    .skill-icon,
+    .arrow-button{
+        color: var(--color-font);
+    }
+    .skill-name{
+        font: normal normal 600 clamp(1.4rem, 6vw, 1.8rem) var(--display-font, Tahoma);
+        color: var(--color-titles);
+    }
+    .arrow-button{
+        margin: 0 0 0 auto;
+        padding: 0;
+    }
+    .arrow-button_close{}
+
+    @media (width >= 600px){
+        .skills-list{
+            padding: 0;
+            flex-direction: row;
+            justify-content: center;
+            gap: 2rem;
+        }
+        .skills-list-item{
+            width: 40%;
+            gap: .5rem;
+        }
+    }
+</style>
