@@ -7,11 +7,11 @@ import { Icon } from "astro-icon/components";
 <section class="technologies-container" id="technologies-section">
     <h1 class="technologies-container__title">Tecnologias</h1>
     <ul class="skills-list">
-        <li class="skills-list-item skills-list-item_open">
+        <li class="skills-list-item skills-list-item_hover">
             <button class="skills-list-item__dropdown-button">
                 <Icon name="bx:slideshow" class="skill-icon" size={35}/>
                 <h2 class="skill-name">Frontend</h2>
-                <Icon name="bx:caret-down" size={40} class="arrow-button arrow-button_close" />
+                <Icon name="bx:caret-down" size={40} class="arrow-button" />
             </button>
             
             <ul class="technologies-list">
@@ -32,7 +32,7 @@ import { Icon } from "astro-icon/components";
                 </li>
             </ul>
         </li>
-        <li class="skills-list-item skills-list-item_open">
+        <li class="skills-list-item skills-list-item_hover">
             <button class="skills-list-item__dropdown-button">
                 <Icon name="bx:data" class="skill-icon" size={35}/>
                 <h2 class="skill-name">Backend</h2>
@@ -40,6 +40,12 @@ import { Icon } from "astro-icon/components";
             </button>
             
             <ul class="technologies-list">
+                <li class="technologies-list-item">
+                    <img src="/src/assets/technologies/mysql-logo-removebg-preview.webp" alt="MySql" class="technologies-list-item__technology-image" title="MySql">
+                </li>
+                <li class="technologies-list-item">
+                    <img src="/src/assets/technologies/postgresql-logo-removebg-preview.webp" alt="PostgreSql" class="technologies-list-item__technology-image" title="PostgreSql">
+                </li>
                 <li class="technologies-list-item">
                     <img src="/src/assets/technologies/php-logo-removebg-preview.webp" alt="PHP" class="technologies-list-item__technology-image" title="PHP">
                 </li>
@@ -52,19 +58,13 @@ import { Icon } from "astro-icon/components";
                 <li class="technologies-list-item">
                     <img src="/src/assets/technologies/express-logo-removebg-preview.webp" alt="Express" class="technologies-list-item__technology-image" title="Express">
                 </li>
-                <li class="technologies-list-item">
-                    <img src="/src/assets/technologies/mysql-logo-removebg-preview.webp" alt="MySql" class="technologies-list-item__technology-image" title="MySql">
-                </li>
-                <li class="technologies-list-item">
-                    <img src="/src/assets/technologies/postgresql-logo-removebg-preview.webp" alt="PostgreSql" class="technologies-list-item__technology-image" title="PostgreSql">
-                </li>
             </ul>
         </li>
-        <li class="skills-list-item skills-list-item_open">
+        <li class="skills-list-item skills-list-item_hover">
             <button class="skills-list-item__dropdown-button">
                 <Icon name="bx:paint" class="skill-icon" size={35}/>
                 <h2 class="skill-name">Diseño</h2>
-                <Icon name="bx:caret-down" size={40} class="arrow-button arrow-button_close" />
+                <Icon name="bx:caret-down" size={40} class="arrow-button" />
             </button>
             
             <ul class="technologies-list">
@@ -73,11 +73,11 @@ import { Icon } from "astro-icon/components";
                 </li>
             </ul>
         </li>
-        <li class="skills-list-item skills-list-item_open">
+        <li class="skills-list-item skills-list-item_hover">
             <button class="skills-list-item__dropdown-button">
                 <Icon name="bx:wrench" class="skill-icon" size={35}/>
                 <h2 class="skill-name">Otros</h2>
-                <Icon name="bx:caret-down" size={40} class="arrow-button arrow-button_close" />
+                <Icon name="bx:caret-down" size={40} class="arrow-button" />
             </button>
             
             <ul class="technologies-list">
@@ -124,27 +124,36 @@ import { Icon } from "astro-icon/components";
         align-items: flex-start;
         gap: 2rem 1rem;
     }
+
+    .skills-list-item{ width: 100%;}
+
     .skills-list-item__dropdown-button{
         width: 100%;
+        padding: 0;
         display: flex;
         gap: 1rem;
     }
-
-    .skills-list-item_open .arrow-button {
+    
+    .arrow-button{
+        transition: rotate .5s ease;
+        margin: 0 0 0 auto;
+    }
+    .arrow-button {
         rotate: 180deg;
     }
-
-    .skills-list-item_close{}
-    .skills-list-item_open{}
     
-    .skills-list-item_close .technologies-list{
-        display: none;
-    }
-    .skills-list-item_open .technologies-list{
+    .technologies-list{
         position: relative;
-        display: flex;
-        gap: .5rem;
         left: 3rem;
+        width: calc(100% - 5rem);
+        display: flex;
+        flex-wrap: wrap;
+        gap: .5rem;
+        transition: opacity .5s ease;
+    }
+
+    .skills-list-item_hover:hover .technologies-list{
+        opacity: 1;
     }
 
     .technologies-list-item{}
@@ -158,11 +167,7 @@ import { Icon } from "astro-icon/components";
         font: normal normal 600 clamp(1.4rem, 6vw, 1.8rem) var(--display-font, Tahoma);
         color: var(--color-titles);
     }
-    .arrow-button{
-        margin: 0 0 0 auto;
-        padding: 0;
-    }
-    .arrow-button_close{}
+    
 
     @media (width >= 600px){
         .skills-list{
@@ -176,4 +181,14 @@ import { Icon } from "astro-icon/components";
             gap: .5rem;
         }
     }
+    @media (width >= 1024px){
+        .skills-list-item_hover:hover .arrow-button{
+            rotate: 0deg;
+        }
+        .technologies-list{
+            opacity: 0;
+        }
+        .skills-list-item_hover:hover .technologies-list{
+            opacity: 1;
+        }
 </style>
