@@ -5,16 +5,26 @@ import FormationSection from '@content/FormationSection.astro';
 import ProjectsSection from '@content/ProjectsSection.astro';
 import TechnologiesSection from '@content/TechnologiesSection.astro';
 import ServicesSection from '@content/ServicesSection.astro';
+import ContactSection from '@content/ContactSection.astro';
 ---
 
 <Layout title="Portfolio de Nehuen Cuenca">
-	<main>
+	<main class="main-container">
 		<Hero />
 		<FormationSection />
 		<ProjectsSection />
 		<TechnologiesSection />
 		<ServicesSection />
+		<ContactSection />
 	</main>
 </Layout>
+
+<style>
+	.main-container{
+		display: flex;
+		flex-direction: column;
+		gap: 5rem;
+	}
+</style>
 
 

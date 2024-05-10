@@ -1,0 +1,213 @@
+---
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+
+import dev_ilustration from '../assets/ilustrations/dev-ilustration.png'
+---
+
+<section class="contact-container" id="contact-section">
+    <div class="services-container__divider">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M1200,0H0V120H281.94C572.9,116.24,602.45,3.86,602.45,3.86h0S632,116.24,923,120h277Z" class="shape-fill"></path>
+        </svg>
+    </div>
+
+    <h1 class="contact-container__title">¡Contáctame!</h1>
+    <div class="content-container">
+        <form action="" class="form-contact">
+            <div class="field">
+                <label for="input-name" class="field__label">Nombre</label>
+                <input type="text" class="field__input" id="input-name" required>
+            </div>
+            <div class="field">
+                <label for="input-email" class="field__label">Email</label>
+                <input type="email" class="field__input" id="input-email" required>
+            </div>
+            <div class="field">
+                <label for="input-matter" class="field__label">Asunto</label>
+                <input type="text" class="field__input" id="input-matter" required>
+            </div>
+            <div class="field">
+                <label for="input-message" class="field__label">Mensaje</label>
+                <textarea class="field__input-message" id="input-message" required></textarea>
+            </div>
+            <input class="form-contact__submit-button" type="submit" value="Enviar mail">
+        </form>
+        <div class="ways-to-contact">
+            <h2 class="ways-to-contact__title">Otras vías 
+                de contacto</h2>
+            <h3 class="ways-to-contact__subtitle">También podés hablar conmigo por acá</h3>
+            <ul class="contact-ways-list">
+                <li class="contact-ways-list-item">
+                    <Icon class="contact-ways-list-item__way-icon"name="bx:mail-send" size={40} />
+                    <span class="contact-ways-list-item__way-name">Email</span>
+                    <a href="mailto:nehuen.cuenca@yahoo.com" class="contact-ways-list-item__way-keyword">nehuen.cuenca@yahoo.com</a>
+                </li>
+                <li class="contact-ways-list-item">
+                    <Icon class="contact-ways-list-item__way-icon"name="mdi:linkedin" size={40} />
+                    <span class="contact-ways-list-item__way-name">LinkedIn</span>
+                    <a href="https://www.linkedin.com/in/nehuen-cuenca/" target="_blank" class="contact-ways-list-item__way-keyword">Nehuen Cuenca</a>
+                </li>
+            </ul>
+            <Image src={dev_ilustration} alt="Ilustracion de un programador saludando desde su escritorio" class="ways-to-contact__dev-image">
+        </div>
+    </div>
+</section>
+
+<style>
+    .contact-container{
+        background-color: var(--color-font);
+        color: var(--color-bg);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        padding-bottom: 3rem;
+    }
+
+    .services-container__divider {
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+    }
+
+    .services-container__divider svg {
+        position: relative;
+        display: block;
+        width: calc(100% + 1.3px);
+        height: clamp(80px, 15vh, 140px);
+    }
+
+    .services-container__divider .shape-fill {
+        fill: var(--color-bg);
+    }
+
+    .contact-container__title{
+        font: normal normal 600 clamp(2.2rem, 6vw, 3rem) var(--display-font, Tahoma);
+        color: var(--color-bg);
+    }
+
+    .content-container{
+        width: 90%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4rem 2rem;
+    }
+
+    .form-contact{
+        width: clamp(250px, 100%, 400px);
+        padding: 4rem 1rem 1rem 1rem;
+        border: 3px solid var(--color-bg);
+        border-radius: 10px 100px 10px 10px ;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    .field{
+        width: 100%;
+        padding: .5rem;
+        border-radius: 10px;
+        border: 3px solid var(--color-bg);
+    }
+    .field__label{
+        font: normal normal 600 clamp(1.2rem, 6vw, 1.4rem) var(--default-font, Arial);
+    }
+    .field__input, .field__input-message{
+        width: 100%;
+        height: 50%;
+        background-color: transparent;
+        outline: none;
+        border: none;
+        font: normal normal 200 clamp(1.1rem, 6vw, 1.3rem) var(--default-font, Arial);
+        color: var(--color-details);
+    }
+
+    .field__input-message{
+        min-height: 20vh;
+        text-align: start;
+        vertical-align: text-top;
+        resize: vertical;
+    }
+
+    .form-contact__submit-button{
+        margin: auto 0 0 0;
+        background-color: var(--color-bg);
+        color: var(--color-titles);
+        border: none;
+        border-radius: 10px;
+        padding: .5rem;
+        font: normal normal 600 clamp(1.2rem, 6vw, 1.5rem) var(--display-font, Tahoma);
+        cursor: pointer;
+        transition: background .5s ease;
+    }
+    .form-contact__submit-button:hover{
+        background-color: var(--color-details);
+    }
+    
+
+    .ways-to-contact{
+        width: clamp(250px, 100%, 400px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+    .ways-to-contact__title{
+        font: normal normal 600 clamp(1.8rem, 6vw, 2rem) var(--display-font, Tahoma);
+        color: var(--color-bg);
+    }
+    .ways-to-contact__title,
+    .ways-to-contact__subtitle{
+        text-align: center;
+    }
+
+    .ways-to-contact__subtitle{
+        text-wrap: balance;
+        font: normal normal 200 clamp(1.3rem, 6vw, 1.5rem) var(--default-font, Arial);
+        color: var(--color-details);
+    }
+
+    .contact-ways-list{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .contact-ways-list-item{
+        display: grid;
+        grid-template-areas: 
+            "icon name"
+            "icon keyword"
+        ;
+        grid-template-columns: 40px 1fr;
+        gap: .5rem;
+    }
+    .contact-ways-list-item__way-icon{
+        grid-area: icon;
+    }
+    .contact-ways-list-item__way-icon,
+    .contact-ways-list-item__way-name{
+        color: var(--color-bg);
+        align-self: center;
+    }
+    .contact-ways-list-item__way-name{
+        grid-area: name;
+        font: normal normal 600 clamp(1.3rem, 6vw, 1.4rem) var(--display-font, Tahoma);
+    }
+    .contact-ways-list-item__way-keyword{
+        grid-area: keyword;
+        font: normal normal 200 clamp(1.1rem, 6vw, 1.2rem) var(--default-font, Arial);
+        color: var(--color-details);
+    }
+
+    .ways-to-contact__dev-image{
+        object-fit: contain;
+        height: 45vh;
+    }
+
+    @media (width >= 768px){
+    .content-container{
+        flex-direction: row-reverse;
+    }
+</style>
