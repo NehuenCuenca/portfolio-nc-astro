@@ -1,0 +1,59 @@
+---
+import { Icon } from "astro-icon/components";
+
+
+---
+<footer class="footer-container">
+    <span class="footer-container__dev-signature">Nehuen Cuenca - 2024</span>
+    <ul class="footer-container__contact-icons-list">
+        <li class="contact-icons-list-item">
+            <a href="mailto:nehuen.cuenca@yahoo.com" class="contact-icons-list__link">
+                <Icon name="bx:mail-send" size={35} />
+            </a>
+        </li>
+        <li class="contact-icons-list-item">
+            <a href="https://www.linkedin.com/in/nehuen-cuenca/" target="_blank" class="contact-icons-list__link">
+                <Icon name="mdi:linkedin" size={35} />
+            </a>
+        </li>
+        <li class="contact-icons-list-item">
+            <a href="https://github.com/NehuenCuenca" target="_blank" class="contact-icons-list__link">
+                <Icon name="mdi:github" size={35} />
+            </a>
+        </li>
+    </ul>
+    <a href="#hero-section" class="footer-container__link-to-top">Volver hacia arriba</a>
+</footer>
+
+<style>
+.footer-container{
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--color-titles);
+    color: var(--color-bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+.footer-container__dev-signature,
+.footer-container__link-to-top{
+    font: normal normal 600 clamp(1.2rem, 6vw, 1.5rem) var(--display-font, Tahoma);
+    text-align: center;
+}
+.footer-container__contact-icons-list{
+    display: flex;
+    gap: 2rem;
+}
+.contact-icons-list-item{}
+.contact-icons-list__link{}
+
+@media (width >= 768px) {
+    .footer-container{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+
+</style>
