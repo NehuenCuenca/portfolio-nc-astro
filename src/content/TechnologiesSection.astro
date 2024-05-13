@@ -146,14 +146,19 @@ import { Icon } from "astro-icon/components";
         position: relative;
         left: 3rem;
         width: calc(100% - 5rem);
+        height: 0;
         display: flex;
         flex-wrap: wrap;
         gap: .5rem;
-        transition: opacity .5s ease;
+        transition: opacity .5s ease, visibility .5s ease;
+        opacity: 0;
+        visibility: hidden;
     }
 
-    .skills-list-item_hover:hover .technologies-list{
+    .skills-list-item__dropdown-button:focus + .technologies-list{
+        height: auto;
         opacity: 1;
+        visibility: visible;
     }
 
     .technologies-list-item{}
@@ -182,13 +187,13 @@ import { Icon } from "astro-icon/components";
         }
     }
     @media (width >= 1024px){
-        .skills-list-item_hover:hover .arrow-button{
+        .skills-list-item__dropdown-button:focus .arrow-button{
             rotate: 0deg;
         }
-        .technologies-list{
-            opacity: 0;
-        }
-        .skills-list-item_hover:hover .technologies-list{
+
+        .skills-list-item__dropdown-button:focus + .technologies-list{
             opacity: 1;
+            visibility: visible;
         }
+    }
 </style>

@@ -11,15 +11,23 @@ import { Icon } from 'astro-icon/components';
     </div>
     <div class="nav-desktop">
         <a class="nav-link home-link" href="#hero-section">Inicio</a>
-        <ul class="nav-desktop__sections-links-list">
-            <a class="nav-link" href="#formation-section">Formacion</a>
-            <a class="nav-link" href="#projects-section">Proyectos</a>
-            <a class="nav-link" href="#services-section">Servicios</a>
-            <a class="nav-link" href="#contact-section">Contacto</a>
+        <ul class="links-sections-list">
+            <li class="links-sections-list__link-item">
+                <a class="nav-link" href="#formation-section">Formacion</a>
+            </li>
+            <li class="links-sections-list__link-item">
+                <a class="nav-link" href="#projects-section">Proyectos</a>
+            </li>
+            <li class="links-sections-list__link-item">
+                <a class="nav-link" href="#services-section">Servicios</a>
+            </li>
+            <li class="links-sections-list__link-item">
+                <a class="nav-link" href="#contact-section">Contacto</a>
+            </li>
         </ul>
-        <a class="nav-button">
+        <button class="nav-button">
             <Icon name="bx:moon" size={30}/>
-        </a>
+        </button>
     </div>
 </nav>
 
@@ -34,6 +42,7 @@ import { Icon } from 'astro-icon/components';
     display: flex;
     align-items: center;
     justify-content: space-between;
+    animation: fadeInFromTop 1s ease 0s 1 normal forwards;
 }
 
 
@@ -52,7 +61,36 @@ import { Icon } from 'astro-icon/components';
 
 .nav-button{
     color: var(--font-color);
+    cursor: pointer;
+    transition: scale .5s ease;
 }
+
+.nav-button:hover{
+    scale: 1.2;
+}
+
+.links-sections-list__link-item{
+    display: block;
+  height: 100%;
+  margin-right: 30px;
+  position: relative;
+  transition: all 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.links-sections-list__link-item:after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 1px;
+  display: block;
+  transition: all 0.3s ease;
+  bottom: 0%;
+}
+.links-sections-list__link-item:hover::after {
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-titles);
+}
+
 
 
 
@@ -71,10 +109,21 @@ import { Icon } from 'astro-icon/components';
         margin: 0 auto 0 0;
     }
 
-    .nav-desktop__sections-links-list{
+    .links-sections-list{
         display: flex;
         gap: 0 1rem;
     }
 }
 
+@keyframes fadeInFromTop {
+	0% {
+		opacity: 0;
+		transform: translateY(-50px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
 </style>

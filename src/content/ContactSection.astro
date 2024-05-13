@@ -17,7 +17,7 @@ import dev_ilustration from '../assets/ilustrations/dev-ilustration.png'
         <form action="" class="form-contact">
             <div class="field">
                 <label for="input-name" class="field__label">Nombre</label>
-                <input type="text" class="field__input" id="input-name" required>
+                <input type="text" class="field__input" id="input-name" required minlength="4" maxlength="40">
             </div>
             <div class="field">
                 <label for="input-email" class="field__label">Email</label>
@@ -25,11 +25,11 @@ import dev_ilustration from '../assets/ilustrations/dev-ilustration.png'
             </div>
             <div class="field">
                 <label for="input-matter" class="field__label">Asunto</label>
-                <input type="text" class="field__input" id="input-matter" required>
+                <input type="text" class="field__input" id="input-matter" required minlength="10" maxlength="40">
             </div>
             <div class="field">
                 <label for="input-message" class="field__label">Mensaje</label>
-                <textarea class="field__input-message" id="input-message" required></textarea>
+                <textarea class="field__input-message" id="input-message" required minlength="20"></textarea>
             </div>
             <input class="form-contact__submit-button" type="submit" value="Enviar mail">
         </form>
@@ -111,9 +111,11 @@ import dev_ilustration from '../assets/ilustrations/dev-ilustration.png'
         padding: .5rem;
         border-radius: 10px;
         border: 3px solid var(--color-bg);
+        transition: border .2s ease;
     }
     .field__label{
         font: normal normal 600 clamp(1.2rem, 6vw, 1.4rem) var(--default-font, Arial);
+        cursor: pointer;
     }
     .field__input, .field__input-message{
         width: 100%;
@@ -123,6 +125,13 @@ import dev_ilustration from '../assets/ilustrations/dev-ilustration.png'
         border: none;
         font: normal normal 200 clamp(1.1rem, 6vw, 1.3rem) var(--default-font, Arial);
         color: var(--color-details);
+    }
+
+    .field:has(:focus){
+        border-color: var(--color-titles);
+    }
+    .field:has(:user-invalid){
+        border-color: red;
     }
 
     .field__input-message{
@@ -208,7 +217,8 @@ import dev_ilustration from '../assets/ilustrations/dev-ilustration.png'
     }
 
     @media (width >= 768px){
-    .content-container{
-        flex-direction: row-reverse;
+        .content-container{
+            flex-direction: row-reverse;
+        }
     }
 </style>

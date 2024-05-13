@@ -1,7 +1,10 @@
 ---
 import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
 
-
+import DesignService from '@assets/services/design-service.png';
+import FrontendService from '@assets/services/frontend-service.png';
+import BackendService from '@assets/services/backend-service.png';
 ---
 <section class="services-container" id="services-section">
     <div class="headings">
@@ -12,7 +15,7 @@ import { Icon } from "astro-icon/components";
         <li class="service-list-item flip-card">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
-                    <img class="flip-card-front__image" src="/src/assets/services/design-service.png" alt="Avatar">
+                    <Image class="flip-card-front__image" src={DesignService} alt="Avatar" />
                   </div>
                   <div class="flip-card-back">
                     <Icon class="flip-card-back__service-icon" name="bx:palette" size={130} />
@@ -24,7 +27,7 @@ import { Icon } from "astro-icon/components";
         <li class="service-list-item flip-card">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
-                    <img class="flip-card-front__image" src="/src/assets/services/frontend-service.png" alt="Avatar">
+                    <Image class="flip-card-front__image" src={FrontendService} alt="Avatar" />
                   </div>
                   <div class="flip-card-back">
                     <Icon class="flip-card-back__service-icon" name="bx:news" size={130} />
@@ -36,7 +39,7 @@ import { Icon } from "astro-icon/components";
         <li class="service-list-item flip-card">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
-                    <img class="flip-card-front__image" src="/src/assets/services/backend-service.png" alt="Avatar">
+                    <Image class="flip-card-front__image" src={BackendService} alt="Avatar" />
                   </div>
                   <div class="flip-card-back">
                     <Icon class="flip-card-back__service-icon" name="bx:terminal" size={130} />

@@ -28,6 +28,9 @@
         align-items: center;
         gap: 2rem;
         padding: 2rem 1rem;
+        animation: fadeInWhileScroll linear forwards;
+        animation-timeline: view();
+        animation-range-end: 70vh;
     }
 
     .formation-container__title{
@@ -75,6 +78,7 @@
     .download-cv-button:hover{
         background-color: var(--color-titles);
     }
+    
     @media (width >= 700px) {
         .formation-list{
             gap: 3rem;
@@ -89,6 +93,18 @@
 
         .formation-list-item:nth-child(even){
             flex-direction: row-reverse;
+        }
+    }
+
+    @keyframes fadeInWhileScroll {
+        0% {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
         }
     }
 </style>
