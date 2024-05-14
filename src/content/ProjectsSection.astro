@@ -7,7 +7,7 @@ import PostMalonePicture from '@assets/projects/PostMalonePicture.webp'
 import CuentasMatematicas from '@assets/projects/CuentasMatematicas.webp'
 import MegaLogo from '@assets/projects/MegaLogo.webp'
 import ArenaMobileInicio from '@assets/projects/ArenaMobileInicio.webp'
-
+import { Modal } from 'accessible-astro-components'
 
 ---
 <section class="projects-container" id="projects-section">
@@ -21,7 +21,7 @@ import ArenaMobileInicio from '@assets/projects/ArenaMobileInicio.webp'
         <li class="projects-list-item">
             <Image src={Buscaminas} alt="Tablero inicial del juego Buscaminas" class="projects-list-item__image"/>
             <span class="title-project">Buscaminas
-                <button class="title-project__info-button">
+                <button id="modal1-trigger" class="title-project__info-button">
                     <Icon name="bx:info-circle" size={25}/>
                 </button>
             </span>
@@ -32,9 +32,8 @@ import ArenaMobileInicio from '@assets/projects/ArenaMobileInicio.webp'
         </li>
         <li class="projects-list-item">
             <Image src={BanderasDelMundo} alt="Collage de banderas de paises del mundo" class="projects-list-item__image" />
-            
             <span class="title-project">Buscador de banderas 
-                <button class="title-project__info-button">
+                <button id="modal2-trigger" class="title-project__info-button">
                     <Icon name="bx:info-circle" size={25}/>
                 </button>
             </span>
@@ -46,7 +45,7 @@ import ArenaMobileInicio from '@assets/projects/ArenaMobileInicio.webp'
         <li class="projects-list-item">
             <Image src={PostMalonePicture} alt="Post Malone cantando" class="projects-list-item__image" />
             <span class="title-project">Tributo a Post Malone 
-                <button class="title-project__info-button">
+                <button id="modal3-trigger" class="title-project__info-button">
                     <Icon name="bx:info-circle" size={25}/>
                 </button>
             </span>
@@ -58,7 +57,7 @@ import ArenaMobileInicio from '@assets/projects/ArenaMobileInicio.webp'
         <li class="projects-list-item">
             <Image src={CuentasMatematicas} alt="Cuentas simples de matematica" class="projects-list-item__image" />
             <span class="title-project">Minijuego de Matematicas 
-                <button class="title-project__info-button">
+                <button id="modal4-trigger" class="title-project__info-button">
                     <Icon name="bx:info-circle" size={25}/>
                 </button>
             </span>
@@ -70,7 +69,7 @@ import ArenaMobileInicio from '@assets/projects/ArenaMobileInicio.webp'
         <li class="projects-list-item">
             <Image src={MegaLogo} alt="Logo de un gimnasio" class="projects-list-item__image" />
             <span class="title-project">Landing page para gimnasio 
-                <button class="title-project__info-button">
+                <button id="modal5-trigger" class="title-project__info-button">
                     <Icon name="bx:info-circle" size={25}/>
                 </button>
             </span>
@@ -82,7 +81,7 @@ import ArenaMobileInicio from '@assets/projects/ArenaMobileInicio.webp'
         <li class="projects-list-item">
             <Image src={ArenaMobileInicio} alt="Inicio de la pagina Arena Mobile" class="projects-list-item__image" />
             <span class="title-project">Arena Mobile 
-                <button class="title-project__info-button">
+                <button id="modal6-trigger" class="title-project__info-button">
                     <Icon name="bx:info-circle" size={25}/>
                 </button>
             </span>
@@ -92,7 +91,32 @@ import ArenaMobileInicio from '@assets/projects/ArenaMobileInicio.webp'
             </div>
         </li>
     </ul>
-    <!-- TODO: DO THE MODAL WITHIN A DESCRIPTION OF EACH PROJECT CARD -->
+    <Modal triggerId="modal1-trigger" title="Buscaminas" closeText="Cerrar">
+        <p>Desarrollé una recreacion de este clasico juego usando Vue 3 y su Composition API.</p>
+        <p>El juego cuenta con 3 niveles de dificultad y ademas, almacena los 3 mejores tiempos segun el nivel de dificultad.</p>
+    </Modal>    
+    <Modal triggerId="modal2-trigger" title="Buscador de banderas" closeText="Cerrar">
+        <p>Este proyecto es un challenge de <a href="https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca">FrontendMentor</a> el cual consiste en un buscador de paises.</p>
+        <p>La pagina consigue los datos de los paises mediante una llamada a su respectiva API y los renderiza de manera paginada. El proyecto cuenta con dos filtros: por nombre de pais y por región; además del interruptor entre tema claro y oscuro.</p>
+        <p>Fue realizado con HTML, CSS y Vue.</p>
+    </Modal>    
+    <Modal triggerId="modal3-trigger" title="Tributo a Post Malone" closeText="Cerrar">
+        <p>Esta es una pagina web que desarrollé para reclamar el <a href="https://www.freecodecamp.org/espanol/certification/NehuenCuenca7/responsive-web-design">certificado de Responsive Web Design en FreeCodeCamp.</a></p>
+        <p>Cuenta un poco de la vida de Post y muestra algunos de sus albums.</p>
+    </Modal>    
+    <Modal triggerId="modal4-trigger" title="Minijuego de Matematicas" closeText="Cerrar">
+        <p>Este es otro juego que quise replicar <a href="https://www.tiktok.com/@chriskotra/video/7154986619806715138?is_copy_url=1&is_from_webapp=v1">cuando lo vi en TikTok.</a></p>
+        <p>Se trata de realizar 10 cuentas matematicas en el menor tiempo posible. Las cuentas incluyen: suma, resta y multiplicacion.</p>
+    </Modal>    
+    <Modal triggerId="modal5-trigger" title="Landing page para gimnasio " closeText="Cerrar">
+        <p>Este proyecto me ayudo a aprender como usar Figma y tambien me hizo darme cuenta de varios conceptos de diseño web.</p>
+        <p>La pagina se trata sobre un gimnasio local el cual no cuenta con una pagina web y solo hace uso de redes sociales.</p>
+        <p>Aqui usé Astro con la integracion de React.</p>
+    </Modal>    
+    <Modal triggerId="modal6-trigger" title="Arena Mobile" closeText="Cerrar">
+        <p>La idea principal de este proyecto era realizar una plataforma que permita crear y gestionar torneos de juegos mobile (dispositivos moviles).</p>
+        <p>Fue para una simulacion de No Country, donde entre 3 personas pudimos trabajar como equipo y desarrollar parte de la plataforma (Landing page, API y dashboard de un usuario).</p>
+    </Modal>    
 </section>
 
 <style>
@@ -189,4 +213,6 @@ import ArenaMobileInicio from '@assets/projects/ArenaMobileInicio.webp'
         gap: 1rem;
         bottom: 1.5rem;
     }
+
+    
 </style>

@@ -17,6 +17,7 @@
     "astro-icon": "^1.1.0"
   },
   "devDependencies": {
-    "@iconify-json/bx": "^1.1.10"
+    "@iconify-json/bx": "^1.1.10",
+    "accessible-astro-components": "^2.3.6"
   }
 }
