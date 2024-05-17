@@ -3,6 +3,8 @@ import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 
 import dev_ilustration from '../assets/ilustrations/dev-ilustration.png'
+import ContactForm from "@components/ContactForm.vue";
+
 ---
 
 <section class="contact-container" id="contact-section">
@@ -14,25 +16,7 @@ import dev_ilustration from '../assets/ilustrations/dev-ilustration.png'
 
     <h1 class="contact-container__title">¡Contáctame!</h1>
     <div class="content-container">
-        <form action="" class="form-contact">
-            <div class="field">
-                <label for="input-name" class="field__label">Nombre</label>
-                <input type="text" class="field__input" id="input-name" required minlength="4" maxlength="40">
-            </div>
-            <div class="field">
-                <label for="input-email" class="field__label">Email</label>
-                <input type="email" class="field__input" id="input-email" required>
-            </div>
-            <div class="field">
-                <label for="input-matter" class="field__label">Asunto</label>
-                <input type="text" class="field__input" id="input-matter" required minlength="10" maxlength="40">
-            </div>
-            <div class="field">
-                <label for="input-message" class="field__label">Mensaje</label>
-                <textarea class="field__input-message" id="input-message" required minlength="20"></textarea>
-            </div>
-            <input class="form-contact__submit-button" type="submit" value="Enviar mail">
-        </form>
+        <ContactForm client:load/>
         <div class="ways-to-contact">
             <h2 class="ways-to-contact__title">Otras vías 
                 de contacto</h2>
@@ -95,67 +79,6 @@ import dev_ilustration from '../assets/ilustrations/dev-ilustration.png'
         justify-content: center;
         gap: 4rem 2rem;
     }
-
-    .form-contact{
-        width: clamp(250px, 100%, 400px);
-        padding: 4rem 1rem 1rem 1rem;
-        border: 3px solid var(--color-bg);
-        border-radius: 10px 100px 10px 10px ;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-    }
-    .field{
-        width: 100%;
-        padding: .5rem;
-        border-radius: 10px;
-        border: 3px solid var(--color-bg);
-        transition: border .2s ease;
-    }
-    .field__label{
-        font: normal normal 600 clamp(1.2rem, 6vw, 1.4rem) var(--default-font, Arial);
-        cursor: pointer;
-    }
-    .field__input, .field__input-message{
-        width: 100%;
-        height: 50%;
-        background-color: transparent;
-        outline: none;
-        border: none;
-        font: normal normal 200 clamp(1.1rem, 6vw, 1.3rem) var(--default-font, Arial);
-        color: var(--color-details);
-    }
-
-    .field:has(:focus){
-        border-color: var(--color-titles);
-    }
-    .field:has(:user-invalid){
-        border-color: red;
-    }
-
-    .field__input-message{
-        min-height: 20vh;
-        text-align: start;
-        vertical-align: text-top;
-        resize: vertical;
-    }
-
-    .form-contact__submit-button{
-        margin: auto 0 0 0;
-        background-color: var(--color-bg);
-        color: var(--color-titles);
-        border: none;
-        border-radius: 10px;
-        padding: .5rem;
-        font: normal normal 600 clamp(1.2rem, 6vw, 1.5rem) var(--display-font, Tahoma);
-        cursor: pointer;
-        transition: background .5s ease;
-    }
-    .form-contact__submit-button:hover{
-        background-color: var(--color-details);
-    }
-    
 
     .ways-to-contact{
         width: clamp(250px, 100%, 400px);
