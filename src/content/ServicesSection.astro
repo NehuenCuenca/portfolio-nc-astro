@@ -1,6 +1,8 @@
 ---
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
+import { Modal } from 'accessible-astro-components'
+
 
 import DesignService from '@assets/services/design-service.png';
 import FrontendService from '@assets/services/frontend-service.png';
@@ -20,7 +22,7 @@ import BackendService from '@assets/services/backend-service.png';
                   <div class="flip-card-back">
                     <Icon class="flip-card-back__service-icon" name="bx:palette" size={130} />
                     <h3 class="flip-card-back__service-title">Diseño</h3>
-                    <button class="flip-card-back__view-more-button flip-card-back__view-more-button_hover">Ver más</button>
+                    <button id="service1-modal-trigger" class="flip-card-back__view-more-button flip-card-back__view-more-button_hover">Ver más</button>
                   </div>
             </div>
         </li>
@@ -32,7 +34,7 @@ import BackendService from '@assets/services/backend-service.png';
                   <div class="flip-card-back">
                     <Icon class="flip-card-back__service-icon" name="bx:news" size={130} />
                     <h3 class="flip-card-back__service-title">Frontend</h3>
-                    <button class="flip-card-back__view-more-button flip-card-back__view-more-button_hover">Ver más</button>
+                    <button id="service2-modal-trigger" class="flip-card-back__view-more-button flip-card-back__view-more-button_hover">Ver más</button>
                   </div>
             </div>
         </li>
@@ -44,11 +46,32 @@ import BackendService from '@assets/services/backend-service.png';
                   <div class="flip-card-back">
                     <Icon class="flip-card-back__service-icon" name="bx:terminal" size={130} />
                     <h3 class="flip-card-back__service-title">Backend</h3>
-                    <button class="flip-card-back__view-more-button flip-card-back__view-more-button_hover">Ver más</button>
+                    <button id="service3-modal-trigger" class="flip-card-back__view-more-button flip-card-back__view-more-button_hover">Ver más</button>
                   </div>
             </div>
         </li>
     </ul>
+
+    <Modal triggerId="service1-modal-trigger" title="Diseño" closeText="Cerrar">
+      <ul class="service-items-list service-items-list_design">
+        <li class="design-service-item">Identificar productos de la competencia y las tendencias de la industria.</li>
+        <li class="design-service-item">Desarrollar prototipos y flujos de tareas basados en las necesidades del usuario.</li>
+        <li class="design-service-item">Lograr un boceto inicial de acuerdo a las especificaciones dadas.</li>
+      </ul>
+    </Modal>  
+    <Modal triggerId="service2-modal-trigger" title="Frontend" closeText="Cerrar">
+      <ul class="service-items-list service-items-list_frontend">
+        <li class="frontend-service-item">Aplicar un diseño adaptable/responsivo a distintos tipos de dispositivos y versiones de navegadores.</li>
+        <li class="frontend-service-item">Construir herramientas que optimicen la comunicacion entre el usuario y la web.</li>
+        <li class="frontend-service-item">Programacion, modificacion y mantenimiento de un sitio web.</li>
+        <li class="frontend-service-item">Consultar API's para lograr una conexion entre diferentes servicios y sistemas disponibles.</li>
+      </ul>
+    </Modal>  
+    <Modal triggerId="service3-modal-trigger" title="Backend" closeText="Cerrar">
+      <ul class="service-items-list service-items-list_backend">
+
+      </ul>
+    </Modal>  
 </section>
 
 <style>
@@ -157,5 +180,20 @@ import BackendService from '@assets/services/backend-service.png';
         opacity: 1;
     }
 
+    .service-items-list{
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+      padding-left: 2rem;
+    }
+    .service-items-list_design{
+      list-style-type: circle;
+    }
+    .service-items-list_frontend{
+      list-style-type: disc;
+    }
+    .service-items-list_backend{
+      list-style-type: square;
+    }
     
 </style>
