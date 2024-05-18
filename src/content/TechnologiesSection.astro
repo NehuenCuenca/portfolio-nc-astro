@@ -71,6 +71,9 @@ import { Icon } from "astro-icon/components";
                 <li class="technologies-list-item">
                     <img src="/src/assets/technologies/figma-logo-removebg-preview.webp" alt="Figma" class="technologies-list-item__technology-image" title="Figma">
                 </li>
+                <li class="technologies-list-item">
+                    <img src="/src/assets/technologies/photoscape-x-logo-removebg-preview.webp" alt="Photoscape X" class="technologies-list-item__technology-image" title="Photoscape X">
+                </li>
             </ul>
         </li>
         <li class="skills-list-item skills-list-item_hover">
@@ -149,7 +152,7 @@ import { Icon } from "astro-icon/components";
         height: 0;
         display: flex;
         flex-wrap: wrap;
-        gap: .5rem;
+        gap: 1rem;
         transition: opacity .5s ease, visibility .5s ease;
         opacity: 0;
         visibility: hidden;
@@ -159,6 +162,9 @@ import { Icon } from "astro-icon/components";
         height: auto;
         opacity: 1;
         visibility: visible;
+        padding: 1rem;
+        border-radius: 20px;
+        border-bottom: 3px solid var(--color-font);
     }
 
     .technologies-list-item{}

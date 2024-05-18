@@ -1,7 +1,7 @@
 <template>
     <form @submit.prevent="sendEmail" class="form-contact">
         <div class="field">
-            <label for="input-name" class="field__label">Nombre</label>
+            <label for="input-name" class="field__label">Nombre y apellido</label>
             <input type="text" class="field__input" id="input-name" name="interested_name" required minlength="5" maxlength="40" placeholder="¿Quien me escribe?">
         </div>
         <div class="field">
@@ -10,11 +10,11 @@
         </div>
         <div class="field">
             <label for="input-matter" class="field__label">Asunto</label>
-            <input type="text" class="field__input" id="input-matter" name="matter" required minlength="5" maxlength="50" placeholder="¿Por qué me escribe?" >
+            <input type="text" class="field__input" id="input-matter" name="matter" required minlength="5" maxlength="50" placeholder="¿Por qué me escribe?">
         </div>
         <div class="field">
             <label for="input-message" class="field__label">Mensaje</label>
-            <textarea class="field__input-message" id="input-message" name="msg" required minlength="20" placeholder="¿Necesitá detallar más?"></textarea>
+            <textarea class="field__input-message" id="input-message" name="msg" required minlength="20" placeholder="¿Necesita detallar más?"></textarea>
         </div>
         <input class="form-contact__submit-button" type="submit" value="Enviar mail">
     </form>
