@@ -51,6 +51,7 @@
         flex-direction: column;
         align-items: center;
         gap: 1rem;
+        transition: border .2s ease;
     }
     .field{
         width: 100%;
@@ -70,7 +71,7 @@
         outline: none;
         border: none;
         font: normal normal 200 clamp(1.1rem, 6vw, 1.3rem) var(--default-font, Arial);
-        color: var(--color-details);
+        color: var(--color-font);
     }
 
     .field__input:invalid{
@@ -93,8 +94,8 @@
 
     .form-contact__submit-button{
         margin: auto 0 0 0;
-        background-color: var(--color-bg);
-        color: var(--color-titles);
+        background-color: var(--color-titles);
+        color: var(--color-bg);
         border: none;
         border-radius: 10px;
         padding: .5rem;
@@ -103,6 +104,6 @@
         transition: background .5s ease;
     }
     .form-contact__submit-button:hover{
-        background-color: var(--color-details);
+        background-color: var(--color-font);
     }
 </style>

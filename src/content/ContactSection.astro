@@ -40,8 +40,8 @@ import ContactForm from "@components/ContactForm.vue";
 
 <style>
     .contact-container{
-        background-color: var(--color-font);
-        color: var(--color-bg);
+        background-color: var(--color-details);
+        color: var(--color-titles);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -69,7 +69,6 @@ import ContactForm from "@components/ContactForm.vue";
 
     .contact-container__title{
         font: normal normal 600 clamp(2.3rem, 6vw, 3rem) var(--display-font, Tahoma);
-        color: var(--color-bg);
     }
 
     .content-container{
@@ -89,7 +88,6 @@ import ContactForm from "@components/ContactForm.vue";
     }
     .ways-to-contact__title{
         font: normal normal 400 clamp(1.8rem, 6vw, 2rem) var(--display-font, Tahoma);
-        color: var(--color-bg);
     }
     .ways-to-contact__title,
     .ways-to-contact__subtitle{
@@ -99,7 +97,7 @@ import ContactForm from "@components/ContactForm.vue";
     .ways-to-contact__subtitle{
         text-wrap: balance;
         font: normal normal 200 clamp(1.3rem, 6vw, 1.5rem) var(--default-font, Arial);
-        color: var(--color-details);
+        color: var(--color-font)
     }
 
     .contact-ways-list{
@@ -121,7 +119,7 @@ import ContactForm from "@components/ContactForm.vue";
     }
     .contact-ways-list-item__way-icon,
     .contact-ways-list-item__way-name{
-        color: var(--color-bg);
+        color: var(--color-titles);
         align-self: center;
     }
     .contact-ways-list-item__way-name{
@@ -131,7 +129,7 @@ import ContactForm from "@components/ContactForm.vue";
     .contact-ways-list-item__way-keyword{
         grid-area: keyword;
         font: normal normal 200 clamp(1.1rem, 6vw, 1.2rem) var(--default-font, Arial);
-        color: var(--color-details);
+        color: var(--color-font);
     }
 
     .ways-to-contact__dev-image{

@@ -155,8 +155,10 @@ import BackendService from '@assets/services/backend-service.png';
 
     /* Style the back side */
     .flip-card-back {
-      background-color: var(--color-titles);
-      color: var(--color-bg);
+      /* background-color: var(--color-titles);
+      color: var(--color-bg); */
+      background-color: var(--color-details);
+      color: var(--color-titles);
       transform: rotateY(180deg);
       display: flex;
       flex-direction: column;
@@ -170,16 +172,15 @@ import BackendService from '@assets/services/backend-service.png';
 
     .flip-card-back__view-more-button{
         font: normal normal 400 1.2rem var(--display-font, Tahoma);
-        background-color: var(--color-font);
+        background-color: var(--color-titles);
         color: var(--color-bg);
         border-radius: 30px;
         padding: .5rem 1.5rem;
-        opacity: .75;
-        transition: opacity .5s ease;
+        transition: background-color .5s ease;
     }
 
     .flip-card-back__view-more-button_hover:hover{
-        opacity: 1;
+        background-color: var(--color-font);
     }
 
     .service-items-list{
