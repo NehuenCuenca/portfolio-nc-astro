@@ -1,6 +1,25 @@
 ---
+import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 
+import LogoHTML from '@assets/technologies/html-logo-removebg-preview.webp'
+import LogoJavascript from '@assets/technologies/javascript-logo-removebg-preview.webp'
+import LogoCss from '@assets/technologies/css-logo-removebg-preview.webp'
+import LogoVue from '@assets/technologies/vue-logo-removebg-preview.webp'
+import LogoReact from '@assets/technologies/react-logo-removebg-preview.webp'
+import LogoMySql from '@assets/technologies/mysql-logo-removebg-preview.webp'
+import LogoPostgreSql from '@assets/technologies/postgresql-logo-removebg-preview.webp'
+import LogoPhp from '@assets/technologies/php-logo-removebg-preview.webp'
+import LogoLaravel from '@assets/technologies/laravel-logo-removebg-preview.webp'
+import LogoNode from '@assets/technologies/node-logo-removebg-preview.webp'
+import LogoExpress from '@assets/technologies/express-logo-removebg-preview.webp'
+import LogoFigma from '@assets/technologies/figma-logo-removebg-preview.webp'
+import LogoPhotoScape from '@assets/technologies/photoscape-x-logo-removebg-preview.webp'
+import LogoPostman from '@assets/technologies/postman-logo-removebg-preview.webp'
+import LogoNotion from '@assets/technologies/notion-logo-removebg-preview.webp'
+import LogoNetlify from '@assets/technologies/netlify-logo-removebg-preview.webp'
+import LogoGit from '@assets/technologies/git-logo-removebg-preview.webp'
+import LogoGithub from '@assets/technologies/github-logo-removebg-preview.webp'
 
 ---
 
@@ -16,19 +35,19 @@ import { Icon } from "astro-icon/components";
             
             <ul class="technologies-list">
                 <li class="technologies-list-item">
-                    <img src="/src/assets/technologies/html-logo-removebg-preview.webp" alt="HTML5" class="technologies-list-item__technology-image" title="HTML5">
+                    <Image src={LogoHTML} alt="HTML5" class="technologies-list-item__technology-image" title="HTML5" />
                 </li>
                 <li class="technologies-list-item">
-                    <img src="/src/assets/technologies/css-logo-removebg-preview.webp" alt="CSS3" class="technologies-list-item__technology-image" title="CSS3">
+                    <Image src={LogoCss} alt="CSS3" class="technologies-list-item__technology-image" title="CSS3" />
                 </li>
                 <li class="technologies-list-item">
-                    <img src="/src/assets/technologies/javascript-logo-removebg-preview.webp" alt="Javascript" class="technologies-list-item__technology-image" title="Javascript">
+                    <Image src={LogoJavascript} alt="Javascript" class="technologies-list-item__technology-image" title="Javascript" />
                 </li>
                 <li class="technologies-list-item">
-                    <img src="/src/assets/technologies/vue-logo-removebg-preview.webp" alt="Vue.js" class="technologies-list-item__technology-image" title="Vue">
+                    <Image src={LogoVue} alt="Vue.js" class="technologies-list-item__technology-image" title="Vue" />
                 </li>
                 <li class="technologies-list-item">
-                    <img src="/src/assets/technologies/react-logo-removebg-preview.webp" alt="React" class="technologies-list-item__technology-image" title="React">
+                    <Image src={LogoReact} alt="React" class="technologies-list-item__technology-image" title="React" />
                 </li>
             </ul>
         </li>
@@ -41,22 +60,22 @@ import { Icon } from "astro-icon/components";
             
             <ul class="technologies-list">
                 <li class="technologies-list-item">
-                    <img src="/src/assets/technologies/mysql-logo-removebg-preview.webp" alt="MySql" class="technologies-list-item__technology-image" title="MySql">
+                    <Image src={LogoMySql} alt="MySql" class="technologies-list-item__technology-image" title="MySql" />
                 </li>
                 <li class="technologies-list-item">
-                    <img src="/src/assets/technologies/postgresql-logo-removebg-preview.webp" alt="PostgreSql" class="technologies-list-item__technology-image" title="PostgreSql">
+                    <Image src={LogoPostgreSql} alt="PostgreSql" class="technologies-list-item__technology-image" title="PostgreSql" />
                 </li>
                 <li class="technologies-list-item">
-                    <img src="/src/assets/technologies/php-logo-removebg-preview.webp" alt="PHP" class="technologies-list-item__technology-image" title="PHP">
+                    <Image src={LogoPhp} alt="PHP" class="technologies-list-item__technology-image" title="PHP" />
                 </li>
                 <li class="technologies-list-item">
-                    <img src="/src/assets/technologies/laravel-logo-removebg-preview.webp" alt="Laravel" class="technologies-list-item__technology-image" title="Laravel">
+                    <Image src={LogoLaravel} alt="Laravel" class="technologies-list-item__technology-image" title="Laravel" />
                 </li>
                 <li class="technologies-list-item">
-                    <img src="/src/assets/technologies/node-logo-removebg-preview.webp" alt="Node" class="technologies-list-item__technology-image" title="Node">
+                    <Image src={LogoNode} alt="Node" class="technologies-list-item__technology-image" title="Node" />
                 </li>
                 <li class="technologies-list-item">
-                    <img src="/src/assets/technologies/express-logo-removebg-preview.webp" alt="Express" class="technologies-list-item__technology-image" title="Express">
+                    <Image src={LogoExpress} alt="Express" class="technologies-list-item__technology-image" title="Express" />
                 </li>
             </ul>
         </li>
@@ -69,10 +88,10 @@ import { Icon } from "astro-icon/components";
             
             <ul class="technologies-list">
                 <li class="technologies-list-item">
-                    <img src="/src/assets/technologies/figma-logo-removebg-preview.webp" alt="Figma" class="technologies-list-item__technology-image" title="Figma">
+                    <Image src={LogoFigma} alt="Figma" class="technologies-list-item__technology-image" title="Figma" />
                 </li>
                 <li class="technologies-list-item">
-                    <img src="/src/assets/technologies/photoscape-x-logo-removebg-preview.webp" alt="Photoscape X" class="technologies-list-item__technology-image" title="Photoscape X">
+                    <Image src={LogoPhotoScape} alt="Photoscape X" class="technologies-list-item__technology-image" title="Photoscape X" />
                 </li>
             </ul>
         </li>
@@ -85,19 +104,19 @@ import { Icon } from "astro-icon/components";
             
             <ul class="technologies-list">
                 <li class="technologies-list-item">
-                    <img src="/src/assets/technologies/postman-logo-removebg-preview.webp" alt="Postman" class="technologies-list-item__technology-image" title="Postman">
+                    <Image src={LogoPostman} alt="Postman" class="technologies-list-item__technology-image" title="Postman" />
                 </li>
                 <li class="technologies-list-item">
-                    <img src="/src/assets/technologies/notion-logo-removebg-preview.webp" alt="Notion" class="technologies-list-item__technology-image" title="Notion">
+                    <Image src={LogoNotion} alt="Notion" class="technologies-list-item__technology-image" title="Notion" />
                 </li>
                 <li class="technologies-list-item">
-                    <img src="/src/assets/technologies/netlify-logo-removebg-preview.webp" alt="Netlify" class="technologies-list-item__technology-image" title="Netlify">
+                    <Image src={LogoNetlify} alt="Netlify" class="technologies-list-item__technology-image" title="Netlify" />
                 </li>
                 <li class="technologies-list-item">
-                    <img src="/src/assets/technologies/git-logo-removebg-preview.webp" alt="Git" class="technologies-list-item__technology-image" title="Git">
+                    <Image src={LogoGit} alt="Git" class="technologies-list-item__technology-image" title="Git" />
                 </li>
                 <li class="technologies-list-item">
-                    <img src="/src/assets/technologies/github-logo-removebg-preview.webp" alt="Github" class="technologies-list-item__technology-image" title="Github">
+                    <Image src={LogoGithub} alt="Github" class="technologies-list-item__technology-image" title="Github" />
                 </li>
             </ul>
         </li>
@@ -114,7 +133,7 @@ import { Icon } from "astro-icon/components";
     }
 
     .technologies-container__title{
-        font: normal normal 600 clamp(2.2rem, 6vw, 3rem) var(--display-font, Tahoma);
+        font: normal normal 600 clamp(2.5rem, 6vw, 3rem) var(--display-font, Tahoma);
         color: var(--color-titles);
     }
 
@@ -146,6 +165,7 @@ import { Icon } from "astro-icon/components";
     }
     
     .technologies-list{
+        background: linear-gradient(to bottom, transparent, var(--color-details));
         position: relative;
         left: 3rem;
         width: calc(100% - 5rem);
@@ -163,7 +183,7 @@ import { Icon } from "astro-icon/components";
         opacity: 1;
         visibility: visible;
         padding: 1rem;
-        border-radius: 20px;
+        border-radius: 0 0 20px 20px;
         border-bottom: 3px solid var(--color-font);
     }
 
@@ -175,7 +195,7 @@ import { Icon } from "astro-icon/components";
         color: var(--color-font);
     }
     .skill-name{
-        font: normal normal 600 clamp(1.4rem, 6vw, 1.8rem) var(--display-font, Tahoma);
+        font: normal normal 400 clamp(1.4rem, 6vw, 1.8rem) var(--display-font, Tahoma);
         color: var(--color-titles);
     }
     

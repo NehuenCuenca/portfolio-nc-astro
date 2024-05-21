@@ -11,7 +11,7 @@ import BackendService from '@assets/services/backend-service.png';
 <section class="services-container" id="services-section">
     <div class="headings">
         <h1 class="headings__title">Servicios</h1>
-        <h2 class="headings__subtitle">Apoya el mouse sobre una imagen</h1>
+        <h2 class="headings__subtitle">Apoye el mouse sobre una imagen</h1>
     </div>
     <ul class="services-list">
         <li class="service-list-item flip-card">
@@ -86,14 +86,16 @@ import BackendService from '@assets/services/backend-service.png';
         display: flex;
         flex-direction: column;
         align-items: center;
+        gap: .5rem;
+        text-align: center;
     }
 
     .headings__title{
-        font: normal normal 600 clamp(2.2rem, 6vw, 3rem) var(--display-font, Tahoma);
+        font: normal normal 600 clamp(2.5rem, 6vw, 3rem) var(--display-font, Tahoma);
         color: var(--color-titles);
     }
     .headings__subtitle{
-        font: normal normal 150 clamp(1.2rem, 5vw, 1.5rem) var(--default-font, Arial);
+        font: normal normal 150 clamp(1.3rem, 5vw, 1.5rem) var(--default-font, Arial);
         text-wrap: balance;
         color: var(--color-font);
     }
@@ -163,11 +165,11 @@ import BackendService from '@assets/services/backend-service.png';
     }
 
     .flip-card-back__service-title{
-        font: normal normal 600 clamp(1.6rem, 6vw, 2rem) var(--display-font, Tahoma);
+        font: normal normal 400 clamp(1.6rem, 6vw, 2rem) var(--display-font, Tahoma);
     }
 
     .flip-card-back__view-more-button{
-        font: normal normal 600 1.2rem var(--display-font, Tahoma);
+        font: normal normal 400 1.2rem var(--display-font, Tahoma);
         background-color: var(--color-font);
         color: var(--color-bg);
         border-radius: 30px;

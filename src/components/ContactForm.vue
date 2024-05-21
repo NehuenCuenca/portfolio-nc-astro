@@ -98,7 +98,7 @@
         border: none;
         border-radius: 10px;
         padding: .5rem;
-        font: normal normal 600 clamp(1.2rem, 6vw, 1.5rem) var(--display-font, Tahoma);
+        font: normal normal 400 clamp(1.2rem, 6vw, 1.5rem) var(--display-font, Tahoma);
         cursor: pointer;
         transition: background .5s ease;
     }

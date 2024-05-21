@@ -1,9 +1,14 @@
 ---
 import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+
+import NerdFace from '@assets/emojis/nerd-face_1f913-removebg-preview.png'
 ---
 <section class="hero-container" id="hero-section">
-    <h1 class="hero-container__title">¡HOLA!<br>SOY NEHUEN CUENCA,</h1>
-    <h2 class="hero-container__subtitle">y soy un desarrollador web<br>en proceso 🤓.</h2>
+    <div class="texts-container">
+        <h1 class="texts-container__title">¡HOLA!<br>SOY NEHUEN CUENCA,</h1>
+        <h2 class="texts-container__subtitle">y soy un desarrollador web<br>en proceso 🤓.</h2>
+    </div>
     <div class="divider">
         <div class="divider__line"></div>
         <a href="#formation-section" class="arrow-button" aria-label="Next section">
@@ -15,26 +20,29 @@ import { Icon } from 'astro-icon/components';
 
 <style>
     .hero-container{
-        padding: 2rem 0;
+        padding: 2rem 1rem;
         height: 85vh;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-evenly;
+        justify-content: space-between;
         animation: fadeFromCenter 2s ease 0s 1 normal forwards;
     }
+    
 
-    .hero-container__title, .hero-container__subtitle {
+    .texts-container__title, 
+    .texts-container__subtitle {
         text-align: center;
     }
 
-    .hero-container__title{
-        font: normal normal 800 clamp(2.3rem, 6vw, 4rem) var(--display-font, Tahoma);
+    .texts-container__title{
+        font: normal normal 800 clamp(2.5rem, 6vw, 4rem) var(--display-font, Tahoma);
         color: var(--color-titles);
+        margin: 2rem 0 1rem 0;
     }
 
-    .hero-container__subtitle{
-        font: normal normal 150 clamp(1.5rem, 5vw, 2.3rem) var(--default-font, Arial);
+    .texts-container__subtitle{
+        font: normal normal 150 clamp(1.7rem, 5vw, 2.3rem) var(--default-font, Arial);
         text-wrap: balance;
     }
 
@@ -59,12 +67,12 @@ import { Icon } from 'astro-icon/components';
     }
 
     @keyframes fadeFromCenter {
-	0% {
-		opacity: 0;
-	}
+        0% {
+            opacity: 0;
+        }
 
-	100% {
-		opacity: 1;
-	}
-}
+        100% {
+            opacity: 1;
+        }
+    }
 </style>

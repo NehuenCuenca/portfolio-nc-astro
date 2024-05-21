@@ -3,45 +3,47 @@
         <div class="nav-mobile">
             <a class="nav-link home-link" href="#hero-section">Inicio</a>
 
-            <button type="button" @click="toggleMenu(true)" class="nav-button">
+            <button v-if="currentTheme" type="button" @click="toggleMenu(true)" class="mobile-nav-button">
                 <SvgByTheme :currentTheme="currentTheme"
                     :lightSvg="BxMenuLight"
                     :darkSvg="BxMenuDark" 
-                    :size="30" :altText="'BOTON ABRIR MENU'"
+                    :size="35" :altText="'BOTON ABRIR MENU'" 
                 />
             </button>
 
-            <div class="mobile-menu" v-if="IsMenuOpen" :class="IsMenuOpen ? 'mobile-menu_open' : ''">
-                <button type="button" @click="toggleMenu(false)" class="mobile-nav-button">
-                    <SvgByTheme :currentTheme="currentTheme"
-                        :lightSvg="BxXLight"
-                        :darkSvg="BxXDark" 
-                        :size="45" :altText="'BOTON CERRAR MENU'"
-                    />
-                </button>
+            <div class="mobile-menu" v-if="IsOnMobile" :class="IsMenuOpen ? 'mobile-menu_open' : ''" @click="toggleMenu(false)">
+                <div class="mobile-menu-content">                  
+                    <button v-if="currentTheme" type="button" @click="toggleMenu(false)" class="mobile-nav-button">
+                        <SvgByTheme :currentTheme="currentTheme"
+                            :lightSvg="BxXLight"
+                            :darkSvg="BxXDark" 
+                            :size="50" :altText="'BOTON CERRAR MENU'"
+                        />
+                    </button>
 
-                <button type="button" class="nav-button" @click="toggleTheme">
-                    <SvgByTheme :currentTheme="currentTheme"
-                        :lightSvg="BxMoon"
-                        :darkSvg="BxSun" 
-                        :size="30" :altText="'BOTON ALTERNAR TEMA'"
-                    />
-                </button>
+                    <button v-if="currentTheme" type="button" class="mobile-nav-button" @click="toggleTheme">
+                        <SvgByTheme :currentTheme="currentTheme"
+                            :lightSvg="BxMoon"
+                            :darkSvg="BxSun" 
+                            :size="35" :altText="'BOTON ALTERNAR TEMA'"
+                        />
+                    </button>
 
-                <ul class="mobile-links-sections-list">
-                    <li class="mobile-links-sections-list__link-item">
-                        <a @click="toggleMenu(false)" class="mobile-nav-link" href="#formation-section">Formacion</a>
-                    </li>
-                    <li class="mobile-links-sections-list__link-item">
-                        <a @click="toggleMenu(false)" class="mobile-nav-link" href="#projects-section">Proyectos</a>
-                    </li>
-                    <li class="mobile-links-sections-list__link-item">
-                        <a @click="toggleMenu(false)" class="mobile-nav-link" href="#services-section">Servicios</a>
-                    </li>
-                    <li class="mobile-links-sections-list__link-item">
-                        <a @click="toggleMenu(false)" class="mobile-nav-link" href="#contact-section">Contacto</a>
-                    </li>
-                </ul>
+                    <ul class="mobile-links-sections-list">
+                        <li class="mobile-links-sections-list__link-item">
+                            <a @click="toggleMenu(false)" class="mobile-nav-link" href="#formation-section">Formacion</a>
+                        </li>
+                        <li class="mobile-links-sections-list__link-item">
+                            <a @click="toggleMenu(false)" class="mobile-nav-link" href="#projects-section">Proyectos</a>
+                        </li>
+                        <li class="mobile-links-sections-list__link-item">
+                            <a @click="toggleMenu(false)" class="mobile-nav-link" href="#services-section">Servicios</a>
+                        </li>
+                        <li class="mobile-links-sections-list__link-item">
+                            <a @click="toggleMenu(false)" class="mobile-nav-link" href="#contact-section">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
 
@@ -64,11 +66,11 @@
                 </li>
             </ul>
 
-            <button type="button" class="nav-button" @click="toggleTheme" v-if="currentTheme">
+            <button v-if="currentTheme" type="button" class="nav-button" @click="toggleTheme">
                 <SvgByTheme :currentTheme="currentTheme"
                     :lightSvg="BxMoon"
                     :darkSvg="BxSun" 
-                    :size="30" :altText="'Boton alternar tema'"
+                    :size="35" :altText="'Boton alternar tema'"
                 />
             </button>
         </div>
@@ -89,6 +91,7 @@ import BxSun from '@assets/svgs/BxSun.svg'
 
 const currentTheme = ref(null);
 const IsMenuOpen = ref(false);
+const IsOnMobile = ref(false);
 
 onBeforeMount(() => {
     const localStorageTheme = localStorage.getItem("theme");
@@ -97,11 +100,15 @@ onBeforeMount(() => {
         
     updateThemeOnHtmlEl({ theme: currentThemeSetting });
     currentTheme.value = currentThemeSetting
+
+    IsOnMobile.value = isMobile()
 })
 
 const toggleMenu = (bool) => {
     IsMenuOpen.value = bool
 }
+
+const isMobile = () => /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
 
 const toggleTheme = () => { 
     const newTheme = (currentTheme.value === 'light') ? 'dark': 'light'
@@ -132,12 +139,24 @@ const toggleTheme = () => {
     position: absolute;
     top: 0;
     left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--color-titles);
+    display: none;
+    overflow-y: hidden;
+}
+
+.mobile-menu-content {
     width: 100%;
     padding: 2rem 1rem;
     border-radius: 0 0 20px 20px;
     background-color: var(--color-details);
     color: var(--color-titles);
-    display: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
 }
 
 
@@ -146,7 +165,7 @@ const toggleTheme = () => {
     flex-direction: column;
     align-items: center;
     gap: 2rem;
-    animation: fadeInFromTop .5s ease 0s 1 normal forwards;
+    animation: fadeInFromCenter .5s ease 0s 1 normal forwards;
 }
 
 .mobile-nav-button {}
@@ -168,12 +187,12 @@ const toggleTheme = () => {
 
 .nav-link,
 .mobile-nav-link {
-    font: normal normal 500 1.3rem var(--display-font, Tahoma);
+    font: normal normal 500 1.5rem var(--display-font, Tahoma);
     text-decoration: none;
 }
 
 .home-link {
-    font-size: 1.8rem;
+    font-size: 2rem;
 }
 
 .nav-button {
@@ -244,6 +263,16 @@ const toggleTheme = () => {
     100% {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes fadeInFromCenter {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
     }
 }
 </style>

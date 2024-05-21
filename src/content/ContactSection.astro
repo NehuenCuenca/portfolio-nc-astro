@@ -60,7 +60,7 @@ import ContactForm from "@components/ContactForm.vue";
         position: relative;
         display: block;
         width: calc(100% + 1.3px);
-        height: clamp(80px, 15vh, 140px);
+        height: clamp(70px,10vh,200px);
     }
 
     .services-container__divider .shape-fill {
@@ -68,12 +68,12 @@ import ContactForm from "@components/ContactForm.vue";
     }
 
     .contact-container__title{
-        font: normal normal 600 clamp(2.2rem, 6vw, 3rem) var(--display-font, Tahoma);
+        font: normal normal 600 clamp(2.3rem, 6vw, 3rem) var(--display-font, Tahoma);
         color: var(--color-bg);
     }
 
     .content-container{
-        width: 90%;
+        width: 85%;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -88,7 +88,7 @@ import ContactForm from "@components/ContactForm.vue";
         gap: 1.5rem;
     }
     .ways-to-contact__title{
-        font: normal normal 600 clamp(1.8rem, 6vw, 2rem) var(--display-font, Tahoma);
+        font: normal normal 400 clamp(1.8rem, 6vw, 2rem) var(--display-font, Tahoma);
         color: var(--color-bg);
     }
     .ways-to-contact__title,
@@ -126,7 +126,7 @@ import ContactForm from "@components/ContactForm.vue";
     }
     .contact-ways-list-item__way-name{
         grid-area: name;
-        font: normal normal 600 clamp(1.3rem, 6vw, 1.4rem) var(--display-font, Tahoma);
+        font: normal normal 200 clamp(1.3rem, 6vw, 1.4rem) var(--display-font, Tahoma);
     }
     .contact-ways-list-item__way-keyword{
         grid-area: keyword;
@@ -142,6 +142,10 @@ import ContactForm from "@components/ContactForm.vue";
     @media (width >= 768px){
         .content-container{
             flex-direction: row-reverse;
+        }
+
+        .services-container__divider svg {
+            height: clamp(80px, 15vh, 140px);
         }
     }
 </style>
