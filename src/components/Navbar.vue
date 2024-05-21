@@ -126,7 +126,8 @@ const toggleTheme = () => {
     min-height: 15vh;
     padding: 0 1rem;
     background: rgb(0, 60, 67);
-    background: var(--navbar-fade-bg);
+    background: linear-gradient(180deg,  var(--color-details), var(--color-bg));
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
     color: var(--color-titles);
     display: flex;
     align-items: center;
@@ -242,6 +243,11 @@ const toggleTheme = () => {
         align-items: center;
         justify-content: flex-end;
         gap: 1rem;
+    }
+
+    .links-sections-list__link-item .nav-link{
+        font: normal normal 500 clamp(1.2rem, 3.5vh, 1.5rem) var(--display-font, Tahoma);
+        text-decoration: none;
     }
 
     .home-link {
