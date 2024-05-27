@@ -148,7 +148,7 @@ import ArenaMobileInicio from '@assets/projects/ArenaMobileInicio.webp'
     }
 
     .projects-container__title{
-        font: normal normal 600 clamp(2.5rem, 6vw, 3rem) var(--display-font, Tahoma);
+        font: normal normal 600 clamp(2.5rem, 10vw, 4.5rem) var(--display-font, Tahoma);
         text-align: center;
         color: var(--color-titles);
         margin: 2rem 0;
@@ -165,7 +165,7 @@ import ArenaMobileInicio from '@assets/projects/ArenaMobileInicio.webp'
         flex-wrap: wrap;
     }
     .projects-list-item{
-        width: 260px;
+        width: 270px;
         height: clamp(300px, 60vh, 420px);
         background-color: var(--color-bg);
         border-radius: 10px;
@@ -196,7 +196,7 @@ import ArenaMobileInicio from '@assets/projects/ArenaMobileInicio.webp'
     }
 
     .title-project{
-        font: normal normal 400 1.5rem var(--display-font);
+        font: normal normal 400 1.6rem var(--display-font);
         color: var(--color-titles);
         text-wrap: balance;
         text-align: center;
@@ -210,9 +210,15 @@ import ArenaMobileInicio from '@assets/projects/ArenaMobileInicio.webp'
         padding: 0;
     }
 
+    .title-project__info-button svg{
+        --icon-size: clamp(30px, 5vw, 35px);
+        width: var(--icon-size);
+        height: var(--icon-size);
+    }
+
     .projects-list-item__links{
         position: absolute;
-        font: normal normal 500 1.3rem var(--default-font);
+        font: normal normal 500 1.5rem var(--default-font);
         text-decoration: underline;
         display: flex;
         gap: 1rem;
