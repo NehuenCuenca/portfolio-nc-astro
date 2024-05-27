@@ -133,7 +133,7 @@ import LogoGithub from '@assets/technologies/github-logo-removebg-preview.webp'
     }
 
     .technologies-container__title{
-        font: normal normal 600 clamp(2.5rem, 6vw, 3rem) var(--display-font, Tahoma);
+        font: normal normal 600 clamp(2.5rem, 10vw, 4.5rem) var(--display-font, Tahoma);
         color: var(--color-titles);
     }
 
@@ -141,8 +141,8 @@ import LogoGithub from '@assets/technologies/github-logo-removebg-preview.webp'
         width: 100%;
         padding: 2rem;
         display: flex;
-        flex-wrap: wrap;
         flex-direction: column;
+        flex-wrap: wrap;
         align-items: flex-start;
         gap: 2rem 1rem;
     }
@@ -153,6 +153,7 @@ import LogoGithub from '@assets/technologies/github-logo-removebg-preview.webp'
         width: 100%;
         padding: 0;
         display: flex;
+        align-items: center;
         gap: 1rem;
     }
     
@@ -193,9 +194,12 @@ import LogoGithub from '@assets/technologies/github-logo-removebg-preview.webp'
     .skill-icon,
     .arrow-button{
         color: var(--color-font);
+        --icon-size: clamp(2.5rem, 5vw, 3rem);
+        width: var(--icon-size);
+        height: var(--icon-size);
     }
     .skill-name{
-        font: normal normal 400 clamp(1.4rem, 6vw, 1.8rem) var(--display-font, Tahoma);
+        font: normal normal 400 clamp(2rem, 5vw, 2.5rem) var(--display-font, Tahoma);
         color: var(--color-titles);
     }
     
