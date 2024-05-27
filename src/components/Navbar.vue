@@ -7,7 +7,7 @@
                 <SvgByTheme :currentTheme="currentTheme"
                     :lightSvg="BxMenuLight"
                     :darkSvg="BxMenuDark" 
-                    :size="35" :altText="'BOTON ABRIR MENU'" 
+                    :size="40" :altText="'BOTON ABRIR MENU'" 
                 />
             </button>
 
@@ -17,7 +17,7 @@
                         <SvgByTheme :currentTheme="currentTheme"
                             :lightSvg="BxXLight"
                             :darkSvg="BxXDark" 
-                            :size="50" :altText="'BOTON CERRAR MENU'"
+                            :size="55" :altText="'BOTON CERRAR MENU'"
                         />
                     </button>
 
@@ -25,7 +25,7 @@
                         <SvgByTheme :currentTheme="currentTheme"
                             :lightSvg="BxMoon"
                             :darkSvg="BxSun" 
-                            :size="35" :altText="'BOTON ALTERNAR TEMA'"
+                            :size="40" :altText="'BOTON ALTERNAR TEMA'"
                         />
                     </button>
 
@@ -70,7 +70,7 @@
                 <SvgByTheme :currentTheme="currentTheme"
                     :lightSvg="BxMoon"
                     :darkSvg="BxSun" 
-                    :size="35" :altText="'Boton alternar tema'"
+                    :size="40" :altText="'Boton alternar tema'"
                 />
             </button>
         </div>
@@ -123,7 +123,7 @@ const toggleTheme = () => {
 .nav-mobile,
 .nav-desktop {
     width: 100%;
-    min-height: 15vh;
+    min-height: 10vh;
     padding: 0 1rem;
     background: rgb(0, 60, 67);
     background: linear-gradient(180deg,  var(--color-details), var(--color-bg));
@@ -188,12 +188,12 @@ const toggleTheme = () => {
 
 .nav-link,
 .mobile-nav-link {
-    font: normal normal 500 1.5rem var(--display-font, Tahoma);
+    font: normal normal 500 2rem var(--display-font, Tahoma);
     text-decoration: none;
 }
 
 .home-link {
-    font-size: 2rem;
+    font-size: clamp(2rem, 3.5vw, 2.5rem);
 }
 
 .nav-button {
@@ -246,7 +246,7 @@ const toggleTheme = () => {
     }
 
     .links-sections-list__link-item .nav-link{
-        font: normal normal 500 clamp(1.2rem, 3.5vh, 1.5rem) var(--display-font, Tahoma);
+        font: normal normal 500 clamp(1.4rem, 2vw, 2rem) var(--display-font, Tahoma);
         text-decoration: none;
     }
 
@@ -256,7 +256,7 @@ const toggleTheme = () => {
 
     .links-sections-list {
         display: flex;
-        gap: 0 1.5rem;
+        gap: 0 1rem;
     }
 }
 
