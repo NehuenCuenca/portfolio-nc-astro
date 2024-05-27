@@ -8,7 +8,7 @@ import ContactForm from "@components/ContactForm.vue";
 ---
 
 <section class="contact-container" id="contact-section">
-    <div class="services-container__divider">
+    <div class="contact-container__divider">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path d="M1200,0H0V120H281.94C572.9,116.24,602.45,3.86,602.45,3.86h0S632,116.24,923,120h277Z" class="shape-fill"></path>
         </svg>
@@ -18,9 +18,8 @@ import ContactForm from "@components/ContactForm.vue";
     <div class="content-container">
         <ContactForm client:load/>
         <div class="ways-to-contact">
-            <h2 class="ways-to-contact__title">Otras vías 
-                de contacto</h2>
-            <h3 class="ways-to-contact__subtitle">También podés hablar conmigo por acá</h3>
+            <h2 class="ways-to-contact__title">Otras vías <br> de contacto</h2>
+            <h3 class="ways-to-contact__subtitle">También podés <br> hablar conmigo por acá</h3>
             <ul class="contact-ways-list">
                 <li class="contact-ways-list-item">
                     <Icon class="contact-ways-list-item__way-icon" name="bx:mail-send" size={40} />
@@ -49,30 +48,30 @@ import ContactForm from "@components/ContactForm.vue";
         padding-bottom: 5rem;
     }
 
-    .services-container__divider {
+    .contact-container__divider {
         width: 100%;
         overflow: hidden;
         line-height: 0;
         margin-bottom: 2rem;
     }
 
-    .services-container__divider svg {
+    .contact-container__divider svg {
         position: relative;
         display: block;
         width: calc(100% + 1.3px);
         height: clamp(70px,10vh,200px);
     }
 
-    .services-container__divider .shape-fill {
+    .contact-container__divider .shape-fill {
         fill: var(--color-bg);
     }
 
     .contact-container__title{
-        font: normal normal 600 clamp(2.3rem, 6vw, 3rem) var(--display-font, Tahoma);
+        font: normal normal 600 clamp(2.5rem, 10vw, 4.5rem) var(--display-font, Tahoma);
     }
 
     .content-container{
-        width: 85%;
+        width: 90%;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -80,14 +79,15 @@ import ContactForm from "@components/ContactForm.vue";
     }
 
     .ways-to-contact{
-        width: clamp(250px, 100%, 400px);
+        width: clamp(300px, 100%, 40vw);
+        /* padding: 0 3rem; */
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 1.5rem;
     }
     .ways-to-contact__title{
-        font: normal normal 400 clamp(1.8rem, 6vw, 2rem) var(--display-font, Tahoma);
+        font: normal normal 400 clamp(1.8rem, 10vw, 2.2rem) var(--display-font, Tahoma);
     }
     .ways-to-contact__title,
     .ways-to-contact__subtitle{
@@ -96,7 +96,7 @@ import ContactForm from "@components/ContactForm.vue";
 
     .ways-to-contact__subtitle{
         text-wrap: balance;
-        font: normal normal 200 clamp(1.3rem, 6vw, 1.5rem) var(--default-font, Arial);
+        font: normal normal 200 clamp(1.5rem, 8vw, 1.8rem) var(--default-font, Arial);
         color: var(--color-font)
     }
 
@@ -124,11 +124,11 @@ import ContactForm from "@components/ContactForm.vue";
     }
     .contact-ways-list-item__way-name{
         grid-area: name;
-        font: normal normal 200 clamp(1.3rem, 6vw, 1.4rem) var(--display-font, Tahoma);
+        font: normal normal 200 clamp(1.5rem, 6vw, 1.7rem) var(--display-font, Tahoma);
     }
     .contact-ways-list-item__way-keyword{
         grid-area: keyword;
-        font: normal normal 200 clamp(1.1rem, 6vw, 1.2rem) var(--default-font, Arial);
+        font: normal normal 200 clamp(1.3rem, 6vw, 1.5rem) var(--default-font, Arial);
         color: var(--color-font);
     }
 
@@ -142,8 +142,18 @@ import ContactForm from "@components/ContactForm.vue";
             flex-direction: row-reverse;
         }
 
-        .services-container__divider svg {
+        .contact-container__divider svg {
             height: clamp(80px, 15vh, 140px);
+        }
+
+        .ways-to-contact__dev-image{
+            height: 25vh;
+        }
+    }
+    
+    @media (width >= 1024px){
+        .ways-to-contact__dev-image{
+            height: 45vh;
         }
     }
 </style>

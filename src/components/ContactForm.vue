@@ -43,7 +43,8 @@
 
 <style scoped>
     .form-contact{
-        width: clamp(250px, 100%, 400px);
+        /* width: clamp(250px, 100%, 400px); */
+        width: clamp(300px, 100%, 35vw);
         padding: 4rem 1rem 1rem 1rem;
         border: 3px solid var(--color-bg);
         border-radius: 10px 100px 10px 10px ;
@@ -61,7 +62,7 @@
         transition: border .2s ease;
     }
     .field__label{
-        font: normal normal 600 clamp(1.2rem, 6vw, 1.4rem) var(--default-font, Arial);
+        font: normal normal 600 clamp(1.2rem, 7vw, 1.7rem) var(--default-font, Arial);
         cursor: pointer;
     }
     .field__input, .field__input-message{
@@ -70,7 +71,7 @@
         background-color: transparent;
         outline: none;
         border: none;
-        font: normal normal 200 clamp(1.1rem, 6vw, 1.3rem) var(--default-font, Arial);
+        font: normal normal 200 clamp(1.1rem, 6vw, 1.5rem) var(--default-font, Arial);
         color: var(--color-font);
     }
 
