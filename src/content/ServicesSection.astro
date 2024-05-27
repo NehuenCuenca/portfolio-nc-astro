@@ -91,11 +91,11 @@ import BackendService from '@assets/services/backend-service.png';
     }
 
     .headings__title{
-        font: normal normal 600 clamp(2.5rem, 6vw, 3rem) var(--display-font, Tahoma);
+        font: normal normal 600 clamp(2.5rem, 10vw, 4.5rem) var(--display-font, Tahoma);
         color: var(--color-titles);
     }
     .headings__subtitle{
-        font: normal normal 150 clamp(1.3rem, 5vw, 1.5rem) var(--default-font, Arial);
+        font: normal normal 150 clamp(1.4rem, 5vw, 2rem) var(--default-font, Arial);
         text-wrap: balance;
         color: var(--color-font);
     }
@@ -113,7 +113,7 @@ import BackendService from '@assets/services/backend-service.png';
     .flip-card {
       background-color: transparent;
       width: 250px;
-      height: 60vh;
+      height: clamp(300px, 55vh, 400px);
       perspective: 1000px; /* Remove this if you don't want the 3D effect */
     }
 
@@ -167,7 +167,7 @@ import BackendService from '@assets/services/backend-service.png';
     }
 
     .flip-card-back__service-title{
-        font: normal normal 400 clamp(1.6rem, 6vw, 2rem) var(--display-font, Tahoma);
+        font: normal normal 400 clamp(2rem, 6vw, 2.3rem) var(--display-font, Tahoma);
     }
 
     .flip-card-back__view-more-button{
