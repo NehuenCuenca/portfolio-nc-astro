@@ -3,7 +3,7 @@
         <div class="nav-mobile">
             <a class="nav-link home-link" href="#hero-section">Inicio</a>
 
-            <button v-show="currentTheme" type="button" @click="toggleMenu(true)" class="mobile-nav-button">
+            <button v-if="currentTheme" type="button" @click="toggleMenu(true)" class="mobile-nav-button">
                 <SvgByTheme :currentTheme="currentTheme"
                     :lightSvg="BxMenuLight"
                     :darkSvg="BxMenuDark" 
@@ -11,9 +11,9 @@
                 />
             </button>
 
-            <div class="mobile-menu" v-show="IsOnMobile" :class="IsMenuOpen ? 'mobile-menu_open' : ''" @click="toggleMenu(false)">
+            <div class="mobile-menu" v-if="IsOnMobile" :class="IsMenuOpen ? 'mobile-menu_open' : ''" @click="toggleMenu(false)">
                 <div class="mobile-menu-content">                  
-                    <button v-show="currentTheme" type="button" @click="toggleMenu(false)" class="mobile-nav-button">
+                    <button v-if="currentTheme" type="button" @click="toggleMenu(false)" class="mobile-nav-button">
                         <SvgByTheme :currentTheme="currentTheme"
                             :lightSvg="BxXLight"
                             :darkSvg="BxXDark" 
@@ -21,7 +21,7 @@
                         />
                     </button>
 
-                    <button v-show="currentTheme" type="button" class="mobile-nav-button" @click="toggleTheme">
+                    <button v-if="currentTheme" type="button" class="mobile-nav-button" @click="toggleTheme">
                         <SvgByTheme :currentTheme="currentTheme"
                             :lightSvg="BxMoon"
                             :darkSvg="BxSun" 
@@ -66,7 +66,7 @@
                 </li>
             </ul>
 
-            <button v-show="currentTheme" type="button" class="nav-button" @click="toggleTheme">
+            <button v-if="currentTheme" type="button" class="nav-button" @click="toggleTheme">
                 <SvgByTheme :currentTheme="currentTheme"
                     :lightSvg="BxMoon"
                     :darkSvg="BxSun" 
