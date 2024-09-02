@@ -32,7 +32,8 @@
             message: msg,
         };
 
-        emailjs.send('service_wthxhkr', 'template_01utqqw', tempParams, { publicKey: 'DAtZZyNNpb20cqvDq'})
+        const emailjsKey = import.meta.env.PUBLIC_EMAILJSKEY
+        emailjs.send('service_wthxhkr', 'template_01utqqw', tempParams, { publicKey: emailjsKey })
         .then(function(res){
             console.log('Mail was send successfully', res.status)
         })
