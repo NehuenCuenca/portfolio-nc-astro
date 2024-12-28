@@ -5,7 +5,7 @@ import { Modal } from 'accessible-astro-components'
 
 import Buscaminas from '@assets/projects/Buscaminas.webp'
 import BanderasDelMundo from '@assets/projects/BanderasDelMundo.webp'
-import PostMalonePicture from '@assets/projects/PostMalonePicture.webp'
+import CuentaClara from '@assets/projects/CuentaClara.webp'
 import CuentasMatematicas from '@assets/projects/CuentasMatematicas.webp'
 import MegaLogo from '@assets/projects/MegaLogo.webp'
 import ArenaMobileInicio from '@assets/projects/ArenaMobileInicio.webp'
@@ -26,45 +26,9 @@ import ArenaMobileInicio from '@assets/projects/ArenaMobileInicio.webp'
                     <Icon name="bx:info-circle" size={25}/>
                 </button>
             </span>
-            <div class="projects-list-item__links">
-                <a href="https://buscaminas-nc.netlify.app/" target="_blank">Demo</a>
-                <a href="https://github.com/NehuenCuenca/buscaminas-vue" target="_blank">Repositorio</a>
-            </div>
-        </li>
-        <li class="projects-list-item">
-            <Image src={BanderasDelMundo} alt="Collage de banderas de paises del mundo" class="projects-list-item__image" />
-            <span class="title-project">Buscador de paises 
-                <button id="project2-modal-trigger" class="title-project__info-button">
-                    <Icon name="bx:info-circle" size={25}/>
-                </button>
-            </span>
-            <div class="projects-list-item__links">
-                <a href="https://countries-api-vue-nc.netlify.app/" target="_blank">Demo</a>
-                <a href="https://github.com/NehuenCuenca/FM-RestCountriesApiVue" target="_blank">Repositorio</a>
-            </div>
-        </li>
-        <li class="projects-list-item">
-            <Image src={PostMalonePicture} alt="Post Malone cantando" class="projects-list-item__image" />
-            <span class="title-project">Tributo a Post Malone 
-                <button id="project3-modal-trigger" class="title-project__info-button">
-                    <Icon name="bx:info-circle" size={25}/>
-                </button>
-            </span>
-            <div class="projects-list-item__links">
-                <a href="https://jxphin.csb.app/" target="_blank">Demo</a>
-                <a href="https://codesandbox.io/p/sandbox/tribute-page-pm-nc-jxphin?file=%2Fsrc%2Findex.js" target="_blank">Repositorio</a>
-            </div>
-        </li>
-        <li class="projects-list-item">
-            <Image src={CuentasMatematicas} alt="Cuentas simples de matematica" class="projects-list-item__image" />
-            <span class="title-project">Minijuego de Matematicas 
-                <button id="project4-modal-trigger" class="title-project__info-button">
-                    <Icon name="bx:info-circle" size={25}/>
-                </button>
-            </span>
-            <div class="projects-list-item__links">
-                <a href="https://math-minigame-rework-nc.netlify.app/" target="_blank">Demo</a>
-                <a href="https://github.com/NehuenCuenca/math-minigame-rework" target="_blank">Repositorio</a>
+            <div class="projects-list-item-links">
+                <a class="link link_demo" href="https://buscaminas-nc.netlify.app/" target="_blank">Demo</a>
+                <a class="link link_demo" href="https://github.com/NehuenCuenca/buscaminas-vue" target="_blank">Repositorio</a>
             </div>
         </li>
         <li class="projects-list-item">
@@ -74,9 +38,21 @@ import ArenaMobileInicio from '@assets/projects/ArenaMobileInicio.webp'
                     <Icon name="bx:info-circle" size={25}/>
                 </button>
             </span>
-            <div class="projects-list-item__links">
-                <a href="https://megagym-gchu.netlify.app/" target="_blank">Demo</a>
-                <a href="https://github.com/NehuenCuenca/megagym-nc" target="_blank">Repositorio</a>
+            <div class="projects-list-item-links">
+                <a class="link link_demo" href="https://megagym-gchu.netlify.app/" target="_blank">Demo</a>
+                <a class="link link_demo" href="https://github.com/NehuenCuenca/megagym-nc" target="_blank">Repositorio</a>
+            </div>
+        </li>
+        <li class="projects-list-item">
+            <Image src={CuentasMatematicas} alt="Cuentas simples de matematica" class="projects-list-item__image" />
+            <span class="title-project">Minijuego de Matematicas 
+                <button id="project4-modal-trigger" class="title-project__info-button">
+                    <Icon name="bx:info-circle" size={25}/>
+                </button>
+            </span>
+            <div class="projects-list-item-links">
+                <a class="link link_demo" href="https://math-minigame-rework-nc.netlify.app/" target="_blank">Demo</a>
+                <a class="link link_demo" href="https://github.com/NehuenCuenca/math-minigame-rework" target="_blank">Repositorio</a>
             </div>
         </li>
         <li class="projects-list-item">
@@ -86,9 +62,33 @@ import ArenaMobileInicio from '@assets/projects/ArenaMobileInicio.webp'
                     <Icon name="bx:info-circle" size={25}/>
                 </button>
             </span>
-            <div class="projects-list-item__links">
-                <a href="https://arena-mobile.vercel.app/" target="_blank">Demo</a>
-                <a href="https://github.com/No-Country/c16-81-t-php" target="_blank">Repositorio</a>
+            <div class="projects-list-item-links">
+                <a class="link link_demo" href="https://arena-mobile.vercel.app/" target="_blank">Demo</a>
+                <a class="link link_demo" href="https://github.com/No-Country/c16-81-t-php" target="_blank">Repositorio</a>
+            </div>
+        </li>
+        <li class="projects-list-item">
+            <Image src={BanderasDelMundo} alt="Collage de banderas de paises del mundo" class="projects-list-item__image" />
+            <span class="title-project">Buscador de paises 
+                <button id="project2-modal-trigger" class="title-project__info-button">
+                    <Icon name="bx:info-circle" size={25}/>
+                </button>
+            </span>
+            <div class="projects-list-item-links">
+                <a class="link link_demo" href="https://countries-api-vue-nc.netlify.app/" target="_blank">Demo</a>
+                <a class="link link_demo" href="https://github.com/NehuenCuenca/FM-RestCountriesApiVue" target="_blank">Repositorio</a>
+            </div>
+        </li>
+        <li class="projects-list-item">
+            <Image src={CuentaClara} alt="Billetera vacia" class="projects-list-item__image" />
+            <span class="title-project">CuentaClara 
+                <button id="project3-modal-trigger" class="title-project__info-button">
+                    <Icon name="bx:info-circle" size={25}/>
+                </button>
+            </span>
+            <div class="projects-list-item-links">
+                <a class="link link_demo link_not-available" class="link-not-available" href="#">Demo</a>
+                <a class="link link_demo" href="https://github.com/NehuenCuenca/morosos-anahi-frontend" target="_blank">Repositorio</a>
             </div>
         </li>
     </ul>
@@ -101,9 +101,10 @@ import ArenaMobileInicio from '@assets/projects/ArenaMobileInicio.webp'
         <p>La pagina consigue los datos de los paises mediante una llamada a su respectiva API y los renderiza de manera paginada. El proyecto cuenta con dos filtros: por nombre de pais y por región; además del interruptor entre tema claro y oscuro.</p>
         <p>Fue realizado con <strong>HTML, CSS y Vue</strong>.</p>
     </Modal>    
-    <Modal triggerId="project3-modal-trigger" title="Tributo a Post Malone" closeText="Cerrar">
-        <p>Una de varias paginas que desarrollé para reclamar el <a href="https://www.freecodecamp.org/espanol/certification/NehuenCuenca7/responsive-web-design" target="_blank">certificado de Responsive Web Design en FreeCodeCamp.</a></p>
-        <p>Cuenta un poco de la vida de Post y muestra algunos de sus albums.</p>
+    <Modal triggerId="project3-modal-trigger" title="CuentaClara" closeText="Cerrar">
+        <p>CuentaClara es una aplicacion web desarrollada para la gestion de fiados que se lleva a cabo en un negocio.</p>
+        <p>Permite visualizar a los clientes con su respectivo balance acumulado (ya sea de deuda o a su favor). Para ello se registra una deuda describiendo un monto, cantidad y detalle con fecha y hora. Estas deudas pueden ser editadas, saldadas y hasta borradas del historial de un cliente.</p> 
+        <p>Tambien es posible descargar un archivo excel sobre las deudas y los respectivos balances transcurridos en un mes/año seleccionado.</p>
     </Modal>    
     <Modal triggerId="project4-modal-trigger" title="Minijuego de Matematicas" closeText="Cerrar">
         <p>Otro juego que quise replicar <a href="https://www.tiktok.com/@chriskotra/video/7154986619806715138?is_copy_url=1&is_from_webapp=v1" target="_blank">cuando lo vi en TikTok.</a></p>
@@ -216,14 +217,22 @@ import ArenaMobileInicio from '@assets/projects/ArenaMobileInicio.webp'
         height: var(--icon-size);
     }
 
-    .projects-list-item__links{
+    .projects-list-item-links{
         position: absolute;
-        font: normal normal 500 1.5rem var(--default-font);
-        text-decoration: underline;
         display: flex;
         gap: 1rem;
         bottom: 1.5rem;
     }
 
-    
+    .link{
+        text-decoration: underline;
+        font: normal normal 500 1.5rem var(--default-font);
+    }
+    /* .link_demo{} */
+    /* .link_repo{} */
+    .link_not-available{
+        color: grey;
+        text-decoration: line-through;
+        cursor: not-allowed;
+    }
 </style>
