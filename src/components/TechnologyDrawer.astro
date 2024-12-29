@@ -1,0 +1,93 @@
+---
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+
+const { drawerName, drawerIcon, toolsImages } = Astro.props;
+---
+
+<li class="skills-list-item skills-list-item_hover">
+    <button data-drawer-button={drawerName} class="skills-list-item__dropdown-button">
+        <Icon name={drawerIcon} class="skill-icon" size={35}/>
+        <h2 class="skill-name">{drawerName}</h2>
+        <Icon name="bx:caret-down" size={40} class="arrow-button arrow-button_closed" />
+    </button>
+    
+    <ul class="technologies-list technologies-list_closed">
+        {toolsImages.map( (toolImage) => <li class="technologies-list-item">
+            <Image class="technologies-list-item__technology-image" src={toolImage} alt={toolImage.alt} title={toolImage.alt} />
+        </li>)}
+    </ul>
+</li>
+
+
+<style>
+    .skills-list-item{ width: 100%;}
+
+    .skills-list-item__dropdown-button{
+        width: 100%;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .arrow-button{
+        transition: rotate .3s ease;
+        margin: 0 0 0 auto;
+    }
+    .arrow-button_closed {
+        rotate: 180deg;
+    }
+    .arrow-button_open {
+        rotate: 0deg;
+    }
+
+    .technologies-list{
+        background: linear-gradient(to bottom, transparent, var(--color-details));
+        position: relative;
+        left: 3rem;
+        width: calc(100% - 5rem);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        transition: opacity .5s ease, visibility .5s ease;
+    }
+
+    .technologies-list_closed{
+        height: 0;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .technologies-list_opened{
+        height: auto;
+        opacity: 1;
+        visibility: visible;
+        padding: 1rem;
+        border-radius: 0 0 20px 20px;
+        border-bottom: 3px solid var(--color-font);
+    }
+
+    .technologies-list-item{}
+    .technologies-list-item__technology-image{}
+
+    .skill-icon,
+    .arrow-button{
+        color: var(--color-font);
+        --icon-size: clamp(2.5rem, 5vw, 3rem);
+        width: var(--icon-size);
+        height: var(--icon-size);
+    }
+    .skill-name{
+        font: normal normal 400 clamp(2rem, 5vw, 2.5rem) var(--display-font, Tahoma);
+        color: var(--color-titles);
+    }
+
+
+    @media (width >= 600px){
+        .skills-list-item{
+            width: 40%;
+            gap: .5rem;
+        }
+    }
+</style>

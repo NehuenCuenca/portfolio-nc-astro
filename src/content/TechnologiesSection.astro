@@ -20,108 +20,67 @@ import LogoNotion from '@assets/technologies/notion-logo-removebg-preview.webp'
 import LogoNetlify from '@assets/technologies/netlify-logo-removebg-preview.webp'
 import LogoGit from '@assets/technologies/git-logo-removebg-preview.webp'
 import LogoGithub from '@assets/technologies/github-logo-removebg-preview.webp'
+import TechnologyDrawer from "@components/TechnologyDrawer.astro";
+
+LogoHTML.alt = 'LogoHTML'
+LogoJavascript.alt = 'LogoJavascript'
+LogoCss.alt = 'LogoCss'
+LogoVue.alt = 'LogoVue'
+LogoReact.alt = 'LogoReact'
+LogoMySql.alt = 'LogoMySql'
+LogoPostgreSql.alt = 'LogoPostgreSql'
+LogoPhp.alt = 'LogoPhp'
+LogoLaravel.alt = 'LogoLaravel'
+LogoNode.alt = 'LogoNode'
+LogoExpress.alt = 'LogoExpress'
+LogoFigma.alt = 'LogoFigma'
+LogoPhotoScape.alt = 'LogoPhotoScape'
+LogoPostman.alt = 'LogoPostman'
+LogoNotion.alt = 'LogoNotion'
+LogoNetlify.alt = 'LogoNetlify'
+LogoGit.alt = 'LogoGit'
+LogoGithub.alt = 'LogoGithub'
+
+const frontendToolsImages = [LogoHTML,LogoJavascript,LogoCss,LogoVue,LogoReact]
+const backendToolsImages = [LogoMySql,LogoPostgreSql,LogoPhp,LogoLaravel,LogoNode,LogoExpress]
+const designToolsImages = [LogoFigma,LogoPhotoScape]
+const othersToolsImages = [LogoPostman,LogoNotion,LogoNetlify,LogoGit,LogoGithub]
 
 ---
 
 <section class="technologies-container" id="technologies-section">
     <h1 class="technologies-container__title">Tecnologias</h1>
     <ul class="skills-list">
-        <li class="skills-list-item skills-list-item_hover">
-            <button class="skills-list-item__dropdown-button">
-                <Icon name="bx:slideshow" class="skill-icon" size={35}/>
-                <h2 class="skill-name">Frontend</h2>
-                <Icon name="bx:caret-down" size={40} class="arrow-button" />
-            </button>
-            
-            <ul class="technologies-list">
-                <li class="technologies-list-item">
-                    <Image src={LogoHTML} alt="HTML5" class="technologies-list-item__technology-image" title="HTML5" />
-                </li>
-                <li class="technologies-list-item">
-                    <Image src={LogoCss} alt="CSS3" class="technologies-list-item__technology-image" title="CSS3" />
-                </li>
-                <li class="technologies-list-item">
-                    <Image src={LogoJavascript} alt="Javascript" class="technologies-list-item__technology-image" title="Javascript" />
-                </li>
-                <li class="technologies-list-item">
-                    <Image src={LogoVue} alt="Vue.js" class="technologies-list-item__technology-image" title="Vue" />
-                </li>
-                <li class="technologies-list-item">
-                    <Image src={LogoReact} alt="React" class="technologies-list-item__technology-image" title="React" />
-                </li>
-            </ul>
-        </li>
-        <li class="skills-list-item skills-list-item_hover">
-            <button class="skills-list-item__dropdown-button">
-                <Icon name="bx:data" class="skill-icon" size={35}/>
-                <h2 class="skill-name">Backend</h2>
-                <Icon name="bx:caret-down" size={40} class="arrow-button" />
-            </button>
-            
-            <ul class="technologies-list">
-                <li class="technologies-list-item">
-                    <Image src={LogoMySql} alt="MySql" class="technologies-list-item__technology-image" title="MySql" />
-                </li>
-                <li class="technologies-list-item">
-                    <Image src={LogoPostgreSql} alt="PostgreSql" class="technologies-list-item__technology-image" title="PostgreSql" />
-                </li>
-                <li class="technologies-list-item">
-                    <Image src={LogoPhp} alt="PHP" class="technologies-list-item__technology-image" title="PHP" />
-                </li>
-                <li class="technologies-list-item">
-                    <Image src={LogoLaravel} alt="Laravel" class="technologies-list-item__technology-image" title="Laravel" />
-                </li>
-                <li class="technologies-list-item">
-                    <Image src={LogoNode} alt="Node" class="technologies-list-item__technology-image" title="Node" />
-                </li>
-                <li class="technologies-list-item">
-                    <Image src={LogoExpress} alt="Express" class="technologies-list-item__technology-image" title="Express" />
-                </li>
-            </ul>
-        </li>
-        <li class="skills-list-item skills-list-item_hover">
-            <button class="skills-list-item__dropdown-button">
-                <Icon name="bx:paint" class="skill-icon" size={35}/>
-                <h2 class="skill-name">Diseño</h2>
-                <Icon name="bx:caret-down" size={40} class="arrow-button" />
-            </button>
-            
-            <ul class="technologies-list">
-                <li class="technologies-list-item">
-                    <Image src={LogoFigma} alt="Figma" class="technologies-list-item__technology-image" title="Figma" />
-                </li>
-                <li class="technologies-list-item">
-                    <Image src={LogoPhotoScape} alt="Photoscape X" class="technologies-list-item__technology-image" title="Photoscape X" />
-                </li>
-            </ul>
-        </li>
-        <li class="skills-list-item skills-list-item_hover">
-            <button class="skills-list-item__dropdown-button">
-                <Icon name="bx:wrench" class="skill-icon" size={35}/>
-                <h2 class="skill-name">Otros</h2>
-                <Icon name="bx:caret-down" size={40} class="arrow-button" />
-            </button>
-            
-            <ul class="technologies-list">
-                <li class="technologies-list-item">
-                    <Image src={LogoPostman} alt="Postman" class="technologies-list-item__technology-image" title="Postman" />
-                </li>
-                <li class="technologies-list-item">
-                    <Image src={LogoNotion} alt="Notion" class="technologies-list-item__technology-image" title="Notion" />
-                </li>
-                <li class="technologies-list-item">
-                    <Image src={LogoNetlify} alt="Netlify" class="technologies-list-item__technology-image" title="Netlify" />
-                </li>
-                <li class="technologies-list-item">
-                    <Image src={LogoGit} alt="Git" class="technologies-list-item__technology-image" title="Git" />
-                </li>
-                <li class="technologies-list-item">
-                    <Image src={LogoGithub} alt="Github" class="technologies-list-item__technology-image" title="Github" />
-                </li>
-            </ul>
-        </li>
+        <TechnologyDrawer drawerName="Frontend" drawerIcon="bx:slideshow" toolsImages={frontendToolsImages} />
+        <TechnologyDrawer drawerName="Backend" drawerIcon="bx:data" toolsImages={backendToolsImages} />
+        <TechnologyDrawer drawerName="Diseño" drawerIcon="bx:paint" toolsImages={designToolsImages} />
+        <TechnologyDrawer drawerName="Otros" drawerIcon="bx:wrench" toolsImages={othersToolsImages} />
     </ul>
 </section>
+
+
+<script>
+    const drawerButtons = document.querySelectorAll('[data-drawer-button]');
+    drawerButtons.forEach((drawerButton) => {
+        drawerButton.addEventListener('click', (event) => {
+            const arrowButton = event.currentTarget.querySelector('.arrow-button');
+            const technologiesList = event.currentTarget.nextElementSibling;
+            
+            const technologiesListIsClosed = technologiesList.classList.contains('technologies-list_closed')
+            if( technologiesListIsClosed ){
+                technologiesList.classList.remove('technologies-list_closed')
+                arrowButton.classList.remove('arrow-button_closed')
+                technologiesList.classList.add('technologies-list_opened')
+                arrowButton.classList.add('arrow-button_opened')
+            } else {
+                technologiesList.classList.remove('technologies-list_opened')
+                arrowButton.classList.remove('arrow-button_opened')
+                technologiesList.classList.add('technologies-list_closed')
+                arrowButton.classList.add('arrow-button_closed')
+            }
+        });
+    });
+</script>
 
 <style>
     .technologies-container{
@@ -145,64 +104,7 @@ import LogoGithub from '@assets/technologies/github-logo-removebg-preview.webp'
         flex-wrap: wrap;
         align-items: flex-start;
         gap: 2rem 1rem;
-    }
-
-    .skills-list-item{ width: 100%;}
-
-    .skills-list-item__dropdown-button{
-        width: 100%;
-        padding: 0;
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-    }
-    
-    .arrow-button{
-        transition: rotate .5s ease;
-        margin: 0 0 0 auto;
-    }
-    .arrow-button {
-        rotate: 180deg;
-    }
-    
-    .technologies-list{
-        background: linear-gradient(to bottom, transparent, var(--color-details));
-        position: relative;
-        left: 3rem;
-        width: calc(100% - 5rem);
-        height: 0;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        transition: opacity .5s ease, visibility .5s ease;
-        opacity: 0;
-        visibility: hidden;
-    }
-
-    .skills-list-item__dropdown-button:focus + .technologies-list{
-        height: auto;
-        opacity: 1;
-        visibility: visible;
-        padding: 1rem;
-        border-radius: 0 0 20px 20px;
-        border-bottom: 3px solid var(--color-font);
-    }
-
-    .technologies-list-item{}
-    .technologies-list-item__technology-image{}
-
-    .skill-icon,
-    .arrow-button{
-        color: var(--color-font);
-        --icon-size: clamp(2.5rem, 5vw, 3rem);
-        width: var(--icon-size);
-        height: var(--icon-size);
-    }
-    .skill-name{
-        font: normal normal 400 clamp(2rem, 5vw, 2.5rem) var(--display-font, Tahoma);
-        color: var(--color-titles);
-    }
-    
+    }  
 
     @media (width >= 600px){
         .skills-list{
@@ -210,20 +112,6 @@ import LogoGithub from '@assets/technologies/github-logo-removebg-preview.webp'
             flex-direction: row;
             justify-content: center;
             gap: 2rem;
-        }
-        .skills-list-item{
-            width: 40%;
-            gap: .5rem;
-        }
-    }
-    @media (width >= 1024px){
-        .skills-list-item__dropdown-button:focus .arrow-button{
-            rotate: 0deg;
-        }
-
-        .skills-list-item__dropdown-button:focus + .technologies-list{
-            opacity: 1;
-            visibility: visible;
         }
     }
 </style>
