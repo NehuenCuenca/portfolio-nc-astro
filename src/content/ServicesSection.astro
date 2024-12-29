@@ -16,14 +16,14 @@ import BackendService from '@assets/services/backend-service.png';
     <ul class="services-list">
         <li class="service-list-item flip-card">
             <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <Image class="flip-card-front__image" src={DesignService} alt="Avatar" />
-                  </div>
-                  <div class="flip-card-back">
-                    <Icon class="flip-card-back__service-icon" name="bx:palette" size={130} />
-                    <h3 class="flip-card-back__service-title">Diseño</h3>
-                    <button id="service1-modal-trigger" class="flip-card-back__view-more-button flip-card-back__view-more-button_hover">Ver más</button>
-                  </div>
+              <div class="flip-card-front">
+                  <Image class="flip-card-front__image" src={DesignService} alt="Avatar" />
+              </div>
+              <div class="flip-card-back">
+                <Icon class="flip-card-back__service-icon" name="bx:palette" size={130} />
+                <h3 class="flip-card-back__service-title">Diseño</h3>
+                <button id="service1-modal-trigger" class="flip-card-back__view-more-button flip-card-back__view-more-button_hover">Ver más</button>
+              </div>
             </div>
         </li>
         <li class="service-list-item flip-card">
@@ -155,6 +155,23 @@ import BackendService from '@assets/services/backend-service.png';
     .flip-card-front__image{
         height: 100%;
         object-fit: cover;
+    }
+
+    .flip-card:nth-child(odd) .flip-card-front{ animation: breathe 3s ease 0s infinite normal forwards; }
+    .flip-card:nth-child(even) .flip-card-front{ animation: breathe 3.5s ease 0s infinite normal forwards; }
+
+    @keyframes breathe {
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.05);
+      }
+
+      100% {
+        transform: scale(1);
+      }
     }
 
     /* Style the back side */
