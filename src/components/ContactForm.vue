@@ -14,7 +14,7 @@
         </div>
         <div class="field">
             <label for="input-message" class="field__label">Mensaje</label>
-            <textarea class="field__input-message" id="input-message" name="msg" required minlength="20" placeholder="¿Necesita detallar más?"></textarea>
+            <textarea class="field__input-message" id="input-message" name="msg" required minlength="20" placeholder="Detalla aquí lo que necesites."></textarea>
         </div>
         <input class="form-contact__submit-button" type="submit" value="Enviar mail">
     </form>
