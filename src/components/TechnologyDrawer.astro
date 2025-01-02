@@ -50,7 +50,9 @@ const { drawerName, drawerIcon, toolsImages } = Astro.props;
         display: flex;
         flex-wrap: wrap;
         gap: 1rem;
-        transition: opacity .5s ease, visibility .5s ease;
+        /* transition: opacity .5s ease, visibility .5s ease, height .5s ease; */
+        transition: opacity .8s ease, visibility .8s ease, height .5s ease;
+        interpolate-size: allow-keywords;
     }
 
     .technologies-list_closed{
