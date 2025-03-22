@@ -18,28 +18,11 @@ import LogoNotion from '@assets/technologies/notion-logo-removebg-preview.webp'
 import LogoNetlify from '@assets/technologies/netlify-logo-removebg-preview.webp'
 import LogoGit from '@assets/technologies/git-logo-removebg-preview.webp'
 import LogoGithub from '@assets/technologies/github-logo-removebg-preview.webp'
+import LogoVite from '@assets/technologies/Vitejs-logo.webp'
+import LogoVitest from '@assets/technologies/vitest-logo-removebg-preview.webp'
 import TechnologyDrawer from "@components/TechnologyDrawer.astro";
 
-LogoHTML.alt = 'LogoHTML'
-LogoJavascript.alt = 'LogoJavascript'
-LogoCss.alt = 'LogoCss'
-LogoVue.alt = 'LogoVue'
-LogoReact.alt = 'LogoReact'
-LogoMySql.alt = 'LogoMySql'
-LogoPostgreSql.alt = 'LogoPostgreSql'
-LogoPhp.alt = 'LogoPhp'
-LogoLaravel.alt = 'LogoLaravel'
-LogoNode.alt = 'LogoNode'
-LogoExpress.alt = 'LogoExpress'
-LogoFigma.alt = 'LogoFigma'
-LogoPhotoScape.alt = 'LogoPhotoScape'
-LogoPostman.alt = 'LogoPostman'
-LogoNotion.alt = 'LogoNotion'
-LogoNetlify.alt = 'LogoNetlify'
-LogoGit.alt = 'LogoGit'
-LogoGithub.alt = 'LogoGithub'
-
-const frontendToolsImages = [LogoHTML,LogoCss,LogoJavascript,LogoVue,LogoReact]
+const frontendToolsImages = [LogoHTML,LogoCss,LogoJavascript,LogoVue,LogoReact,LogoVite,LogoVitest]
 const backendToolsImages = [LogoMySql,LogoPostgreSql,LogoPhp,LogoLaravel,LogoNode,LogoExpress]
 const designToolsImages = [LogoFigma,LogoPhotoScape]
 const othersToolsImages = [LogoGit,LogoGithub,LogoPostman,LogoNetlify,LogoNotion]
@@ -67,18 +50,8 @@ const othersToolsImages = [LogoGit,LogoGithub,LogoPostman,LogoNetlify,LogoNotion
             const arrowButton = event.currentTarget.querySelector('.arrow-button');
             const technologiesList = event.currentTarget.nextElementSibling;
             
-            const technologiesListIsClosed = technologiesList.classList.contains('technologies-list_closed')
-            if( technologiesListIsClosed ){
-                technologiesList.classList.remove('technologies-list_closed')
-                arrowButton.classList.remove('arrow-button_closed')
-                technologiesList.classList.add('technologies-list_opened')
-                arrowButton.classList.add('arrow-button_opened')
-            } else {
-                technologiesList.classList.remove('technologies-list_opened')
-                arrowButton.classList.remove('arrow-button_opened')
-                technologiesList.classList.add('technologies-list_closed')
-                arrowButton.classList.add('arrow-button_closed')
-            }
+            technologiesList.classList.toggle('technologies-list_opened')
+            arrowButton.classList.toggle('arrow-button_opened')
         });
     });
 </script>
