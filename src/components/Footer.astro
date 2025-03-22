@@ -1,10 +1,10 @@
 ---
 import { Icon } from "astro-icon/components";
 
-
+const fullYear = new Date().getFullYear()
 ---
 <footer class="footer-container">
-    <span class="footer-container__dev-signature">Nehuen Cuenca - 2024</span>
+    <span class="footer-container__dev-signature">Nehuen Cuenca - {fullYear}</span>
     <ul class="footer-container__contact-icons-list">
         <li class="contact-icons-list-item">
             <a href="mailto:nehuen.cuenca@yahoo.com" class="contact-icons-list-item__link" aria-label="Mail">
