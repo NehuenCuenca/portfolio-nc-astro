@@ -17,12 +17,15 @@ import ArenaMobileInicio from '@assets/projects/ArenaMobileInicio.webp'
             <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
         </svg>
     </div>
-    <h1 class="projects-container__title">Mis proyectos</h1>
+    <div class="container-headings">
+        <h1 class="container-headings__title">Mis proyectos</h1>
+        <h2 class="container-headings__subtitle">Aquellos que muestran mis capacidades y experiencia profesional</h2>
+    </div>
     <ul class="projects-list">
         <li class="projects-list-item">
             <Image src={Buscaminas} alt="Tablero inicial del juego Buscaminas" class="projects-list-item__image"/>
             <span class="title-project">Buscaminas
-                <button id="project1-modal-trigger" class="title-project__info-button">
+                <button type="button" aria-label="Mostar info de proyecto" id="project1-modal-trigger" class="title-project__info-button">
                     <Icon name="bx:info-circle" size={25}/>
                 </button>
             </span>
@@ -34,7 +37,7 @@ import ArenaMobileInicio from '@assets/projects/ArenaMobileInicio.webp'
         <li class="projects-list-item">
             <Image src={MegaLogo} alt="Logo de un gimnasio" class="projects-list-item__image" />
             <span class="title-project">Landing page para gimnasio 
-                <button id="project5-modal-trigger" class="title-project__info-button">
+                <button type="button" aria-label="Mostar info de proyecto" id="project5-modal-trigger" class="title-project__info-button">
                     <Icon name="bx:info-circle" size={25}/>
                 </button>
             </span>
@@ -46,7 +49,7 @@ import ArenaMobileInicio from '@assets/projects/ArenaMobileInicio.webp'
         <li class="projects-list-item">
             <Image src={CuentasMatematicas} alt="Cuentas simples de matematica" class="projects-list-item__image" />
             <span class="title-project">Minijuego de Matematicas 
-                <button id="project4-modal-trigger" class="title-project__info-button">
+                <button type="button" aria-label="Mostar info de proyecto" id="project4-modal-trigger" class="title-project__info-button">
                     <Icon name="bx:info-circle" size={25}/>
                 </button>
             </span>
@@ -58,7 +61,7 @@ import ArenaMobileInicio from '@assets/projects/ArenaMobileInicio.webp'
         <li class="projects-list-item">
             <Image src={ArenaMobileInicio} alt="Inicio de la pagina Arena Mobile" class="projects-list-item__image" />
             <span class="title-project">Arena Mobile 
-                <button id="project6-modal-trigger" class="title-project__info-button">
+                <button type="button" aria-label="Mostar info de proyecto" id="project6-modal-trigger" class="title-project__info-button">
                     <Icon name="bx:info-circle" size={25}/>
                 </button>
             </span>
@@ -70,7 +73,7 @@ import ArenaMobileInicio from '@assets/projects/ArenaMobileInicio.webp'
         <li class="projects-list-item">
             <Image src={BanderasDelMundo} alt="Collage de banderas de paises del mundo" class="projects-list-item__image" />
             <span class="title-project">Buscador de paises 
-                <button id="project2-modal-trigger" class="title-project__info-button">
+                <button type="button" aria-label="Mostar info de proyecto" id="project2-modal-trigger" class="title-project__info-button">
                     <Icon name="bx:info-circle" size={25}/>
                 </button>
             </span>
@@ -82,7 +85,7 @@ import ArenaMobileInicio from '@assets/projects/ArenaMobileInicio.webp'
         <li class="projects-list-item">
             <Image src={CuentaClara} alt="Billetera vacia" class="projects-list-item__image" />
             <span class="title-project">CuentaClara 
-                <button id="project3-modal-trigger" class="title-project__info-button">
+                <button type="button" aria-label="Mostar info de proyecto" id="project3-modal-trigger" class="title-project__info-button">
                     <Icon name="bx:info-circle" size={25}/>
                 </button>
             </span>
@@ -147,15 +150,9 @@ import ArenaMobileInicio from '@assets/projects/ArenaMobileInicio.webp'
     .projects-container__divider .shape-fill {
         fill: var(--color-bg);
     }
-
-    .projects-container__title{
-        font: normal normal 600 clamp(2.5rem, 10vw, 4.5rem) var(--display-font, Tahoma);
-        text-align: center;
-        color: var(--color-titles);
-        margin: 2rem 0;
-    }
     
     .projects-list{
+        max-width: 1600px;
         margin-top: 5rem;
         padding: 0 1rem 10rem 1rem;
         display: flex;

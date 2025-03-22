@@ -1,6 +1,4 @@
 ---
-import { Image } from "astro:assets";
-import { Icon } from "astro-icon/components";
 
 import LogoHTML from '@assets/technologies/html-logo-removebg-preview.webp'
 import LogoJavascript from '@assets/technologies/javascript-logo-removebg-preview.webp'
@@ -49,7 +47,10 @@ const othersToolsImages = [LogoGit,LogoGithub,LogoPostman,LogoNetlify,LogoNotion
 ---
 
 <section class="technologies-container" id="technologies-section">
-    <h1 class="technologies-container__title">Tecnologias</h1>
+    <div class="container-headings">
+        <h1 class="container-headings__title">Tecnologias</h1>
+        <h2 class="container-headings__subtitle">Herramientas con las que me familiarizo</h2>
+    </div>
     <ul class="skills-list">
         <TechnologyDrawer drawerName="Frontend" drawerIcon="bx:slideshow" toolsImages={frontendToolsImages} />
         <TechnologyDrawer drawerName="Backend" drawerIcon="bx:data" toolsImages={backendToolsImages} />
@@ -89,11 +90,6 @@ const othersToolsImages = [LogoGit,LogoGithub,LogoPostman,LogoNetlify,LogoNotion
         align-items: center;
         gap: 2rem;
         padding: 2rem 0;
-    }
-
-    .technologies-container__title{
-        font: normal normal 600 clamp(2.5rem, 10vw, 4.5rem) var(--display-font, Tahoma);
-        color: var(--color-titles);
     }
 
     .skills-list{

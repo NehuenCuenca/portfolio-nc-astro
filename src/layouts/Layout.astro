@@ -179,4 +179,22 @@ import Footer from '@components/Footer.astro';
 	body:has(.mobile-menu_open){
 		overflow-y: hidden;
 	}
+
+	.container-headings{
+		display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: .5rem;
+        text-align: center;
+		margin-bottom: 2.5dvh;
+	}
+	.container-headings__title{
+        font: normal normal 600 clamp(2.5rem, 10vw, 4.5rem) var(--display-font, Tahoma);
+        color: var(--color-titles);
+    }
+    .container-headings__subtitle{
+        font: normal normal 150 clamp(1.4rem, 5vw, 2rem) var(--default-font, Arial);
+        text-wrap: balance;
+        color: var(--color-font);
+    }
 </style>

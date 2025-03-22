@@ -3,7 +3,10 @@
 ---
 
 <section class="formation-container" id="formation-section">
-    <h1 class="formation-container__title">Mi formacion</h1>
+    <div class="container-headings">
+        <h1 class="container-headings__title">Mi formacion</h1>
+        <h2 class="container-headings__subtitle">Con quien y donde aprendí mis habilidades de desarrollador</h2>
+    </div>
     <ul class="formation-list">
         <li class="formation-list-item">
             <h2 class="formation-list-item__title">Técnico Superior en Análisis y Desarrollo de Software (2018 - 2022)</h2>
@@ -31,12 +34,6 @@
         animation: fadeInWhileScroll linear forwards;
         animation-timeline: view();
         animation-range-end: 70vh;
-    }
-
-    .formation-container__title{
-        font: normal normal 600 clamp(2.5rem, 10vw, 4.5rem) var(--display-font, Tahoma);
-        text-align: center;
-        color: var(--color-titles);
     }
 
     .formation-list, .formation-list-item{
