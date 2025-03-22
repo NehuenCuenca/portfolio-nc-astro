@@ -133,6 +133,7 @@ import BackendService from '@assets/services/backend-service.png';
     .flip-card-front {
       background-color: transparent;
       color: black;
+      border: 3px groove var(--color-font);
     }
     .flip-card-front__image{
         height: 100%;
@@ -140,7 +141,7 @@ import BackendService from '@assets/services/backend-service.png';
     }
 
     .flip-card:nth-child(odd) .flip-card-front{ animation: breathe 3s ease 0s infinite normal forwards; }
-    .flip-card:nth-child(even) .flip-card-front{ animation: breathe 3.5s ease 0s infinite normal forwards; }
+    .flip-card:nth-child(even) .flip-card-front{ animation: breathe 3s ease 1.5s infinite normal forwards; }
 
     @keyframes breathe {
       0% {
