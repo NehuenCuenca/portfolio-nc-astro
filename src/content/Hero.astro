@@ -1,20 +1,17 @@
 ---
 import { Icon } from 'astro-icon/components';
-import { Image } from 'astro:assets';
-
-import NerdFace from '@assets/emojis/nerd-face_1f913-removebg-preview.png'
 ---
 <section class="hero-container" id="hero-section">
     <div class="texts-container">
-        <h1 class="texts-container__title">¡HOLA!<br>SOY NEHUEN CUENCA,</h1>
-        <h2 class="texts-container__subtitle">y soy un desarrollador web<br>en proceso 🤓.</h2>
+        <h1 class="texts-container__title">¡HOLA!<br>SOY <span class="highlighted">NEHUEN CUENCA</span></h1>
+        <h2 class="texts-container__subtitle">y soy un <strong>desarrollador web</strong><br>en proceso 🤓.</h2>
     </div>
     <div class="divider">
-        <div class="divider__line"></div>
+        <div class="divider__line divider__line_left"></div>
         <a href="#formation-section" class="arrow-button" aria-label="Next section">
             <Icon class='arrow-button__icon' name="bx:down-arrow-circle" size={40} />
         </a>
-        <div class="divider__line"></div>
+        <div class="divider__line divider__line_right"></div>
     </div>
 </section>
 
@@ -26,11 +23,11 @@ import NerdFace from '@assets/emojis/nerd-face_1f913-removebg-preview.png'
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
-        animation: fadeFromCenter 2s ease 0s 1 normal forwards;
     }
 
     .texts-container{
         margin: auto 0;
+        /* animation: fadeFromCenter 2s ease 0s 1 normal forwards; */
     }
 
     .texts-container__title, 
@@ -39,14 +36,26 @@ import NerdFace from '@assets/emojis/nerd-face_1f913-removebg-preview.png'
     }
 
     .texts-container__title{
-        font: normal normal 800 clamp(2.5rem, 12vw, 5rem) var(--display-font, Tahoma);
+        font: normal normal 100 clamp(2.5rem, 12vw, 5rem) var(--display-font, Tahoma);
         color: var(--color-titles);
         margin: 2rem 0 1rem 0;
+        animation: fadeFromCenter 1.5s ease 0s 1 normal forwards;
+    }
+
+    .highlighted{
+        font-weight: 800;
+	    color: var(--color-bg);
+        background-color: var(--color-titles);
+        border-radius: 15px;
+        padding: 0 10px;
+        letter-spacing: 2px;
     }
 
     .texts-container__subtitle{
         font: normal normal 150 clamp(1.7rem, 8vw, 3rem) var(--default-font, Arial);
         text-wrap: balance;
+        opacity: 0;
+        animation: fadeFromCenter 1s ease .5s 1 normal forwards;
     }
 
     .divider{
@@ -62,20 +71,66 @@ import NerdFace from '@assets/emojis/nerd-face_1f913-removebg-preview.png'
         width: calc(((100% / 2) - 2rem) - 10vw);
         height: 2px;
         background-color: var(--color-titles);
+        opacity: 0; 
+    }
+
+
+    .divider__line_left{
+        animation: scaleUpFromLeft 1.5s linear 1s 1 normal forwards;
+    }
+    .divider__line_right{
+        animation: scaleUpFromRight 1.5s linear 1s 1 normal forwards;
     }
 
     .arrow-button__icon{
         width: clamp(40px, 10vw, 70px);
         height: clamp(40px, 10vh, 70px);
+        opacity: 0;
+        animation: 
+            fadeFromCenter 1s ease 2.5s 1 normal forwards,
+            pulseRegular 1s ease 2.5s 7 normal forwards;
     }
 
-    @keyframes fadeFromCenter {
+    @keyframes pulseRegular {
+        0%, 100% { transform: scale(1); }
+
+        50% { transform: scale(1.1); }
+    }
+
+    @keyframes scaleUpFromLeft {
+        0%, 100%{ 
+            transform-origin: 0% 0%;
+            opacity: 1;
+        }
+        
+        0% { transform: scaleX(0); }
+        100% { transform: scaleX(1); }
+    }
+
+    @keyframes scaleUpFromRight {
+        0%, 100%{ 
+            transform-origin: 100% 0%;
+            opacity: 1;
+        }
+        
+        0% { transform: scaleX(0); }
+        100% { transform: scaleX(1); }
+    }
+
+    @keyframes fadeFromTop {
         0% {
             opacity: 0;
+            transform: translateY(-50px);
         }
 
         100% {
             opacity: 1;
+            transform: translateY(0);
         }
+    }
+
+    @keyframes fadeFromCenter {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
     }
 </style>
