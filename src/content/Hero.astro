@@ -3,8 +3,8 @@ import { Icon } from 'astro-icon/components';
 ---
 <section class="hero-container" id="hero-section">
     <div class="texts-container">
-        <h1 class="texts-container__title">¡HOLA!<br>SOY <span class="highlighted">NEHUEN CUENCA</span></h1>
-        <h2 class="texts-container__subtitle">y soy un <strong>desarrollador web</strong><br>en proceso 🤓.</h2>
+        <h1 class="texts-container__title">¡HOLA!<br>SOY <span class="highlighted">NEHUEN</span><span class="highlighted">CUENCA</span></h1>
+        <h2 class="texts-container__subtitle">y quiero superarme como <br> <strong>desarrollador web</strong> <span class="emoji-face">🐵</span></h2>
     </div>
     <div class="divider">
         <div class="divider__line divider__line_left"></div>
@@ -27,7 +27,6 @@ import { Icon } from 'astro-icon/components';
 
     .texts-container{
         margin: auto 0;
-        /* animation: fadeFromCenter 2s ease 0s 1 normal forwards; */
     }
 
     .texts-container__title, 
@@ -38,7 +37,7 @@ import { Icon } from 'astro-icon/components';
     .texts-container__title{
         font: normal normal 100 clamp(2.5rem, 12vw, 5rem) var(--display-font, Tahoma);
         color: var(--color-titles);
-        margin: 2rem 0 1rem 0;
+        margin: 1rem 0 1.5rem 0;
         animation: fadeFromCenter 1.5s ease 0s 1 normal forwards;
     }
 
@@ -46,9 +45,10 @@ import { Icon } from 'astro-icon/components';
         font-weight: 800;
 	    color: var(--color-bg);
         background-color: var(--color-titles);
-        border-radius: 15px;
         padding: 0 10px;
+        margin: 5px 0;
         letter-spacing: 2px;
+        display: inline-block;
     }
 
     .texts-container__subtitle{
@@ -56,6 +56,10 @@ import { Icon } from 'astro-icon/components';
         text-wrap: balance;
         opacity: 0;
         animation: fadeFromCenter 1s ease .5s 1 normal forwards;
+    }
+
+    .emoji-face{
+        font-size: clamp(2.5rem, 9vw, 3rem);
     }
 
     .divider{
@@ -86,9 +90,15 @@ import { Icon } from 'astro-icon/components';
         width: clamp(40px, 10vw, 70px);
         height: clamp(40px, 10vh, 70px);
         opacity: 0;
+        transition: scale .25s ease;
         animation: 
             fadeFromCenter 1s ease 2.5s 1 normal forwards,
             pulseRegular 1s ease 2.5s 7 normal forwards;
+    }
+
+    .arrow-button__icon:hover{
+        scale: 1.1;
+        animation-play-state: paused;
     }
 
     @keyframes pulseRegular {
