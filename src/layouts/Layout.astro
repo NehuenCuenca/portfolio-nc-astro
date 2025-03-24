@@ -25,7 +25,7 @@ import Footer from '@components/Footer.astro';
 	</head>
 	<body>
 		<header>
-			<Navbar client:load/>
+			<Navbar client:only="vue"/>
 		</header>
 		<slot />
 		<Footer />
@@ -135,6 +135,7 @@ import Footer from '@components/Footer.astro';
 
 	header {
 		width: 100%;
+		min-height: 10vh;
 		position: sticky;
 		top: 0;
 		z-index: 9;
@@ -152,6 +153,10 @@ import Footer from '@components/Footer.astro';
     	background-color: var(--color-bg);
     	border: 5px solid var(--color-titles);
     	border-radius: 10px;
+	}
+
+	strong {
+		color: var(--color-titles);
 	}
 
 	.modal__content{

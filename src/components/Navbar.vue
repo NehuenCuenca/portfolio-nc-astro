@@ -132,7 +132,7 @@ const toggleTheme = () => {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    animation: fadeInFromTop 1s ease 0s 1 normal forwards;
+    animation: fadeInFromTop .5s ease 0s 1 normal forwards;
 }
 
 
