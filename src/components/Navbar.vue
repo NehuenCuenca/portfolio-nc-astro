@@ -11,40 +11,42 @@
                 />
             </button>
 
-            <div class="mobile-menu" v-if="IsOnMobile" :class="IsMenuOpen ? 'mobile-menu_open' : ''" @click="toggleMenu(false)">
-                <div class="mobile-menu-content">                  
-                    <button v-if="currentTheme" type="button" @click="toggleMenu(false)" class="mobile-nav-button">
-                        <SvgByTheme :currentTheme="currentTheme"
-                            :lightSvg="BxXLight"
-                            :darkSvg="BxXDark" 
-                            :size="55" :altText="'BOTON CERRAR MENU'"
-                        />
-                    </button>
+            <Transition>
+                <div class="mobile-menu" v-if="IsOnMobile && IsMenuOpen" :class="IsMenuOpen ? 'mobile-menu_open' : ''" @click="toggleMenu(false)">
+                    <div class="mobile-menu-content">                  
+                        <button v-if="currentTheme" type="button" @click="toggleMenu(false)" class="mobile-nav-button">
+                            <SvgByTheme :currentTheme="currentTheme"
+                                :lightSvg="BxXLight"
+                                :darkSvg="BxXDark" 
+                                :size="55" :altText="'BOTON CERRAR MENU'"
+                            />
+                        </button>
 
-                    <button v-if="currentTheme" type="button" class="mobile-nav-button" @click="toggleTheme">
-                        <SvgByTheme :currentTheme="currentTheme"
-                            :lightSvg="BxMoon"
-                            :darkSvg="BxSun" 
-                            :size="40" :altText="'BOTON ALTERNAR TEMA'"
-                        />
-                    </button>
+                        <button v-if="currentTheme" type="button" class="mobile-nav-button" @click="toggleTheme">
+                            <SvgByTheme :currentTheme="currentTheme"
+                                :lightSvg="BxMoon"
+                                :darkSvg="BxSun" 
+                                :size="40" :altText="'BOTON ALTERNAR TEMA'"
+                            />
+                        </button>
 
-                    <ul class="mobile-links-sections-list">
-                        <li class="mobile-links-sections-list__link-item">
-                            <a @click="toggleMenu(false)" class="mobile-nav-link" href="#formation-section">Formacion</a>
-                        </li>
-                        <li class="mobile-links-sections-list__link-item">
-                            <a @click="toggleMenu(false)" class="mobile-nav-link" href="#projects-section">Proyectos</a>
-                        </li>
-                        <li class="mobile-links-sections-list__link-item">
-                            <a @click="toggleMenu(false)" class="mobile-nav-link" href="#services-section">Servicios</a>
-                        </li>
-                        <li class="mobile-links-sections-list__link-item">
-                            <a @click="toggleMenu(false)" class="mobile-nav-link" href="#contact-section">Contacto</a>
-                        </li>
-                    </ul>
+                        <ul class="mobile-links-sections-list">
+                            <li class="mobile-links-sections-list__link-item">
+                                <a @click="toggleMenu(false)" class="mobile-nav-link" href="#formation-section">Formacion</a>
+                            </li>
+                            <li class="mobile-links-sections-list__link-item">
+                                <a @click="toggleMenu(false)" class="mobile-nav-link" href="#projects-section">Proyectos</a>
+                            </li>
+                            <li class="mobile-links-sections-list__link-item">
+                                <a @click="toggleMenu(false)" class="mobile-nav-link" href="#services-section">Servicios</a>
+                            </li>
+                            <li class="mobile-links-sections-list__link-item">
+                                <a @click="toggleMenu(false)" class="mobile-nav-link" href="#contact-section">Contacto</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
+            </Transition>
         </div>
 
 
@@ -132,7 +134,8 @@ const toggleTheme = () => {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    animation: fadeInFromTop .5s ease 0s 1 normal forwards;
+    opacity: 0;
+    animation: fadeInFromTop .5s ease 1.5s 1 normal forwards;
 }
 
 
@@ -140,12 +143,30 @@ const toggleTheme = () => {
     position: absolute;
     top: 0;
     left: 0;
-    height: 100vh;
+    height: 0;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     color: var(--color-titles);
     display: none;
     overflow-y: hidden;
+}
+
+.mobile-menu_open {
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }
 
 .mobile-menu-content {
@@ -158,15 +179,6 @@ const toggleTheme = () => {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-}
-
-
-.mobile-menu_open {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-    animation: fadeInFromCenter .5s ease 0s 1 normal forwards;
 }
 
 .mobile-nav-button {}
@@ -269,16 +281,6 @@ const toggleTheme = () => {
     100% {
         opacity: 1;
         transform: translateY(0);
-    }
-}
-
-@keyframes fadeInFromCenter {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
     }
 }
 </style>
