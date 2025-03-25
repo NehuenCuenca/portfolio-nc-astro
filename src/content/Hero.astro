@@ -49,13 +49,14 @@ import { Icon } from 'astro-icon/components';
         margin: 5px 0;
         letter-spacing: 2px;
         display: inline-block;
+        transition: color .25s ease, background .25s ease;
     }
 
     .texts-container__subtitle{
         font: normal normal 150 clamp(1.7rem, 8vw, 3rem) var(--default-font, Arial);
         text-wrap: balance;
         opacity: 0;
-        animation: fadeFromCenter 1s ease .5s 1 normal forwards;
+        animation: fadeFromTop 1s ease .5s 1 normal forwards;
     }
 
     .emoji-face{
@@ -80,10 +81,10 @@ import { Icon } from 'astro-icon/components';
 
 
     .divider__line_left{
-        animation: scaleUpFromLeft 1.5s linear 1s 1 normal forwards;
+        animation: scaleUpFromLeft .8s linear 1s 1 normal forwards;
     }
     .divider__line_right{
-        animation: scaleUpFromRight 1.5s linear 1s 1 normal forwards;
+        animation: scaleUpFromRight .8s linear 1s 1 normal forwards;
     }
 
     .arrow-button__icon{
@@ -92,8 +93,8 @@ import { Icon } from 'astro-icon/components';
         opacity: 0;
         transition: scale .25s ease;
         animation: 
-            fadeFromCenter 1s ease 2.5s 1 normal forwards,
-            pulseRegular 1s ease 2.5s 7 normal forwards;
+            fadeFromCenter 1s ease 1.8s 1 normal forwards,
+            pulseRegular 1s ease 1.8s 7 normal forwards;
     }
 
     .arrow-button__icon:hover{
