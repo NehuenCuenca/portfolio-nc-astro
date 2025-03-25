@@ -25,10 +25,25 @@ const { drawerName, drawerIcon, toolsImages } = Astro.props;
 
     .skills-list-item__dropdown-button{
         width: 100%;
-        padding: 0;
+        padding: .5rem 1rem;
         display: flex;
         align-items: center;
         gap: 1rem;
+        transition: border .3s ease;
+        border: 2px dashed var(--color-font);
+        border-top: 2px dashed transparent;
+        border-radius: 0 0 20px 20px;
+        transition: background .3s ease;
+    }
+
+    .skills-list-item__dropdown-button:hover{
+        background-color: var(--color-details);
+        border: 2px solid var(--color-font);
+        border-top: 2px solid transparent;
+    }
+    .skills-list-item__dropdown-button:has(.arrow-button_opened){
+        border: 2px dashed transparent;
+        background-color: transparent;
     }
 
     .arrow-button{
@@ -75,7 +90,7 @@ const { drawerName, drawerIcon, toolsImages } = Astro.props;
         height: var(--icon-size);
     }
     .skill-name{
-        font: normal normal 400 clamp(2rem, 5vw, 2.5rem) var(--display-font, Tahoma);
+        font: normal normal 400 clamp(2rem, 4.5vw, 2.5rem) var(--display-font, Tahoma);
         color: var(--color-titles);
     }
 
