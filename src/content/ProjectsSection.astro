@@ -172,6 +172,8 @@ import ArenaMobileInicio from '@assets/projects/ArenaMobileInicio.webp'
         flex-direction: column;
         align-items: center;
         position: relative;
+        transition: border .3s ease;
+        border: 3px solid transparent;
     }
 
     .projects-list-item__image,
@@ -186,7 +188,12 @@ import ArenaMobileInicio from '@assets/projects/ArenaMobileInicio.webp'
         height: 50vh;
         top: -4rem;
         rotate: 5deg;
-        transition: rotate .3s ease;
+        border: 3px solid transparent;
+        transition: rotate .5s ease;
+    }
+
+    .projects-list-item:hover {
+        border: 3px solid var(--color-font);
     }
 
     .projects-list-item:hover .projects-list-item__image{
