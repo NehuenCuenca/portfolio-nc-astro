@@ -12,7 +12,7 @@
             </button>
 
             <Transition>
-                <div class="mobile-menu" v-if="IsOnMobile && IsMenuOpen" :class="IsMenuOpen ? 'mobile-menu_open' : ''" @click="toggleMenu(false)">
+                <div class="mobile-menu" v-if="isOnMobile && isMenuOpen" :class="isMenuOpen ? 'mobile-menu_open' : ''" @click="toggleMenu(false)">
                     <div class="mobile-menu-content">                  
                         <button v-if="currentTheme" type="button" @click="toggleMenu(false)" class="mobile-nav-button">
                             <SvgByTheme :currentTheme="currentTheme"
@@ -80,7 +80,7 @@
 </template>
 
 <script setup>
-import { ref, onBeforeMount } from 'vue'
+import { ref, onBeforeMount, computed } from 'vue'
 import SvgByTheme from '@components/SvgByTheme.vue';
 import { calculateSettingAsThemeString, updateThemeOnHtmlEl } from 'src/helpers/theme';
 
@@ -92,8 +92,7 @@ import BxMoon from '@assets/svgs/BxMoon.svg'
 import BxSun from '@assets/svgs/BxSun.svg'
 
 const currentTheme = ref(null);
-const IsMenuOpen = ref(false);
-const IsOnMobile = ref(false);
+const isMenuOpen = ref(false);
 
 onBeforeMount(() => {
     const localStorageTheme = localStorage.getItem("theme");
@@ -102,15 +101,14 @@ onBeforeMount(() => {
         
     updateThemeOnHtmlEl({ theme: currentThemeSetting });
     currentTheme.value = currentThemeSetting
-
-    IsOnMobile.value = isMobile()
 })
 
-const toggleMenu = (bool) => {
-    IsMenuOpen.value = bool
-}
+const toggleMenu = (bool) => isMenuOpen.value = bool
 
-const isMobile = () => /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+const isOnMobile = computed(() => {
+    const tabWidthIsLessThanTablet = window.innerWidth <= 768
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || tabWidthIsLessThanTablet
+})
 
 const toggleTheme = () => { 
     const newTheme = (currentTheme.value === 'light') ? 'dark': 'light'
