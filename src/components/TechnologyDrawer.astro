@@ -13,8 +13,8 @@ const { drawerName, drawerIcon, toolsImages } = Astro.props;
     </button>
     
     <ul class="technologies-list">
-        {toolsImages.map( (toolImage) => <li class="technologies-list-item">
-            <Image class="technologies-list-item__technology-image" src={toolImage} alt={`Logo de tecnologia ${drawerName}`} title={`Logo de tecnologia ${drawerName}`}/>
+        {Object.keys(toolsImages).map( (toolName) => <li class="technologies-list-item">
+            <Image class="technologies-list-item__technology-image" src={toolsImages[toolName]} alt={`${toolName.toUpperCase()}`} title={`${toolName.toUpperCase()}`}/>
         </li>)}
     </ul>
 </li>

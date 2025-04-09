@@ -1,32 +1,6 @@
 ---
-
-import LogoHTML from '@assets/technologies/html-logo-removebg-preview.webp'
-import LogoJavascript from '@assets/technologies/javascript-logo-removebg-preview.webp'
-import LogoCss from '@assets/technologies/css-logo-removebg-preview.webp'
-import LogoVue from '@assets/technologies/vue-logo-removebg-preview.webp'
-import LogoReact from '@assets/technologies/react-logo-removebg-preview.webp'
-import LogoMySql from '@assets/technologies/mysql-logo-removebg-preview.webp'
-import LogoPostgreSql from '@assets/technologies/postgresql-logo-removebg-preview.webp'
-import LogoPhp from '@assets/technologies/php-logo-removebg-preview.webp'
-import LogoLaravel from '@assets/technologies/laravel-logo-removebg-preview.webp'
-import LogoNode from '@assets/technologies/node-logo-removebg-preview.webp'
-import LogoExpress from '@assets/technologies/express-logo-removebg-preview.webp'
-import LogoFigma from '@assets/technologies/figma-logo-removebg-preview.webp'
-import LogoPhotoScape from '@assets/technologies/photoscape-x-logo-removebg-preview.webp'
-import LogoPostman from '@assets/technologies/postman-logo-removebg-preview.webp'
-import LogoNotion from '@assets/technologies/notion-logo-removebg-preview.webp'
-import LogoNetlify from '@assets/technologies/netlify-logo-removebg-preview.webp'
-import LogoGit from '@assets/technologies/git-logo-removebg-preview.webp'
-import LogoGithub from '@assets/technologies/github-logo-removebg-preview.webp'
-import LogoVite from '@assets/technologies/Vitejs-logo.webp'
-import LogoVitest from '@assets/technologies/vitest-logo-removebg-preview.webp'
-import TechnologyDrawer from "@components/TechnologyDrawer.astro";
-
-const frontendToolsImages = [LogoHTML,LogoCss,LogoJavascript,LogoVue,LogoReact,LogoVite,LogoVitest]
-const backendToolsImages = [LogoMySql,LogoPostgreSql,LogoPhp,LogoLaravel,LogoNode,LogoExpress]
-const designToolsImages = [LogoFigma,LogoPhotoScape]
-const othersToolsImages = [LogoGit,LogoGithub,LogoPostman,LogoNetlify,LogoNotion]
-
+import toolImages from '@assets/technologies'
+import TechnologyDrawer from '@components/TechnologyDrawer.astro';
 ---
 
 <section class="technologies-container" id="technologies-section">
@@ -35,10 +9,10 @@ const othersToolsImages = [LogoGit,LogoGithub,LogoPostman,LogoNetlify,LogoNotion
         <h2 class="container-headings__subtitle">Herramientas con las que me familiarizo</h2>
     </div>
     <ul class="skills-list">
-        <TechnologyDrawer drawerName="Frontend" drawerIcon="bx:slideshow" toolsImages={frontendToolsImages} />
-        <TechnologyDrawer drawerName="Backend" drawerIcon="bx:data" toolsImages={backendToolsImages} />
-        <TechnologyDrawer drawerName="Diseño" drawerIcon="bx:paint" toolsImages={designToolsImages} />
-        <TechnologyDrawer drawerName="Otros" drawerIcon="bx:wrench" toolsImages={othersToolsImages} />
+        <TechnologyDrawer drawerName="Frontend" drawerIcon="bx:slideshow" toolsImages={toolImages.frontendToolsImages} />
+        <TechnologyDrawer drawerName="Backend" drawerIcon="bx:data" toolsImages={toolImages.backendToolsImages} />
+        <TechnologyDrawer drawerName="Diseño" drawerIcon="bx:paint" toolsImages={toolImages.designToolsImages} />
+        <TechnologyDrawer drawerName="Otros" drawerIcon="bx:wrench" toolsImages={toolImages.othersToolsImages} />
     </ul>
 </section>
 
