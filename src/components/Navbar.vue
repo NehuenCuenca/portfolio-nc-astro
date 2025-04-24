@@ -1,5 +1,5 @@
 <template>
-    <nav>
+    <nav ref="navbarRootElement">
         <div class="nav-mobile">
             <button v-if="currentTheme" type="button" @click="toggleMenu(true)" class="mobile-nav-button">
                 <SvgByTheme :currentTheme="currentTheme"
@@ -101,7 +101,7 @@
 </template>
 
 <script setup>
-import { ref, onBeforeMount, computed } from 'vue'
+import { ref, onBeforeMount, onMounted, computed } from 'vue'
 import SvgByTheme from '@components/SvgByTheme.vue';
 import { calculateSettingAsThemeString, updateThemeOnHtmlEl } from 'src/helpers/theme';
 
@@ -120,6 +120,9 @@ const currentTheme = ref(null);
 const currentLanguage = ref(navigator.language);
 const isMenuOpen = ref(false);
 
+const navbarRootElement = ref(null)
+
+
 onBeforeMount(() => {
     const localStorageTheme = localStorage.getItem("theme");
     const systemSettingDark = window.matchMedia("(prefers-color-scheme: dark)");
@@ -127,6 +130,29 @@ onBeforeMount(() => {
         
     updateThemeOnHtmlEl({ theme: currentThemeSetting });
     currentTheme.value = currentThemeSetting
+})
+
+onMounted(() => {
+    const observer = new IntersectionObserver( (entries) => {
+        entries.forEach((entry) => {
+            if(entry.isIntersecting){
+                const navLinks = Array.from(document.querySelectorAll('.nav-link'))
+                navLinks.forEach((navLink) => {
+                    const navLinkParentClassList= navLink.parentElement.classList
+                    if( navLinkParentClassList.contains('links-sections-list__link-item_watching-section') ){ navLinkParentClassList.remove('links-sections-list__link-item_watching-section')}
+                
+                    const navLinkHrefHash = new URL(navLink.href).hash
+                    const intersectedSectionId = `#${entry.target.id}`
+                    if( intersectedSectionId === navLinkHrefHash ) {
+                        navLinkParentClassList.add('links-sections-list__link-item_watching-section')
+                    }
+                })
+            }
+        })
+    }, { threshold: 0.25 })
+
+    const sections = Array.from(document.querySelectorAll('section'))
+    sections.forEach((section) => observer.observe(section))
 })
 
 const toggleMenu = (bool) => isMenuOpen.value = bool
@@ -161,8 +187,8 @@ const toggleTheme = () => {
     color: var(--color-titles);
     display: flex;
     align-items: center;
-    /* opacity: 0; */
-    /* animation: fadeInFromTop .5s ease 1.5s 1 normal forwards; */
+    opacity: 0;
+    animation: fadeInFromTop .5s ease 1.5s 1 normal forwards;
 }
 
 .nav-mobile { justify-content: end; }
@@ -234,10 +260,6 @@ const toggleTheme = () => {
     text-decoration: none;
 }
 
-.home-link {
-    font-size: clamp(2rem, 3.5vw, 2.5rem);
-}
-
 .nav-button {
     color: var(--color-font);
     cursor: pointer;
@@ -248,14 +270,16 @@ const toggleTheme = () => {
     scale: 1.2;
 }
 
-.links-sections-list__link-item {
+.links-sections-list__link-item,
+.links-sections-list__link-item_watching-section {
     display: block;
     height: 100%;
     position: relative;
     transition: all 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-.links-sections-list__link-item:after {
+.links-sections-list__link-item:after,
+.links-sections-list__link-item_watching-section:after {
     content: "";
     position: absolute;
     width: 0%;
@@ -265,7 +289,8 @@ const toggleTheme = () => {
     bottom: 0%;
 }
 
-.links-sections-list__link-item:hover::after {
+.links-sections-list__link-item:hover::after,
+.links-sections-list__link-item_watching-section::after {
     width: 100%;
     height: 3px;
     background-color: var(--color-titles);
