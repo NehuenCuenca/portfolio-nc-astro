@@ -187,10 +187,10 @@ const toggleTheme = () => {
     display: flex;
     align-items: center;
     opacity: 0;
-    animation: fadeInFromTop .5s ease 1.5s 1 normal forwards;
+    animation: fadeInFromTop .5s ease 3s 1 normal forwards;
 }
 
-.nav-mobile { justify-content: end; }
+.nav-mobile { justify-content: center; }
 .nav-desktop { justify-content: space-between; }
 
 

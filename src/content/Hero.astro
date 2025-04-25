@@ -72,7 +72,7 @@ const devFaces = [normalFace, trollFace, sillyFace, seriousFace]
         font: normal normal 400 clamp(3rem, 12vw, 5rem) var(--display-font, Tahoma);
         color: var(--color-titles);
         margin: 1rem 0 1.5rem 0;
-        animation: fadeFromCenter 1.5s ease 0s 1 normal forwards;
+        animation: fadeFromCenter .5s ease 0s 1 normal forwards;
     }
 
     .highlighted{
@@ -89,18 +89,21 @@ const devFaces = [normalFace, trollFace, sillyFace, seriousFace]
     .texts-container__subtitle{
         font: normal normal 600 clamp(2rem, 8vw, 3rem) var(--default-font, Arial);
         color: var(--color-titles);
+        animation: fadeFromTop 1s ease .5s 1 normal forwards;
+
     }
 
     .texts-container_phrase{
-        font: italic normal 300 clamp(1.2rem, 4vw, 2rem) var(--default-font, Arial);
+        font: italic normal 300 clamp(1.5rem, 4vw, 2rem) var(--default-font, Arial);
         color: var(--color-font);
+        animation: fadeFromTop 1s ease 1s 1 normal forwards;
+
     }
 
     .texts-container__subtitle,
     .texts-container_phrase {
         text-wrap: balance;
         opacity: 0;
-        animation: fadeFromTop 1s ease .5s 1 normal forwards;
     }
 
     .dev-face{
@@ -111,7 +114,7 @@ const devFaces = [normalFace, trollFace, sillyFace, seriousFace]
         position: relative;
         right: 80px;
         font: normal normal 150 clamp(1.7rem, 8vw, 2rem) var(--default-font, Arial);
-        animation: entryFromLeft 1s ease 2s 1 normal forwards;
+        animation: entryFromLeft .5s ease 3s 1 normal forwards;
     }
 
     .divider{
@@ -133,10 +136,10 @@ const devFaces = [normalFace, trollFace, sillyFace, seriousFace]
 
 
     .divider__line_left{
-        animation: scaleUpFromLeft .8s linear 1s 1 normal forwards;
+        animation: scaleUpFromLeft 1s linear 2s 1 normal forwards;
     }
     .divider__line_right{
-        animation: scaleUpFromRight .8s linear 1s 1 normal forwards;
+        animation: scaleUpFromRight 1s linear 2s 1 normal forwards;
     }
 
     .arrow-button__icon{
@@ -145,8 +148,8 @@ const devFaces = [normalFace, trollFace, sillyFace, seriousFace]
         opacity: 0;
         transition: scale .25s ease;
         animation: 
-            fadeFromCenter 1s ease 1.8s 1 normal forwards,
-            pulseRegular 1s ease 1.8s 7 normal forwards;
+            fadeFromCenter 1s ease 3s 1 normal forwards,
+            pulseRegular 1s ease 3s 7 normal forwards;
     }
 
     .arrow-button__icon:hover{
