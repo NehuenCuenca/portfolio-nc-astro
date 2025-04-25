@@ -12,8 +12,8 @@
   "dependencies": {
     "@astrojs/vue": "^4.2.0",
     "@emailjs/browser": "^4.3.3",
+    "@fontsource-variable/nunito": "^5.2.5",
     "@fontsource/lemon": "^5.0.20",
-    "@fontsource/manjari": "^5.0.21",
     "@iconify-json/mdi": "^1.1.66",
     "astro": "^4.7.1",
     "astro-icon": "^1.1.0",

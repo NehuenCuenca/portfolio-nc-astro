@@ -12,7 +12,8 @@ const devFaces = [normalFace, trollFace, sillyFace, seriousFace]
 <section class="hero-container" id="hero-section">
     <div class="texts-container">
         <h1 class="texts-container__title">¡HOLA!<br>SOY <span class="highlighted">NEHUEN</span><span class="highlighted">CUENCA</span><img class="dev-face" src={devFaces[0].src} alt="Cara de Nehuen"></h1>
-        <h2 class="texts-container__subtitle">y quiero superarme como <br> <strong>desarrollador web</strong></h2>
+        <h2 class="texts-container__subtitle">Desarrollador web enfocado en UX/UI.</h2>
+        <h3 class="texts-container_phrase">“Construyo sitios que no solo funcionan, sino que destacan.”</h3>
     </div>
     <div class="divider">
         <div class="divider__line divider__line_left"></div>
@@ -64,15 +65,11 @@ const devFaces = [normalFace, trollFace, sillyFace, seriousFace]
 
     .texts-container{
         margin: auto 0;
-    }
-
-    .texts-container__title, 
-    .texts-container__subtitle {
         text-align: center;
     }
 
     .texts-container__title{
-        font: normal normal 100 clamp(2.5rem, 12vw, 5rem) var(--display-font, Tahoma);
+        font: normal normal 400 clamp(3rem, 12vw, 5rem) var(--display-font, Tahoma);
         color: var(--color-titles);
         margin: 1rem 0 1.5rem 0;
         animation: fadeFromCenter 1.5s ease 0s 1 normal forwards;
@@ -90,7 +87,17 @@ const devFaces = [normalFace, trollFace, sillyFace, seriousFace]
     }
 
     .texts-container__subtitle{
-        font: normal normal 150 clamp(1.7rem, 8vw, 3rem) var(--default-font, Arial);
+        font: normal normal 600 clamp(2rem, 8vw, 3rem) var(--default-font, Arial);
+        color: var(--color-titles);
+    }
+
+    .texts-container_phrase{
+        font: italic normal 300 clamp(1.2rem, 4vw, 2rem) var(--default-font, Arial);
+        color: var(--color-font);
+    }
+
+    .texts-container__subtitle,
+    .texts-container_phrase {
         text-wrap: balance;
         opacity: 0;
         animation: fadeFromTop 1s ease .5s 1 normal forwards;
@@ -114,6 +121,7 @@ const devFaces = [normalFace, trollFace, sillyFace, seriousFace]
         justify-content: center;
         gap: 1rem;
         color: var(--color-titles);
+        align-self: flex-end;
     }
 
     .divider__line{
