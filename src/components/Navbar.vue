@@ -10,7 +10,7 @@
             </button>
 
             <Transition>
-                <div class="mobile-menu" v-if="isOnMobile && isMenuOpen" :class="isMenuOpen ? 'mobile-menu_open' : ''" >
+                <div class="mobile-menu" v-if="isMenuOpen" :class="isMenuOpen ? 'mobile-menu_open' : ''" >
                     <div class="mobile-menu-content">                  
                         <button v-if="currentTheme" type="button" @click="toggleMenu(false)" class="mobile-nav-button">
                             <SvgByTheme :currentTheme="currentTheme"
@@ -21,6 +21,9 @@
                         </button>
 
                         <ul class="mobile-links-sections-list">
+                            <li class="mobile-links-sections-list__link-item">
+                                <a @click="toggleMenu(false)" class="mobile-nav-link" href="#hero-section">Inicio</a>
+                            </li>
                             <li class="mobile-links-sections-list__link-item">
                                 <a @click="toggleMenu(false)" class="mobile-nav-link" href="#formation-section">Formación</a>
                             </li>
@@ -101,7 +104,7 @@
 </template>
 
 <script setup>
-import { ref, onBeforeMount, onMounted, computed } from 'vue'
+import { ref, onBeforeMount, onMounted } from 'vue'
 import SvgByTheme from '@components/SvgByTheme.vue';
 import { calculateSettingAsThemeString, updateThemeOnHtmlEl } from 'src/helpers/theme';
 
@@ -136,20 +139,20 @@ onMounted(() => {
     const observer = new IntersectionObserver( (entries) => {
         entries.forEach((entry) => {
             if(entry.isIntersecting){
-                const navLinks = Array.from(document.querySelectorAll('.nav-link'))
+                const navLinks = Array.from(navbarRootElement.value.querySelectorAll('.nav-link'))
                 navLinks.forEach((navLink) => {
                     const navLinkParentClassList= navLink.parentElement.classList
                     if( navLinkParentClassList.contains('links-sections-list__link-item_watching-section') ){ navLinkParentClassList.remove('links-sections-list__link-item_watching-section')}
                 
                     const navLinkHrefHash = new URL(navLink.href).hash
-                    const intersectedSectionId = `#${entry.target.id}`
+                    const intersectedSectionId = `#${entry.target.id}` 
                     if( intersectedSectionId === navLinkHrefHash ) {
                         navLinkParentClassList.add('links-sections-list__link-item_watching-section')
                     }
                 })
             }
         })
-    }, { threshold: 0.25 })
+    }, { threshold: 0.3 })
 
     const sections = Array.from(document.querySelectorAll('section'))
     sections.forEach((section) => observer.observe(section))
@@ -157,10 +160,6 @@ onMounted(() => {
 
 const toggleMenu = (bool) => isMenuOpen.value = bool
 
-const isOnMobile = computed(() => {
-    const tabWidthIsLessThanTablet = window.innerWidth <= 768
-    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || tabWidthIsLessThanTablet
-})
 
 const toggleI18n = () => { 
     alert('COMING SOON')
