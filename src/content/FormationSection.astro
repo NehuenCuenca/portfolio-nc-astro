@@ -1,24 +1,30 @@
 ---
-
+import { Image } from "astro:assets";
+import SedesSapientiaeLogo from '@assets/svgs/Formation/sedes-sapientiae-logo.svg'
+import UdemyLogo from '@assets/svgs/Formation/udemy-logo.svg'
+import CodekiLogo from '@assets/svgs/Formation/codeki-logo.svg'
 ---
 
 <section class="formation-container" id="formation-section">
     <div class="container-headings">
-        <h1 class="container-headings__title">Mi formacion</h1>
+        <h1 class="container-headings__title">Mi formación</h1>
         <h2 class="container-headings__subtitle">Con quien y donde aprendí mis habilidades de desarrollador</h2>
     </div>
     <ul class="formation-list">
         <li class="formation-list-item">
-            <h2 class="formation-list-item__title">Técnico Superior en Análisis y Desarrollo de Software (2018 - 2022)</h2>
-            <p class="formation-list-item__paragraph">Estudie la tecnicatura en el instituto Sedes Sapientiae, donde conocí las bases de la programación, lógica, base de datos y redes. </p>
+            <h2 class="formation-list-item__title">Tecnicatura Sup. en Análisis y Desarrollo de Software <br> <span class="sm-font">(2018 - 2022)</span></h2>
+            <p class="formation-list-item__paragraph">Acá <strong>estudie los fundamentos de la programación</strong>, lógica, base de datos y redes. Además <strong>aprendí a desarrollar en equipo</strong> y lograr una experiencia cercana a un proyecto real.</p>
+            <Image src={SedesSapientiaeLogo} alt="Logo de instituto Sedes Sapientie" class="formation-list-item__floated-logo"/>
         </li>
         <li class="formation-list-item">
             <h2 class="formation-list-item__title">Cursos en plataformas online</h2>
-            <p class="formation-list-item__paragraph">Me profesionalizo tomando cursos en plataformas como Udemy, FreeCodeCamp y Youtube. He reclamado certificaciones de Vue 3, Git y GitHub, Node.js, etc...</p>
+            <p class="formation-list-item__paragraph">Me profesionalizo tomando cursos en plataformas como Udemy, FreeCodeCamp y Youtube. <strong>He reclamado certificaciones de Vue 3, Git y GitHub, Node.js, etc...</strong></p>
+            <Image src={UdemyLogo} alt="Logo de plataforma educativa online Udemy" class="formation-list-item__floated-logo"/>
         </li>
         <li class="formation-list-item">
             <h2 class="formation-list-item__title">Aprendizaje continuo</h2>
-            <p class="formation-list-item__paragraph">A dia de hoy trato de mantenerme actualizado con las tecnologías y novedades que emergen en la comunidad IT, realizando proyectos personales. </p>
+            <p class="formation-list-item__paragraph">Hoy <strong>encamino mis estudios como diseñador de estrategias UX/UI</strong> (certif. de UBA y Codeki) para potenciar mi aptitud de Frontend. Además <strong>continuaré con el curso de reparación de PC’s</strong> (Comunidad Reparando).</p>
+            <Image src={CodekiLogo} alt="Logo de plataforma educativa online Codeki" class="formation-list-item__floated-logo formation-list-item__floated-logo_codeki"/>
         </li>
     </ul>
     <a class="download-cv-button" href="/NehuenCuenca-CV-ESP.pdf" download>Descargar CV</a>
@@ -30,10 +36,11 @@
         flex-direction: column;
         align-items: center;
         gap: 2rem;
-        padding: 2rem 1rem;
+        padding: 2rem 0;
         animation: fadeInWhileScroll linear forwards;
         animation-timeline: view();
         animation-range-end: 70vh;
+        overflow: hidden;
     }
 
     .formation-list, .formation-list-item{
@@ -43,16 +50,18 @@
     }
 
     .formation-list{
-        padding: 0 2rem;
-        gap: 3rem;
+        row-gap: 20dvh;
     }
     .formation-list-item{
+        position: relative;
         gap: 1rem;
     }
 
     .formation-list-item__title, .formation-list-item__paragraph{
+        padding: 0 2rem;
         text-align: center;
         text-wrap: balance;
+        width: clamp(300px, 100%, 600px);
     }
 
     .formation-list-item__title{
@@ -60,7 +69,35 @@
         color: var(--color-titles);
     }
     .formation-list-item__paragraph{
-        font: normal normal 200 clamp(1.5rem, 7vw, 1.7rem) var(--default-font, Arial);
+        font: normal normal 400 clamp(1.5rem, 7vw, 1.7rem) var(--default-font, Arial);
+    }
+
+    .sm-font{
+        font: normal normal 400 clamp(1rem, 8vw, 1.5rem) var(--display-font, Tahoma);
+    }
+
+    .formation-list-item__floated-logo{
+        position: absolute;
+        height: auto;
+        width: clamp(20dvw, 70%, 60dvw);
+        opacity: 40%;
+        bottom: -30%;
+        z-index: -1;
+    }
+
+    .formation-list-item:nth-child(odd) .formation-list-item__floated-logo{
+        rotate: -30deg;
+        right: -10%;
+    }
+    .formation-list-item:nth-child(even) .formation-list-item__floated-logo{
+        rotate: 30deg;
+        left: -10%;
+
+    }
+
+    .formation-list-item__floated-logo_codeki { 
+        transform: rotateZ(0.20turn);
+        bottom: -20%;
     }
     
     .download-cv-button{
@@ -77,20 +114,34 @@
         background-color: var(--color-font);
     }
     
-    @media (width >= 700px) {
+    @media (width >= 700px) {  
         .formation-list{
-            gap: 3rem;
-        }
-        .formation-list-item{
-            flex-direction: row;
-            justify-content: center;
-        }
-        .formation-list-item__title, .formation-list-item__paragraph{
-            width: 50%;
+            row-gap: 10dvh;
+        }      
+        .formation-list-item__floated-logo{
+            width: clamp(20dvw, 35%, 40dvw);
+            bottom: -50%;
         }
 
-        .formation-list-item:nth-child(even){
-            flex-direction: row-reverse;
+        .formation-list-item:nth-child(odd) .formation-list-item__floated-logo{
+            right: -10%;
+        }
+        .formation-list-item:nth-child(even) .formation-list-item__floated-logo{
+            left: -10%;
+        }
+    }
+
+    @media (width >= 1280px) {  
+        .formation-list-item__floated-logo{
+            width: clamp(20dvw, 40%, 25dvw);
+            bottom: -50%;
+        }
+
+        .formation-list-item:nth-child(odd) .formation-list-item__floated-logo{
+            right: -5%;
+        }
+        .formation-list-item:nth-child(even) .formation-list-item__floated-logo{
+            left: -5%;
         }
     }
 
