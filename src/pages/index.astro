@@ -12,18 +12,24 @@ import ContactSection from '@content/ContactSection.astro';
 	<main class="main-container">
 		<Hero />
 		<FormationSection />
-		<ProjectsSection />
-		<TechnologiesSection />
+		<div class="different-bg">
+			<TechnologiesSection />
+			<ProjectsSection />
+		</div>
 		<ServicesSection />
 		<ContactSection />
 	</main>
 </Layout>
 
 <style>
-	.main-container{
+	.main-container, .different-bg{
 		display: flex;
 		flex-direction: column;
 		gap: 5rem;
+	}
+
+	.different-bg{
+		background-color: var(--color-details);
 	}
 </style>
 
