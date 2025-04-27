@@ -1,0 +1,97 @@
+---
+import { Icon } from "astro-icon/components";
+
+const { skillIcon, skillName, skillDescription, technologiesList } = Astro.props;
+---
+
+<li class="skill-card-item">
+    <div class="skill-card-item-heading">
+        <Icon class="skill-card-item-heading__icon" name={skillIcon} size={60}/>
+        <h3 class="skill-card-item-heading__title">{ skillName }</h3>
+    </div>
+    <p class="skill-card-item__description">{ skillDescription }</p>
+    <ul class="skill-card-item__technologies-list">
+        {
+            technologiesList.map( ({techIcon, techName}) => <li class="technology-card-item">
+                <Icon class="technology-card-item__icon" name={techIcon} size={30}/>
+                <h4 class="technology-card-item__name">{techName}</h4>
+            </li>)
+        }
+    </ul>
+</li>
+
+<style>
+    .skill-card-item {
+        width: clamp(340px, 100%, 400px);
+        background-color: var(--color-bg);
+        padding: 2rem 1rem;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem 0;
+    }
+
+    .skill-card-item-heading{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: .5rem;
+    }
+
+    .skill-card-item-heading__icon {
+        color: var(--color-font);
+    }
+
+    .skill-card-item-heading__title {
+        font: normal normal 500 clamp(2rem, 8vw, 2.5rem) var(--display-font, Tahoma);
+        color: var(--color-titles);
+    }
+
+    .skill-card-item__description {
+        font: normal normal 400 clamp(1.1rem, 5vw, 1.4rem) var(--default-font, Arial);
+        color: var(--color-font);
+        text-align: center;
+        max-width: 90%;
+    }
+
+    .skill-card-item__technologies-list {
+        margin-top: 1rem;
+        min-height: 100px;
+        width: 90%;
+        display: grid;
+        justify-content: center;
+        grid-template-columns: repeat(2, clamp(120px, 45%, 150px));
+        gap: 1rem;
+    }
+
+    .technology-card-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: .5rem 0;
+        border: 1px solid var(--color-titles);
+        border-radius: 5px;
+        padding: .5rem 0;
+    }
+    .technology-card-item__icon {
+        width: clamp(35px, 30%, 80px);
+        height: clamp(35px, 30%, 80px);
+        color: var(--color-font);
+
+    }
+    .technology-card-item__name {
+        font: normal normal 500 1rem var(--display-font, Tahoma);
+        color: var(--color-titles);
+        text-align: center;
+        text-transform: capitalize;
+    }
+
+    @media (width >= 425px) {
+        .skill-card-item-heading{
+            flex-direction: row;
+            gap: 1rem;
+        }
+    }
+</style>
