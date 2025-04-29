@@ -1,0 +1,208 @@
+---
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+
+const { nameTitle, image, externalLinks, description } = Astro.props;
+const hasDemoAvailable = externalLinks.hasOwnProperty('demo')
+---
+
+<li class="project-card-item">
+    <div class="wrapper-img">
+        <Image class="wrapper-img__img" alt="Proyecto de buscaminas" src={image}/>
+        <div class="demo-action">
+            {
+                (hasDemoAvailable)
+                ? <a class="open-demo-link open-demo-link_available" href={externalLinks.demo} target="_blank">
+                    <Icon class="open-demo-link__icon" name="bx:link-external" size={50}/>
+                    <span class="open-demo-link__text">Abrir</span>
+                  </a>
+                : <div class="open-demo-link open-demo-link_not-available">
+                    <Icon class="open-demo-link__icon" name="bx:x-circle" size={50}/>
+                    <span class="open-demo-link__text">No disponible</span>
+                  </div>
+            }
+        </div>
+    </div>
+    {
+        (hasDemoAvailable) 
+        ? <a class="project-card-item__name-title-link" href={externalLinks.demo} target="_blank">{ nameTitle }</a>
+        : <span class="project-card-item__name-title-link project-card-item__name-title-link_not-available" title="No disponible">{ nameTitle }</span>
+    }
+    <div class="auxiliar-actions">
+        <button type="button" class="open-info-modal" title="Mostrar mas información" aria-role="Mostrar información">
+            <Icon class="open-info-modal__icon" name="bx:info-circle" size={25}/>
+        </button>
+        <a href={externalLinks.repository} target="_blank" class="open-repository-link" title="Abrir repositorio de GitHub" aria-role="Abrir repositorio de GitHub">
+            <Icon class="open-repository-link__icon" name="simple-icons:github" size={25}/>
+        </a>
+    </div>
+</li>
+
+<style>
+    .project-card-item{
+        --wrapper-border-radius: 10px;
+
+        --wrapperImg-max-width: 250px;
+        --wrapperImg-max-height: 300px;
+        
+        display: grid;
+        grid-template-columns: var(--wrapperImg-max-width);
+        grid-auto-rows: min-content;
+        grid-template-areas: 
+            "projectImg"
+            "projectName"
+            "projectAuxActions"
+        ;
+        justify-items: center;
+        align-items: start;
+        gap: 1rem;
+    }
+
+    .wrapper-img {
+        grid-area: projectImg;
+        position: relative;
+        background-color: var(--color-bg);
+        border-radius: var(--wrapper-border-radius);
+        box-shadow: 10px 10px 20px -5px var(--color-shadow);
+        -webkit-box-shadow: 10px 10px 20px -5px var(--color-shadow);
+        -moz-box-shadow: 10px 10px 20px -5px var(--color-shadow);
+    }
+
+    .demo-action {
+        border-radius: var(--wrapper-border-radius);
+        position: absolute;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        -webkit-tap-highlight-color: transparent;
+        color: transparent;
+        transition: opacity .3s ease, color .3s ease, backdrop-filter .3s ease, background-color .3s ease/* , z-index .3s ease */;
+        /* opacity: 0; */
+        /* z-index: -1; */
+    }
+
+    .wrapper-img:hover .demo-action {
+        opacity: 1;
+        color: var(--color-bg);
+        background-color: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(3px);
+        /* z-index: 1; */
+    }
+
+    .open-demo-link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .open-demo-link__icon {
+        opacity: 0.8;
+    }
+    .wrapper-img:hover .demo-action .open-demo-link__icon {
+        opacity: 1;
+    }
+
+    .open-demo-link__text {
+        opacity: 0;
+        font: normal normal 500 clamp(1.4rem, 6vw, 1.6rem) var(--display-font, Tahoma);
+    }
+    .wrapper-img:hover .demo-action .open-demo-link__text{
+        opacity: 1;
+    }
+
+    .open-demo-link_available {
+        color: var(--aqua-green-light);
+    }
+    .open-demo-link_not-available {
+        color: var(--error-msg);
+        pointer-events: none;
+    }
+
+    .project-card-item__name-title-link {
+        grid-area: projectName;
+        font: normal normal 500 clamp(1.4rem, 5vw, 1.6rem) var(--display-font, Tahoma);
+        color: var(--color-titles);
+        text-align: center;
+    }
+
+    .project-card-item__name-title-link_not-available{
+        cursor: not-allowed;
+    }
+
+    :is(.wrapper-img__img, .demo-action) {
+        height: var(--wrapperImg-max-height);
+        width: var(--wrapperImg-max-width);
+        border-radius: var(--wrapper-border-radius);
+    }
+
+    .wrapper-img__img {
+        object-fit: cover;
+    }
+
+    .project-card-item__name-title-link:hover {
+        text-decoration: underline;
+    }
+
+    .auxiliar-actions {
+        grid-area: projectAuxActions;
+        display: flex;
+        gap: 1.5rem;
+    }
+
+    .open-info-modal {
+        padding: 0;
+
+    }
+    .open-repository-link {}
+
+    .open-info-modal__icon,
+    .open-repository-link__icon {
+        color: var(--color-font);
+        --icon-size: 35px;
+        width: var(--icon-size);
+        height: var(--icon-size);
+        transition: color .3s ease;
+    }
+
+    :is( .open-info-modal__icon, .open-repository-link__icon ):hover{
+        color: var(--color-titles)
+    }
+
+    @media (width >= 768px) {
+                
+        .project-card-item{
+            width: var(--wrapperImg-max-width);
+            grid-template-columns: minmax(min-content, var(--wrapperImg-max-width)) 30%;
+            grid-template-rows: var(--wrapperImg-max-height) auto;
+            grid-template-areas: 
+                "projectImg projectImg"
+                "projectName projectAuxActions"
+            ;
+            gap: 1rem 0;
+            justify-items: normal;
+        }        
+
+        .project-card-item__name-title-link {
+            font: normal normal 500 clamp(1rem, 5vw, 1.4rem) var(--display-font, Tahoma);
+            text-align: start;
+        }
+
+        .auxiliar-actions {
+            gap: .5rem;
+            align-items: start;
+            justify-self: end;
+        }
+
+        .open-info-modal__icon,
+        .open-repository-link__icon {
+            --icon-size: 30px;
+            width: var(--icon-size);
+            height: var(--icon-size);
+        }
+
+        :is( .open-info-modal__icon, .open-repository-link__icon ):hover{
+            color: var(--color-titles)
+        }
+    }
+</style>
