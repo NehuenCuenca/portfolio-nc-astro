@@ -1,15 +1,67 @@
 ---
-import { Icon } from "astro-icon/components";
-import { Image } from "astro:assets";
-import { Modal } from 'accessible-astro-components'
+import BuscaminasImg from '@assets/projects/Buscaminas.webp'
+import MegaGymLogoImg from '@assets/projects/MegaLogo.webp'
+import MinijuegoMatematicasImg from '@assets/projects/CuentasMatematicas.webp'
+import ArenaMobileImg from '@assets/projects/ArenaMobileInicio.webp'
+import BuscadorPaisesImg from '@assets/projects/BanderasDelMundo.webp'
+import CuentaClaraImg from '@assets/projects/CuentaClara.webp'
+import ProjectCard from "@components/ProjectCard.astro";
 
-import Buscaminas from '@assets/projects/Buscaminas.webp'
-import BanderasDelMundo from '@assets/projects/BanderasDelMundo.webp'
-import CuentaClara from '@assets/projects/CuentaClara.webp'
-import CuentasMatematicas from '@assets/projects/CuentasMatematicas.webp'
-import MegaLogo from '@assets/projects/MegaLogo.webp'
-import ArenaMobileInicio from '@assets/projects/ArenaMobileInicio.webp'
-
+const projects = [
+    { 
+        nameTitle: 'Buscaminas',
+        image: BuscaminasImg,
+        externalLinks: { 
+            demo: 'https://buscaminas-nc.netlify.app/',
+            repository: 'https://github.com/NehuenCuenca/buscaminas-vue'
+        },
+        description: "Desarrollé una recreacion de este clasico juego usando Vue 3 y su Composition API. <br> El juego cuenta con 3 niveles de dificultad y ademas, almacena los 3 mejores tiempos segun el nivel de dificultad." 
+    },
+    { 
+        nameTitle: 'Landing page para gym',
+        image: MegaGymLogoImg,
+        externalLinks: { 
+            demo: 'https://megagym-gchu.netlify.app/',
+            repository: 'https://github.com/NehuenCuenca/megagym-nc'
+        },
+        description: "Proyecto que trata sobre un gimnasio local el cual no cuenta con una pagina web y solo hace uso de redes sociales.<br> El diseñar y desarrollar esta landing page me ayudo a sacarle mejor provecho a la herramienta Figma y tambien me hizo dar cuenta de varios conceptos sobre diseño web.<br> Aqui usé Astro con la integracion de React." 
+    },
+    { 
+        nameTitle: 'Minijuego de matematicas',
+        image: MinijuegoMatematicasImg,
+        externalLinks: { 
+            demo: 'https://math-minigame-rework-nc.netlify.app/',
+            repository: 'https://github.com/NehuenCuenca/math-minigame-rework'
+        },
+        description: "Otro juego que quise replicar cuando lo vi en TikTok. <br> Se trata de realizar 10 cuentas matematicas en el menor tiempo posible. Las cuentas incluyen: suma, resta y multiplicacion. <br> Rediseñe su version anterior, mejorando la experiencia de usuario en los distintos tipos de pantallas y añadiendo un tema claro/oscuro."
+    },
+    { 
+        nameTitle: 'ArenaMobile',
+        image: ArenaMobileImg,
+        externalLinks: { 
+            demo: 'https://arena-mobile.vercel.app/',
+            repository: 'https://github.com/No-Country/c16-81-t-php'
+        },
+        description: "La idea principal de este proyecto era realizar una plataforma que permita crear y gestionar torneos de juegos mobile (para dispositivos moviles). <br> Fue para una simulación de No Country, donde entre 3 personas, totalmente desconocidas, tuvimos que adaptarnos ante los inconvenientes como equipo, organizarnos y lograr parte del desarrollo de la plataforma (Landing page, API y dashboard de usuario)."
+    },
+    { 
+        nameTitle: 'Buscador de paises',
+        image: BuscadorPaisesImg,
+        externalLinks: { 
+            demo: 'https://countries-api-vue-nc.netlify.app/',
+            repository: 'https://github.com/NehuenCuenca/FM-RestCountriesApiVue'
+        },
+        description: "Se trata de un challenge de FrontendMentor el cual consiste en un buscador de paises. <br> La pagina consigue los datos de los paises mediante una llamada a su respectiva API y los renderiza de manera paginada. El proyecto cuenta con dos filtros: por nombre de pais y por región; además del interruptor entre tema claro y oscuro. <br> Fue realizado con HTML, CSS y Vue."
+    },
+    { 
+        nameTitle: 'CuentaClara',
+        image: CuentaClaraImg,
+        externalLinks: { 
+            repository: 'https://github.com/NehuenCuenca/morosos-anahi-frontend'
+        },
+        description: "CuentaClara es una aplicacion web desarrollada para la gestion de fiados que se lleva a cabo en un negocio. <br> Permite visualizar a los clientes con su respectivo balance acumulado (ya sea de deuda o a su favor). Para ello se registra una deuda describiendo un monto, cantidad y detalle con fecha y hora. Estas deudas pueden ser editadas, saldadas y hasta borradas del historial de un cliente. <br> Tambien es posible descargar un archivo excel sobre las deudas y los respectivos balances transcurridos en un mes/año seleccionado."
+    },
+]
 ---
 <section class="projects-container" id="projects-section">
     <div class="container-headings">
@@ -17,107 +69,11 @@ import ArenaMobileInicio from '@assets/projects/ArenaMobileInicio.webp'
         <h2 class="container-headings__subtitle">Aquellos que muestran mis capacidades y experiencia profesional</h2>
     </div>
     <ul class="projects-list">
-        <li class="projects-list-item">
-            <Image src={Buscaminas} alt="Tablero inicial del juego Buscaminas" class="projects-list-item__image"/>
-            <span class="title-project">Buscaminas
-                <button type="button" aria-label="Mostar info de proyecto" id="project1-modal-trigger" class="title-project__info-button">
-                    <Icon name="bx:info-circle" size={25}/>
-                </button>
-            </span>
-            <div class="projects-list-item-links">
-                <a class="link link_demo" href="https://buscaminas-nc.netlify.app/" target="_blank">Demo</a>
-                <a class="link link_demo" href="https://github.com/NehuenCuenca/buscaminas-vue" target="_blank">Repositorio</a>
-            </div>
-        </li>
-        <li class="projects-list-item">
-            <Image src={MegaLogo} alt="Logo de un gimnasio" class="projects-list-item__image" />
-            <span class="title-project">Landing page de gimnasio 
-                <button type="button" aria-label="Mostar info de proyecto" id="project5-modal-trigger" class="title-project__info-button">
-                    <Icon name="bx:info-circle" size={25}/>
-                </button>
-            </span>
-            <div class="projects-list-item-links">
-                <a class="link link_demo" href="https://megagym-gchu.netlify.app/" target="_blank">Demo</a>
-                <a class="link link_demo" href="https://github.com/NehuenCuenca/megagym-nc" target="_blank">Repositorio</a>
-            </div>
-        </li>
-        <li class="projects-list-item">
-            <Image src={CuentasMatematicas} alt="Cuentas simples de matematica" class="projects-list-item__image" />
-            <span class="title-project">Minijuego de Matematicas 
-                <button type="button" aria-label="Mostar info de proyecto" id="project4-modal-trigger" class="title-project__info-button">
-                    <Icon name="bx:info-circle" size={25}/>
-                </button>
-            </span>
-            <div class="projects-list-item-links">
-                <a class="link link_demo" href="https://math-minigame-rework-nc.netlify.app/" target="_blank">Demo</a>
-                <a class="link link_demo" href="https://github.com/NehuenCuenca/math-minigame-rework" target="_blank">Repositorio</a>
-            </div>
-        </li>
-        <li class="projects-list-item">
-            <Image src={ArenaMobileInicio} alt="Inicio de la pagina Arena Mobile" class="projects-list-item__image" />
-            <span class="title-project">Arena Mobile 
-                <button type="button" aria-label="Mostar info de proyecto" id="project6-modal-trigger" class="title-project__info-button">
-                    <Icon name="bx:info-circle" size={25}/>
-                </button>
-            </span>
-            <div class="projects-list-item-links">
-                <a class="link link_demo" href="https://arena-mobile.vercel.app/" target="_blank">Demo</a>
-                <a class="link link_demo" href="https://github.com/No-Country/c16-81-t-php" target="_blank">Repositorio</a>
-            </div>
-        </li>
-        <li class="projects-list-item">
-            <Image src={BanderasDelMundo} alt="Collage de banderas de paises del mundo" class="projects-list-item__image" />
-            <span class="title-project">Buscador de paises 
-                <button type="button" aria-label="Mostar info de proyecto" id="project2-modal-trigger" class="title-project__info-button">
-                    <Icon name="bx:info-circle" size={25}/>
-                </button>
-            </span>
-            <div class="projects-list-item-links">
-                <a class="link link_demo" href="https://countries-api-vue-nc.netlify.app/" target="_blank">Demo</a>
-                <a class="link link_demo" href="https://github.com/NehuenCuenca/FM-RestCountriesApiVue" target="_blank">Repositorio</a>
-            </div>
-        </li>
-        <li class="projects-list-item">
-            <Image src={CuentaClara} alt="Billetera vacia" class="projects-list-item__image" />
-            <span class="title-project">CuentaClara 
-                <button type="button" aria-label="Mostar info de proyecto" id="project3-modal-trigger" class="title-project__info-button">
-                    <Icon name="bx:info-circle" size={25}/>
-                </button>
-            </span>
-            <div class="projects-list-item-links">
-                <a class="link link_demo link_not-available" class="link-not-available" href="#">Demo</a>
-                <a class="link link_demo" href="https://github.com/NehuenCuenca/morosos-anahi-frontend" target="_blank">Repositorio</a>
-            </div>
-        </li>
+        {
+            projects.map(({ nameTitle, image, externalLinks, description }) => <ProjectCard nameTitle={nameTitle} image={image} externalLinks={externalLinks} description={description} />)
+        }
     </ul>
-    <Modal triggerId="project1-modal-trigger" title="Buscaminas" closeText="Cerrar">
-        <p>Desarrollé una recreacion de este clasico juego usando <strong>Vue 3</strong> y su Composition API.</p>
-        <p>El juego cuenta con 3 niveles de dificultad y ademas, almacena los 3 mejores tiempos segun el nivel de dificultad.</p>
-    </Modal>    
-    <Modal triggerId="project2-modal-trigger" title="Buscador de paises" closeText="Cerrar">
-        <p>Se trata de un challenge de <a href="https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca" target="_blank">FrontendMentor</a> el cual consiste en un buscador de paises.</p>
-        <p>La pagina consigue los datos de los paises mediante una llamada a su respectiva API y los renderiza de manera paginada. El proyecto cuenta con dos filtros: por nombre de pais y por región; además del interruptor entre tema claro y oscuro.</p>
-        <p>Fue realizado con <strong>HTML, CSS y Vue</strong>.</p>
-    </Modal>    
-    <Modal triggerId="project3-modal-trigger" title="CuentaClara" closeText="Cerrar">
-        <p>CuentaClara es una aplicacion web desarrollada para la gestion de fiados que se lleva a cabo en un negocio.</p>
-        <p>Permite visualizar a los clientes con su respectivo balance acumulado (ya sea de deuda o a su favor). Para ello se registra una deuda describiendo un monto, cantidad y detalle con fecha y hora. Estas deudas pueden ser editadas, saldadas y hasta borradas del historial de un cliente.</p> 
-        <p>Tambien es posible descargar un archivo excel sobre las deudas y los respectivos balances transcurridos en un mes/año seleccionado.</p>
-    </Modal>    
-    <Modal triggerId="project4-modal-trigger" title="Minijuego de Matematicas" closeText="Cerrar">
-        <p>Otro juego que quise replicar <a href="https://www.tiktok.com/@chriskotra/video/7154986619806715138?is_copy_url=1&is_from_webapp=v1" target="_blank">cuando lo vi en TikTok.</a></p>
-        <p>Se trata de realizar 10 cuentas matematicas en el menor tiempo posible. Las cuentas incluyen: suma, resta y multiplicacion.</p>
-        <p>Rediseñe <a href="https://math-minigame-nc.netlify.app/" target="_blank">su version anterior</a>, mejorando la experiencia de usuario en los distintos tipos de pantallas y añadiendo un tema claro/oscuro.</p>
-    </Modal>    
-    <Modal triggerId="project5-modal-trigger" title="Landing page para gimnasio " closeText="Cerrar">
-        <p>Proyecto que trata sobre un gimnasio local el cual no cuenta con una pagina web y solo hace uso de redes sociales.</p>
-        <p>El diseñar y desarrollar esta landing page me ayudo a sacarle mejor provecho a la herramienta Figma y tambien me hizo dar cuenta de varios conceptos sobre diseño web.</p>
-        <p>Aqui usé <strong>Astro con la integracion de React</strong>.</p>
-    </Modal>    
-    <Modal triggerId="project6-modal-trigger" title="Arena Mobile" closeText="Cerrar">
-        <p>La idea principal de este proyecto era realizar una plataforma que permita crear y gestionar torneos de juegos mobile (para dispositivos moviles).</p>
-        <p>Fue para una simulación de No Country, donde entre 3 personas, totalmente desconocidas, tuvimos que adaptarnos ante los inconvenientes como equipo, organizarnos y lograr parte del desarrollo de la plataforma (Landing page, API y dashboard de usuario).</p>
-    </Modal>    
+    <!-- DONT FORGET THE PROJECT INFO MODALS -->
 </section>
 
 <style>
@@ -127,94 +83,15 @@ import ArenaMobileInicio from '@assets/projects/ArenaMobileInicio.webp'
         flex-direction: column;
         align-items: center;
         gap: 2rem;
+        padding: 0 0 5rem 0;
     }
     
     .projects-list{
-        max-width: 1600px;
-        margin-top: 5rem;
-        padding: 0 1rem 10rem 1rem;
+        width: clamp(200px, 100%, 1100px);
         display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        gap: 8rem;
         flex-wrap: wrap;
-    }
-    .projects-list-item{
-        width: 270px;
-        height: clamp(300px, 60vh, 420px);
-        background-color: var(--color-bg);
-        border-radius: 10px;
-        box-shadow: 4px 4px 10px var(--color-shadow);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        position: relative;
-        transition: border .3s ease;
-        border: 3px solid transparent;
-    }
-
-    .projects-list-item__image,
-    .projects-list-item__title{
-        position: relative;
-    }
-
-    .projects-list-item__image{
-        object-fit: cover;
-        border-radius: 10px;
-        max-width: 210px;
-        height: 50vh;
-        top: -4rem;
-        rotate: 5deg;
-        border: 3px solid transparent;
-        transition: rotate .5s ease;
-    }
-
-    .projects-list-item:hover {
-        border: 3px solid var(--color-font);
-    }
-
-    .projects-list-item:hover .projects-list-item__image{
-        rotate: 0deg;
-    }
-
-    .title-project{
-        font: normal normal 400 1.6rem var(--display-font);
-        color: var(--color-titles);
-        text-wrap: balance;
-        text-align: center;
-        position: relative;
-        top: -3rem;
-        padding-bottom: 1rem;
-    }
-
-    .title-project__info-button{
-        color: var(--color-font);
-        padding: 0;
-    }
-
-    .title-project__info-button svg{
-        --icon-size: clamp(30px, 5vw, 35px);
-        width: var(--icon-size);
-        height: var(--icon-size);
-    }
-
-    .projects-list-item-links{
-        position: absolute;
-        display: flex;
-        gap: 1rem;
-        bottom: 1.5rem;
-    }
-
-    .link{
-        text-decoration: underline;
-        font: normal normal 500 1.5rem var(--default-font);
-    }
-    /* .link_demo{} */
-    /* .link_repo{} */
-    .link_not-available{
-        color: grey;
-        text-decoration: line-through;
-        cursor: not-allowed;
+        justify-content: center;
+        gap: 5rem;
+        padding: 0 2rem 15dvh 2rem;
     }
 </style>
