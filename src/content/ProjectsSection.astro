@@ -1,82 +1,15 @@
 ---
-import BuscaminasImg from '@assets/projects/Buscaminas.webp'
-import MegaGymLogoImg from '@assets/projects/MegaLogo.webp'
-import MinijuegoMatematicasImg from '@assets/projects/CuentasMatematicas.webp'
-import ArenaMobileImg from '@assets/projects/ArenaMobileInicio.webp'
-import BuscadorPaisesImg from '@assets/projects/BanderasDelMundo.webp'
-import CuentaClaraImg from '@assets/projects/CuentaClara.webp'
-import ProjectCard from "@components/ProjectCard.astro";
 
-const projects = [
-    { 
-        nameTitle: 'Buscaminas',
-        image: BuscaminasImg,
-        externalLinks: { 
-            demo: 'https://buscaminas-nc.netlify.app/',
-            repository: 'https://github.com/NehuenCuenca/buscaminas-vue'
-        },
-        description: "Desarrollé una recreacion de este clasico juego usando Vue 3 y su Composition API. <br> El juego cuenta con 3 niveles de dificultad y ademas, almacena los 3 mejores tiempos segun el nivel de dificultad." 
-    },
-    { 
-        nameTitle: 'Landing page para gym',
-        image: MegaGymLogoImg,
-        externalLinks: { 
-            demo: 'https://megagym-gchu.netlify.app/',
-            repository: 'https://github.com/NehuenCuenca/megagym-nc'
-        },
-        description: "Proyecto que trata sobre un gimnasio local el cual no cuenta con una pagina web y solo hace uso de redes sociales.<br> El diseñar y desarrollar esta landing page me ayudo a sacarle mejor provecho a la herramienta Figma y tambien me hizo dar cuenta de varios conceptos sobre diseño web.<br> Aqui usé Astro con la integracion de React." 
-    },
-    { 
-        nameTitle: 'Minijuego de matematicas',
-        image: MinijuegoMatematicasImg,
-        externalLinks: { 
-            demo: 'https://math-minigame-rework-nc.netlify.app/',
-            repository: 'https://github.com/NehuenCuenca/math-minigame-rework'
-        },
-        description: "Otro juego que quise replicar cuando lo vi en TikTok. <br> Se trata de realizar 10 cuentas matematicas en el menor tiempo posible. Las cuentas incluyen: suma, resta y multiplicacion. <br> Rediseñe su version anterior, mejorando la experiencia de usuario en los distintos tipos de pantallas y añadiendo un tema claro/oscuro."
-    },
-    { 
-        nameTitle: 'ArenaMobile',
-        image: ArenaMobileImg,
-        externalLinks: { 
-            demo: 'https://arena-mobile.vercel.app/',
-            repository: 'https://github.com/No-Country/c16-81-t-php'
-        },
-        description: "La idea principal de este proyecto era realizar una plataforma que permita crear y gestionar torneos de juegos mobile (para dispositivos moviles). <br> Fue para una simulación de No Country, donde entre 3 personas, totalmente desconocidas, tuvimos que adaptarnos ante los inconvenientes como equipo, organizarnos y lograr parte del desarrollo de la plataforma (Landing page, API y dashboard de usuario)."
-    },
-    { 
-        nameTitle: 'Buscador de paises',
-        image: BuscadorPaisesImg,
-        externalLinks: { 
-            demo: 'https://countries-api-vue-nc.netlify.app/',
-            repository: 'https://github.com/NehuenCuenca/FM-RestCountriesApiVue'
-        },
-        description: "Se trata de un challenge de FrontendMentor el cual consiste en un buscador de paises. <br> La pagina consigue los datos de los paises mediante una llamada a su respectiva API y los renderiza de manera paginada. El proyecto cuenta con dos filtros: por nombre de pais y por región; además del interruptor entre tema claro y oscuro. <br> Fue realizado con HTML, CSS y Vue."
-    },
-    { 
-        nameTitle: 'CuentaClara',
-        image: CuentaClaraImg,
-        externalLinks: { 
-            repository: 'https://github.com/NehuenCuenca/morosos-anahi-frontend'
-        },
-        description: "CuentaClara es una aplicacion web desarrollada para la gestion de fiados que se lleva a cabo en un negocio. <br> Permite visualizar a los clientes con su respectivo balance acumulado (ya sea de deuda o a su favor). Para ello se registra una deuda describiendo un monto, cantidad y detalle con fecha y hora. Estas deudas pueden ser editadas, saldadas y hasta borradas del historial de un cliente. <br> Tambien es posible descargar un archivo excel sobre las deudas y los respectivos balances transcurridos en un mes/año seleccionado."
-    },
-]
 ---
 <section class="projects-container" id="projects-section">
     <div class="container-headings">
         <h1 class="container-headings__title">Mis proyectos</h1>
         <h2 class="container-headings__subtitle">Aquellos que muestran mis capacidades y experiencia profesional</h2>
     </div>
-    <ul class="projects-list">
-        {
-            projects.map(({ nameTitle, image, externalLinks, description }) => <ProjectCard nameTitle={nameTitle} image={image} externalLinks={externalLinks} description={description} />)
-        }
-    </ul>
-    <!-- DONT FORGET THE PROJECT INFO MODALS -->
+    <slot class="projects-list" name="projects-list"/>
 </section>
 
-<style>
+<style is:global>
     .projects-container{
         background: var(--projects-fade-bg);
         display: flex;
@@ -91,7 +24,7 @@ const projects = [
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 5rem;
+        gap: 6rem;
         padding: 0 2rem 15dvh 2rem;
     }
 </style>
