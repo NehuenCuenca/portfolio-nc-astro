@@ -6,6 +6,10 @@ import ProjectsSection from '@content/ProjectsSection.astro';
 import TechnologiesSection from '@content/TechnologiesSection.astro';
 import ServicesSection from '@content/ServicesSection.astro';
 import ContactSection from '@content/ContactSection.astro';
+import ProjectCard from '@components/ProjectCard.astro';
+
+import { projects } from '@data/projects'
+import { Icon } from 'astro-icon/components';
 ---
 
 <Layout title="Portfolio de Nehuen Cuenca">
@@ -14,14 +18,75 @@ import ContactSection from '@content/ContactSection.astro';
 		<FormationSection />
 		<div class="different-bg">
 			<TechnologiesSection />
-			<ProjectsSection />
+			<ProjectsSection>
+				<ul class="projects-list" slot="projects-list">
+					{
+						projects.map(({ nameTitle, image, externalLinks, description }, idx) => <ProjectCard nameTitle={nameTitle} image={image} externalLinks={externalLinks} description={description} idx={idx} />)
+					}
+				</ul>
+			</ProjectsSection>
 		</div>
-		<ServicesSection />
+		<!-- <ServicesSection /> -->
 		<ContactSection />
 	</main>
+	<dialog id="last-info-project-dialog" class="info-project-dialog" closedby="any">
+		<form class="info-project-dialog-close-form">
+			<button formmethod="dialog" aria-role="Cerrar dialogo" class="info-project-dialog-close-button">
+				<Icon name="bx:x" size={35} class='info-project-dialog-close-button__icon'/>
+			</button>
+		</form>
+		<div class="info-project-header">
+			<div class="header-img-wrapper">
+				<img src="" alt="Una imagen de proyecto no establecida" class="header-img-wrapper__img">
+				<div class="header-img-wrapper__fade-bg"></div>
+			</div>
+			<h3 class="info-project-header__name"></h3>
+		</div>
+		<div class="info-project-content">
+			<p class="info-project-content__description"></p>
+		</div>
+	</dialog>
 </Layout>
 
-<style>
+<script define:vars={{ projects }}>
+
+	// Find all buttons with the `alert` class on the page.
+	const openInfoProjectButtons = document.querySelectorAll('button.open-info-modal');
+	const infoProjectDialog = document.querySelector("#last-info-project-dialog");
+
+	// Handle clicks on each button.
+	openInfoProjectButtons.forEach((button) => {
+		button.addEventListener('click', () => {
+			const idxProject = button.getAttribute('data-idx')
+			const { nameTitle, image, description } = projects[idxProject]
+
+			const projectImg = infoProjectDialog.querySelector('.header-img-wrapper__img')
+			const projectName = infoProjectDialog.querySelector('.info-project-header__name')
+			const projectDescription = infoProjectDialog.querySelector('.info-project-content__description')
+
+			projectImg.src = image.src
+			projectImg.alt = `Proyecto ${nameTitle}`
+			projectName.textContent = nameTitle
+			projectDescription.innerHTML = description
+
+  			infoProjectDialog.showModal();
+		});
+	});
+
+	infoProjectDialog.addEventListener('close', () => {
+		setTimeout( () => {
+			const projectImg = infoProjectDialog.querySelector('.header-img-wrapper__img')
+			const projectName = infoProjectDialog.querySelector('.info-project-header__name')
+			const projectDescription = infoProjectDialog.querySelector('.info-project-content__description')
+			projectImg.src = ''
+			projectImg.alt = `Imagen de proyecto a detallar...`
+			projectName.textContent = 'Titulo de proyecto a detallar'
+			projectDescription.innerHTML = 'Descripcion del proyecto...'
+		}, 500)
+	})
+</script>
+
+<style >
 	.main-container, .different-bg{
 		display: flex;
 		flex-direction: column;
@@ -30,6 +95,149 @@ import ContactSection from '@content/ContactSection.astro';
 
 	.different-bg{
 		background-color: var(--color-details);
+	}
+
+	.info-project-dialog{
+		overflow-y: hidden;
+		max-height: 75dvh;
+		max-width: 100%;
+		padding: 0;
+		color: var(--color-font);
+    	background-color: var(--color-bg);
+    	border-top: 8px solid var(--color-titles);
+    	border-right: 8px solid var(--color-titles);
+    	border-left: 8px solid var(--color-titles);
+		border-bottom: none;
+    	border-radius: 10px 10px 0px 0px;
+		margin: auto 0 0 0;
+		opacity: 0;
+		--dialog-entrance-exit-timing: .5s;
+		transition:
+			display var(--dialog-entrance-exit-timing) allow-discrete,
+			overlay var(--dialog-entrance-exit-timing) allow-discrete,
+			translate var(--dialog-entrance-exit-timing),
+			opacity var(--dialog-entrance-exit-timing);
+		translate: 0 50%;
+		will-change: translate, opacity;
+	}
+
+	.info-project-dialog[open] {
+		opacity: 1;
+		translate: 0;
+		@starting-style {
+			opacity: 0;
+			translate: 0 50%;
+		}
+	}
+
+	.info-project-dialog::backdrop {
+		opacity: 1;
+		transition:
+			display var(--dialog-entrance-exit-timing) allow-discrete,
+			opacity var(--dialog-entrance-exit-timing);
+
+		@starting-style { opacity: 0 }
+	}
+
+	.info-project-dialog:not([open])::backdrop {
+		opacity: 0;
+	}
+
+	.info-project-dialog-close-form {
+		background-color: var(--color-titles);
+		width: fit-content;
+		border-radius: 0 0 0 10px;
+		position: absolute;
+		top: 0;
+		right: 0;
+		z-index: 1;
+	}
+
+	.info-project-dialog-close-button {
+		color: var(--color-bg);
+	}
+	.info-project-dialog-close-button__icon {}
+
+	.info-project-header{}
+
+	.header-img-wrapper {
+		position: relative;
+		--headerImgWrapper-max-height: 25dvh;
+		--headerImgWrapper-max-width: 100%;
+	}
+	.header-img-wrapper__img {
+		width: var(--headerImgWrapper-max-width);
+		height: var(--headerImgWrapper-max-height);
+		object-fit: cover;
+		object-position: center;
+	}
+	.header-img-wrapper__fade-bg {
+		height: var(--headerImgWrapper-max-height);
+		width: var(--headerImgWrapper-max-width);
+		position: absolute;
+		top: 0;
+	}
+
+	.info-project-header__name {
+		padding: 1rem .5rem;
+		font: normal normal 500 clamp(1.4rem, 5vw, 1.6rem) var(--display-font, Tahoma);
+		background-color: var(--color-titles);
+		color: var(--color-bg);
+	}
+	.info-project-content {
+		padding: 1rem 1rem 1.5rem 1rem;
+		max-height: 30dvh;
+		overflow-y: auto;
+	}
+	.info-project-content__description {
+		font: normal normal 500 clamp(1.1rem, 5vw, 1.2rem) var(--default-font, Arial);
+	}
+
+	@media (width >= 768px) {
+		.info-project-dialog{
+			overflow-y: hidden;
+			max-height: 80dvh;
+			max-width: 45dvw;
+			padding: 0;
+			border: 8px solid var(--color-titles);
+			border-radius: 10px;
+			margin: auto ;
+		}
+		
+		.info-project-dialog-close-button {
+			color: var(--color-bg);
+		}
+		.info-project-dialog-close-button__icon {
+			--iconSize: 40px;
+			width: var(--iconSize);
+			height: var(--iconSize);
+		}
+
+
+		.header-img-wrapper {
+			--headerImgWrapper-max-height: 30dvh;
+		}
+		.header-img-wrapper__img {
+			width: var(--headerImgWrapper-max-width);
+			height: var(--headerImgWrapper-max-height);
+			object-fit: cover;
+			object-position: center;
+		}
+		.header-img-wrapper__fade-bg {
+			height: var(--headerImgWrapper-max-height);
+			width: var(--headerImgWrapper-max-width);
+			position: absolute;
+			top: 0;
+		}
+
+		/* .info-project-content {
+			max-height: 25dvh;
+		} */
+		
+		.info-project-content__description {
+			font: normal normal 500 clamp(1.2rem, 5vw, 1.4rem) var(--default-font, Arial);
+			line-height: 2rem;
+		}
 	}
 </style>
 
