@@ -2,7 +2,7 @@
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 
-const { nameTitle, image, externalLinks, description } = Astro.props;
+const { nameTitle, image, externalLinks, idx } = Astro.props;
 const hasDemoAvailable = externalLinks.hasOwnProperty('demo')
 ---
 
@@ -29,7 +29,7 @@ const hasDemoAvailable = externalLinks.hasOwnProperty('demo')
         : <span class="project-card-item__name-title-link project-card-item__name-title-link_not-available" title="No disponible">{ nameTitle }</span>
     }
     <div class="auxiliar-actions">
-        <button type="button" class="open-info-modal" title="Mostrar mas información" aria-role="Mostrar información">
+        <button type="button" class="open-info-modal" data-idx={idx} title="Mostrar mas información" aria-role="Mostrar información">
             <Icon class="open-info-modal__icon" name="bx:info-circle" size={25}/>
         </button>
         <a href={externalLinks.repository} target="_blank" class="open-repository-link" title="Abrir repositorio de GitHub" aria-role="Abrir repositorio de GitHub">
@@ -170,10 +170,10 @@ const hasDemoAvailable = externalLinks.hasOwnProperty('demo')
     }
 
     @media (width >= 768px) {
-                
         .project-card-item{
             width: var(--wrapperImg-max-width);
-            grid-template-columns: minmax(min-content, var(--wrapperImg-max-width)) 30%;
+            /* grid-template-columns: minmax(min-content, var(--wrapperImg-max-width)) 30%; */
+            grid-template-columns: 60% 40%;
             grid-template-rows: var(--wrapperImg-max-height) auto;
             grid-template-areas: 
                 "projectImg projectImg"
