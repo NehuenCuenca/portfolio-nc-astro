@@ -11,6 +11,9 @@
       ],
       "@content/*": [
         "src/content/*"
+      ],
+      "@data/*": [
+        "src/data/*"
       ]
     },
     "jsx": "preserve"
