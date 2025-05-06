@@ -1,210 +1,52 @@
 ---
-import { Icon } from "astro-icon/components";
-import { Image } from "astro:assets";
-import { Modal } from 'accessible-astro-components'
+import ServicesCarrousel from '@components/ServicesCarrousel.vue'
 
-import DesignService from '@assets/services/design-service.png';
-import FrontendService from '@assets/services/frontend-service.png';
-import BackendService from '@assets/services/backend-service.png';
+// * move this to data folder
+const services = [
+    {
+        name: 'Diseño',
+        icon: 'bx:palette',
+        content: [
+            `<strong>Identificar productos</strong> de la competencia <strong>y las tendencias</strong> de la industria.`,
+            `<strong>Desarrollar prototipos y flujos de tareas</strong> basados en las necesidades del usuario.`,
+            `<strong>Lograr un boceto inicial</strong> de acuerdo a las especificaciones dadas.`,
+        ]
+    },
+    {
+        name: 'Frontend',
+        icon: 'bx:news',
+        content: [
+            `<strong>Aplicar un diseño adaptable</strong> a distintos tipos de dispositivos y versiones de navegadores.`,
+            `<strong>Programacion, modificacion y mantenimiento</strong> de un sitio web.`,
+            `Consultar API's para conseguir una <strong>conexion entre diferentes servicios y sistemas disponibles</strong>.`,
+        ]
+    },
+    {
+        name: 'Backend',
+        icon: 'bx:terminal',
+        content: [
+            `<strong>Definicion, configuracion y mantenimiento</strong> de base de datos.`,
+            `<strong>Establecer conexion e interaccion entre la base de datos</strong> y las soluciones operativas.`,
+            `<strong>Desarrollo de API</strong> propia y acoplamiento con otras.`,
+            `<strong>Configurar y mantener</strong> los servidores.`,
+        ]
+    }    
+]
 ---
 <section class="services-container" id="services-section">
     <div class="container-headings">
         <h1 class="container-headings__title">Servicios</h1>
         <h2 class="container-headings__subtitle">¿De que manera puedo ayudarte?</h2>
     </div>
-    <ul class="services-list">
-        <li class="service-list-item flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                  <Image class="flip-card-front__image" src={DesignService} alt="Avatar" />
-              </div>
-              <div class="flip-card-back">
-                <Icon class="flip-card-back__service-icon" name="bx:palette" size={130} />
-                <h3 class="flip-card-back__service-title">Diseño</h3>
-                <button id="service1-modal-trigger" class="flip-card-back__view-more-button flip-card-back__view-more-button_hover">Ver más</button>
-              </div>
-            </div>
-        </li>
-        <li class="service-list-item flip-card">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <Image class="flip-card-front__image" src={FrontendService} alt="Avatar" />
-                  </div>
-                  <div class="flip-card-back">
-                    <Icon class="flip-card-back__service-icon" name="bx:news" size={130} />
-                    <h3 class="flip-card-back__service-title">Frontend</h3>
-                    <button id="service2-modal-trigger" class="flip-card-back__view-more-button flip-card-back__view-more-button_hover">Ver más</button>
-                  </div>
-            </div>
-        </li>
-        <li class="service-list-item flip-card">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <Image class="flip-card-front__image" src={BackendService} alt="Avatar" />
-                  </div>
-                  <div class="flip-card-back">
-                    <Icon class="flip-card-back__service-icon" name="bx:terminal" size={130} />
-                    <h3 class="flip-card-back__service-title">Backend</h3>
-                    <button id="service3-modal-trigger" class="flip-card-back__view-more-button flip-card-back__view-more-button_hover">Ver más</button>
-                  </div>
-            </div>
-        </li>
-    </ul>
-
-    <Modal triggerId="service1-modal-trigger" title="Diseño" closeText="Cerrar">
-      <ul class="service-items-list service-items-list_design">
-        <li class="design-service-item">Identificar productos de la competencia y las tendencias de la industria.</li>
-        <li class="design-service-item">Desarrollar prototipos y flujos de tareas basados en las necesidades del usuario.</li>
-        <li class="design-service-item">Lograr un boceto inicial de acuerdo a las especificaciones dadas.</li>
-      </ul>
-    </Modal>  
-    <Modal triggerId="service2-modal-trigger" title="Frontend" closeText="Cerrar">
-      <ul class="service-items-list service-items-list_frontend">
-        <li class="frontend-service-item">Aplicar un diseño adaptable/responsivo a distintos tipos de dispositivos y versiones de navegadores.</li>
-        <li class="frontend-service-item">Construir herramientas que optimicen la comunicacion entre el usuario y la web.</li>
-        <li class="frontend-service-item">Programacion, modificacion y mantenimiento de un sitio web.</li>
-        <li class="frontend-service-item">Consultar API's para conseguir una conexion entre diferentes servicios y sistemas disponibles.</li>
-      </ul>
-    </Modal>  
-    <Modal triggerId="service3-modal-trigger" title="Backend" closeText="Cerrar">
-      <ul class="service-items-list service-items-list_backend">
-        <li class="backend-service-item">Construir las funcionalidades para simplificar y/o automatizar el proceso de desarrollo de software</li>
-        <li class="backend-service-item">Definicion, configuracion y mantenimiento de base de datos.</li>
-        <li class="backend-service-item">Establecer conexion e interaccion entre la base de datos y las soluciones operativas.</li>
-        <li class="backend-service-item">Desarrollo de API propia y acoplamiento con otras.</li>
-        <li class="backend-service-item">Configurar y mantener los servidores.</li>
-      </ul>
-    </Modal>  
+    <ServicesCarrousel client:load services={services}/>
 </section>
 
 <style>
-    .services-container{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 2rem;
-        padding: 2rem 0;
-    }
-
-    .services-list{
-        padding: 1rem;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-        gap: 5rem;
-    }
-
-    /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
-    .flip-card {
-      background-color: transparent;
-      width: 250px;
-      height: clamp(300px, 55vh, 400px);
-      perspective: 1000px; /* Remove this if you don't want the 3D effect */
-    }
-
-    /* This container is needed to position the front and back side */
-    .flip-card-inner {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      text-align: center;
-      transition: transform 0.8s;
-      transform-style: preserve-3d;
-    }
-
-    /* Do an horizontal flip when you move the mouse over the flip box container */
-    .flip-card:hover .flip-card-inner {
-      transform: rotateY(180deg);
-    }
-
-    /* Position the front and back side */
-    .flip-card-front, .flip-card-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      -webkit-backface-visibility: hidden; /* Safari */
-      backface-visibility: hidden;
-      border-radius: 10px;     
-      box-shadow: 5px 5px 4px var(--color-shadow);
-    }
-
-    /* Style the front side (fallback if image is missing) */
-    .flip-card-front {
-      background-color: transparent;
-      color: black;
-      border: 3px groove var(--color-font);
-    }
-    .flip-card-front__image{
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .flip-card:nth-child(odd) .flip-card-front{ animation: breathe 3s ease 0s infinite normal forwards; }
-    .flip-card:nth-child(even) .flip-card-front{ animation: breathe 3s ease 1.5s infinite normal forwards; }
-
-    @keyframes breathe {
-      0% {
-        transform: scale(1);
-      }
-
-      50% {
-        transform: scale(1.05);
-      }
-
-      100% {
-        transform: scale(1);
-      }
-    }
-
-    /* Style the back side */
-    .flip-card-back {
-      /* background-color: var(--color-titles);
-      color: var(--color-bg); */
-      background-color: var(--color-details);
-      color: var(--color-titles);
-      transform: rotateY(180deg);
+  .services-container{
       display: flex;
       flex-direction: column;
-      justify-content: space-around;
       align-items: center;
-    }
-
-    .flip-card-back__service-title{
-        font: normal normal 400 clamp(2rem, 6vw, 2.3rem) var(--display-font, Tahoma);
-    }
-
-    .flip-card-back__view-more-button{
-        font: normal normal 400 1.2rem var(--display-font, Tahoma);
-        background-color: var(--color-titles);
-        color: var(--color-bg);
-        border-radius: 30px;
-        padding: .5rem 1.5rem;
-        transition: background-color .5s ease;
-    }
-
-    .flip-card-back__view-more-button_hover:hover{
-        background-color: var(--color-font);
-    }
-
-    .service-items-list{
-      display: flex;
-      flex-direction: column;
-      gap: .5rem;
-      padding-left: 2rem;
-    }
-    .service-items-list_design{
-      list-style-type: circle;
-    }
-    .service-items-list_frontend{
-      list-style-type: disc;
-    }
-    .service-items-list_backend{
-      list-style-type: square;
-    }
-
-    .service-items-list li{
-      word-break: break-word;
-    }
-    
+      gap: 2rem;
+      padding: 2rem 0;
+  }
 </style>
