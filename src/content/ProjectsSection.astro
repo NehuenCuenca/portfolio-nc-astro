@@ -7,16 +7,25 @@
         <h2 class="container-headings__subtitle">Aquellos que muestran mis capacidades y experiencia profesional</h2>
     </div>
     <slot class="projects-list" name="projects-list"/>
+    <svg class="projects-container__divider" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1000 100">
+        <g fill="var(--color-details)">
+            <rect fill="var(--color-bg)" width="100%" height="100%"/>
+            <path d="M0 1v99c134.3 0 153.7-99 296-99H0Z" opacity=".5"></path>
+            <path d="M1000 4v86C833.3 90 833.3 3.6 666.7 3.6S500 90 333.3 90 166.7 4 0 4h1000Z" opacity=".5"></path>
+            <path d="M617 1v86C372 119 384 1 196 1h421Z" opacity=".5"></path>
+            <path d="M1000 0H0v52C62.5 28 125 4 250 4c250 0 250 96 500 96 125 0 187.5-24 250-48V0Z"></path>
+        </g>
+    </svg>
 </section>
 
 <style is:global>
     .projects-container{
-        background: var(--projects-fade-bg);
+        background: var(--color-details);
+        background: linear-gradient(180deg, var(--color-details) 99%, var(--color-bg) 100%);
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 2rem;
-        padding: 0 0 5rem 0;
     }
     
     .projects-list{
@@ -26,5 +35,10 @@
         justify-content: center;
         gap: 6rem;
         padding: 0 2rem 15dvh 2rem;
+    }
+
+    .projects-container__divider{
+        /* background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1000 100"><g fill="%2377B0AA"><rect fill="%23E3FEF7" width="100%" height="100%"/><path d="M0 1v99c134.3 0 153.7-99 296-99H0Z" opacity=".5"></path><path d="M1000 4v86C833.3 90 833.3 3.6 666.7 3.6S500 90 333.3 90 166.7 4 0 4h1000Z" opacity=".5"></path><path d="M617 1v86C372 119 384 1 196 1h421Z" opacity=".5"></path><path d="M1000 0H0v52C62.5 28 125 4 250 4c250 0 250 96 500 96 125 0 187.5-24 250-48V0Z"></path></g></svg>'); */
+        background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1000 100"><g fill="var(--color-details)"><rect fill="transparent" width="100%" height="100%"/><path d="M0 1v99c134.3 0 153.7-99 296-99H0Z" opacity=".5"></path><path d="M1000 4v86C833.3 90 833.3 3.6 666.7 3.6S500 90 333.3 90 166.7 4 0 4h1000Z" opacity=".5"></path><path d="M617 1v86C372 119 384 1 196 1h421Z" opacity=".5"></path><path d="M1000 0H0v52C62.5 28 125 4 250 4c250 0 250 96 500 96 125 0 187.5-24 250-48V0Z"></path></g></svg>');
     }
 </style>
