@@ -2,22 +2,14 @@
     <nav ref="navbarRootElement">
         <div class="nav-mobile">
             <button v-if="currentTheme" type="button" @click="toggleMenu(true)" class="mobile-nav-button">
-                <SvgByTheme :currentTheme="currentTheme"
-                    :lightSvg="BxMenuLight"
-                    :darkSvg="BxMenuDark" 
-                    :size="40" :altText="'BOTON ABRIR MENU'" 
-                />
+                <Icon icon="bx:menu" width="40" class="mobile-nav-button__icon"/>
             </button>
 
             <Transition>
                 <div class="mobile-menu" v-if="isMenuOpen" :class="isMenuOpen ? 'mobile-menu_open' : ''" >
                     <div class="mobile-menu-content">                  
                         <button v-if="currentTheme" type="button" @click="toggleMenu(false)" class="mobile-nav-button">
-                            <SvgByTheme :currentTheme="currentTheme"
-                                :lightSvg="BxXLight"
-                                :darkSvg="BxXDark" 
-                                :size="55" :altText="'BOTON CERRAR MENU'"
-                            />
+                            <Icon icon="bx:x" width="50" class="mobile-nav-button__icon"/>
                         </button>
 
                         <ul class="mobile-links-sections-list">
@@ -43,18 +35,12 @@
 
                         <div class="togglers">
                             <button v-if="currentLanguage" type="button" class="nav-button" @click="toggleI18n">
-                                <SvgByTheme :currentTheme="currentTheme"
-                                    :lightSvg="(currentLanguage === 'es') ? MSESLight : MSENLight"
-                                    :darkSvg="(currentLanguage === 'en') ? MSENDark : MSESDark" 
-                                    :size="50" :altText="'Boton alternar idioma'"
-                                />
+                                <Icon v-if="currentLanguage === 'es'" width="50" icon="material-symbols:language-us" class="mobile-nav-button__icon"/>
+                                <Icon v-else width="50" icon="material-symbols:language-es" class="mobile-nav-button__icon"/>
                             </button>
                             <button v-if="currentTheme" type="button" class="mobile-nav-button" @click="toggleTheme">
-                                <SvgByTheme :currentTheme="currentTheme"
-                                    :lightSvg="BxMoon"
-                                    :darkSvg="BxSun" 
-                                    :size="40" :altText="'BOTON ALTERNAR TEMA'"
-                                />
+                                <Icon v-if="currentTheme === 'light'" width="40" icon="bx:moon" class="mobile-nav-button__icon"/>
+                                <Icon v-else width="40" icon="bx:sun" class="mobile-nav-button__icon"/>
                             </button>
                         </div>
                     </div>
@@ -84,18 +70,12 @@
 
             <div class="togglers">
                 <button v-if="currentLanguage" type="button" class="nav-button" @click="toggleI18n">
-                    <SvgByTheme :currentTheme="currentTheme"
-                        :lightSvg="(currentLanguage === 'es') ? MSENLight : MSESLight"
-                        :darkSvg="(currentLanguage === 'en') ? MSESDark : MSENDark" 
-                        :size="50" :altText="'Boton alternar idioma'"
-                    />
+                    <Icon v-if="currentLanguage === 'es'" width="50" icon="material-symbols:language-us" class="nav-button__icon"/>
+                                <Icon v-else width="50" icon="material-symbols:language-es" class="nav-button__icon"/>
                 </button>
                 <button v-if="currentTheme" type="button" class="nav-button" @click="toggleTheme">
-                    <SvgByTheme :currentTheme="currentTheme"
-                        :lightSvg="BxMoon"
-                        :darkSvg="BxSun" 
-                        :size="40" :altText="'Boton alternar tema'"
-                    />
+                    <Icon v-if="currentTheme === 'light'" width="40" icon="bx:moon" class="nav-button__icon"/>
+                    <Icon v-else width="40" icon="bx:sun" class="nav-button__icon"/>
                 </button>
             </div>
             
@@ -105,7 +85,8 @@
 
 <script setup>
 import { ref, onBeforeMount, onMounted } from 'vue'
-import SvgByTheme from '@components/SvgByTheme.vue';
+import { Icon } from '@iconify/vue';
+
 import { calculateSettingAsThemeString, updateThemeOnHtmlEl } from 'src/helpers/theme';
 
 import BxMenuDark from '@assets/svgs/Menu/BxMenuDark.svg'
@@ -237,6 +218,11 @@ const toggleTheme = () => {
 }
 
 .mobile-nav-button {}
+
+.mobile-nav-button__icon,
+.nav-button__icon{
+    color: var(--color-titles);
+}
 
 .mobile-links-sections-list {
     display: flex;
