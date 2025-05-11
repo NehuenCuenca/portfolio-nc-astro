@@ -1,46 +1,46 @@
 <template>
-    <nav ref="navbarRootElement">
-        <div class="nav-mobile">
-            <button v-if="currentTheme" type="button" @click="toggleMenu(true)" class="mobile-nav-button">
-                <Icon icon="bx:menu" width="40" class="mobile-nav-button__icon"/>
+    <nav ref="navbarRootElement" class="nav">
+        <div class="nav__mobile-bar">
+            <button v-if="currentTheme" type="button" @click="toggleMenu(true)" class="nav__mobile-bar-button nav__mobile-bar-button_open-menu">
+                <Icon icon="bx:menu" width="40" class="nav__mobile-bar-button-icon"/>
             </button>
 
             <Transition>
-                <div class="mobile-menu" v-if="isMenuOpen" :class="isMenuOpen ? 'mobile-menu_open' : ''" >
-                    <div class="mobile-menu-content">                  
-                        <button v-if="currentTheme" type="button" @click="toggleMenu(false)" class="mobile-nav-button">
-                            <Icon icon="bx:x" width="50" class="mobile-nav-button__icon"/>
+                <div class="nav__mobile-menu" v-if="isMenuOpen" :class="isMenuOpen ? 'nav__mobile-menu_open' : ''" >
+                    <div class="nav__mobile-menu-content">                  
+                        <button v-if="currentTheme" type="button" @click="toggleMenu(false)" class="nav__mobile-bar-button nav__mobile-bar-button_close-menu">
+                            <Icon icon="bx:x" width="50" class="nav__mobile-bar-button-icon"/>
                         </button>
 
-                        <ul class="mobile-links-sections-list">
-                            <li class="mobile-links-sections-list__link-item">
-                                <a @click="toggleMenu(false)" class="mobile-nav-link" href="#hero-section">Inicio</a>
+                        <ul class="nav__mobile-menu-section-links-list">
+                            <li class="nav__mobile-menu-section-link-item">
+                                <a @click="toggleMenu(false)" class="nav__mobile-menu-link" href="#hero-section">Inicio</a>
                             </li>
-                            <li class="mobile-links-sections-list__link-item">
-                                <a @click="toggleMenu(false)" class="mobile-nav-link" href="#formation-section">Formación</a>
+                            <li class="nav__mobile-menu-section-link-item">
+                                <a @click="toggleMenu(false)" class="nav__mobile-menu-link" href="#formation-section">Formación</a>
                             </li>
-                            <li class="mobile-links-sections-list__link-item">
-                                <a @click="toggleMenu(false)" class="mobile-nav-link" href="#technologies-section">Tecnologias</a>
+                            <li class="nav__mobile-menu-section-link-item">
+                                <a @click="toggleMenu(false)" class="nav__mobile-menu-link" href="#technologies-section">Tecnologias</a>
                             </li>
-                            <li class="mobile-links-sections-list__link-item">
-                                <a @click="toggleMenu(false)" class="mobile-nav-link" href="#projects-section">Proyectos</a>
+                            <li class="nav__mobile-menu-section-link-item">
+                                <a @click="toggleMenu(false)" class="nav__mobile-menu-link" href="#projects-section">Proyectos</a>
                             </li>
-                            <li class="mobile-links-sections-list__link-item">
-                                <a @click="toggleMenu(false)" class="mobile-nav-link" href="#services-section">Servicios</a>
+                            <li class="nav__mobile-menu-section-link-item">
+                                <a @click="toggleMenu(false)" class="nav__mobile-menu-link" href="#services-section">Servicios</a>
                             </li>
-                            <li class="mobile-links-sections-list__link-item">
-                                <a @click="toggleMenu(false)" class="mobile-nav-link" href="#contact-section">Contacto</a>
+                            <li class="nav__mobile-menu-section-link-item">
+                                <a @click="toggleMenu(false)" class="nav__mobile-menu-link" href="#contact-section">Contacto</a>
                             </li>
                         </ul>
 
-                        <div class="togglers">
-                            <button v-if="currentLanguage" type="button" class="nav-button" @click="toggleI18n">
-                                <Icon v-if="currentLanguage === 'es'" width="50" icon="material-symbols:language-us" class="mobile-nav-button__icon"/>
-                                <Icon v-else width="50" icon="material-symbols:language-es" class="mobile-nav-button__icon"/>
+                        <div class="nav__mobile-menu-togglers">
+                            <button v-if="currentLanguage" type="button" class="nav__mobile-bar-button nav__mobile-bar-button_i18n-toggler" @click="toggleI18n">
+                                <Icon v-if="currentLanguage === 'es'" width="50" icon="material-symbols:language-us" class="nav__mobile-button-icon"/>
+                                <Icon v-else width="50" icon="material-symbols:language-es" class="nav__mobile-button-icon"/>
                             </button>
-                            <button v-if="currentTheme" type="button" class="mobile-nav-button" @click="toggleTheme">
-                                <Icon v-if="currentTheme === 'light'" width="40" icon="bx:moon" class="mobile-nav-button__icon"/>
-                                <Icon v-else width="40" icon="bx:sun" class="mobile-nav-button__icon"/>
+                            <button v-if="currentTheme" type="button" class="nav__mobile-bar-button nav__mobile-bar-button_theme-toggler mobile-nav-button" @click="toggleTheme">
+                                <Icon v-if="currentTheme === 'light'" width="40" icon="bx:moon" class="nav__mobile-bar-button-icon"/>
+                                <Icon v-else width="40" icon="bx:sun" class="nav__mobile-bar-button-icon"/>
                             </button>
                         </div>
                     </div>
@@ -49,36 +49,35 @@
         </div>
 
 
-        <div class="nav-desktop">
-            <ul class="links-sections-list">
-                <li class="links-sections-list__link-item">
-                    <a class="nav-link" href="#formation-section">Formación</a>
+        <div class="nav__desktop-bar">
+            <ul class="nav__desktop-bar-section-links-list">
+                <li class="nav__desktop-bar-section-link-item">
+                    <a class="nav__desktop-bar-link" href="#formation-section">Formación</a>
                 </li>
-                <li class="links-sections-list__link-item">
-                    <a class="nav-link" href="#technologies-section">Tecnologias</a>
+                <li class="nav__desktop-bar-section-link-item">
+                    <a class="nav__desktop-bar-link" href="#technologies-section">Tecnologias</a>
                 </li>
-                <li class="links-sections-list__link-item">
-                    <a class="nav-link" href="#projects-section">Proyectos</a>
+                <li class="nav__desktop-bar-section-link-item">
+                    <a class="nav__desktop-bar-link" href="#projects-section">Proyectos</a>
                 </li>
-                <li class="links-sections-list__link-item">
-                    <a class="nav-link" href="#services-section">Servicios</a>
+                <li class="nav__desktop-bar-section-link-item">
+                    <a class="nav__desktop-bar-link" href="#services-section">Servicios</a>
                 </li>
-                <li class="links-sections-list__link-item">
-                    <a class="nav-link" href="#contact-section">Contacto</a>
+                <li class="nav__desktop-bar-section-link-item">
+                    <a class="nav__desktop-bar-link" href="#contact-section">Contacto</a>
                 </li>
             </ul>
 
-            <div class="togglers">
-                <button v-if="currentLanguage" type="button" class="nav-button" @click="toggleI18n">
-                    <Icon v-if="currentLanguage === 'es'" width="50" icon="material-symbols:language-us" class="nav-button__icon"/>
-                                <Icon v-else width="50" icon="material-symbols:language-es" class="nav-button__icon"/>
+            <div class="nav__desktop-bar-togglers">
+                <button v-if="currentLanguage" type="button" class="nav__desktop-bar-button nav__desktop-bar-button_i18n-toggler" @click="toggleI18n">
+                    <Icon v-if="currentLanguage === 'es'" width="50" icon="material-symbols:language-us" class="nav__desktop-bar-button-icon"/>
+                    <Icon v-else width="50" icon="material-symbols:language-es" class="nav__desktop-bar-button-icon"/>
                 </button>
-                <button v-if="currentTheme" type="button" class="nav-button" @click="toggleTheme">
-                    <Icon v-if="currentTheme === 'light'" width="40" icon="bx:moon" class="nav-button__icon"/>
-                    <Icon v-else width="40" icon="bx:sun" class="nav-button__icon"/>
+                <button v-if="currentTheme" type="button" class="nav__desktop-bar-button nav__desktop-bar-button_theme-toggler nav-button" @click="toggleTheme">
+                    <Icon v-if="currentTheme === 'light'" width="40" icon="bx:moon" class="nav__desktop-bar-button-icon"/>
+                    <Icon v-else width="40" icon="bx:sun" class="nav__desktop-bar-button-icon"/>
                 </button>
             </div>
-            
         </div>
     </nav>
 </template>
@@ -89,23 +88,11 @@ import { Icon } from '@iconify/vue';
 
 import { calculateSettingAsThemeString, updateThemeOnHtmlEl } from 'src/helpers/theme';
 
-import BxMenuDark from '@assets/svgs/Menu/BxMenuDark.svg'
-import BxMenuLight from '@assets/svgs/Menu/BxMenuLight.svg'
-import BxXLight from '@assets/svgs/X/BxXLight.svg'
-import BxXDark from '@assets/svgs/X/BxXDark.svg'
-import BxMoon from '@assets/svgs/BxMoon.svg'
-import BxSun from '@assets/svgs/BxSun.svg'
-import MSESLight from '@assets/svgs/I18n/MSESLight.svg'
-import MSESDark from '@assets/svgs/I18n/MSESDark.svg'
-import MSENLight from '@assets/svgs/I18n/MSENLight.svg'
-import MSENDark from '@assets/svgs/I18n/MSENDark.svg'
-
 const currentTheme = ref(null);
 const currentLanguage = ref(navigator.language);
 const isMenuOpen = ref(false);
 
 const navbarRootElement = ref(null)
-
 
 onBeforeMount(() => {
     const localStorageTheme = localStorage.getItem("theme");
@@ -120,15 +107,15 @@ onMounted(() => {
     const observer = new IntersectionObserver( (entries) => {
         entries.forEach((entry) => {
             if(entry.isIntersecting){
-                const navLinks = Array.from(navbarRootElement.value.querySelectorAll('.nav-link'))
+                const navLinks = Array.from(navbarRootElement.value.querySelectorAll('.nav__desktop-bar-link'))
                 navLinks.forEach((navLink) => {
                     const navLinkParentClassList= navLink.parentElement.classList
-                    if( navLinkParentClassList.contains('links-sections-list__link-item_watching-section') ){ navLinkParentClassList.remove('links-sections-list__link-item_watching-section')}
+                    if( navLinkParentClassList.contains('nav__desktop-bar-section-link-item_watching-section') ){ navLinkParentClassList.remove('nav__desktop-bar-section-link-item_watching-section')}
                 
                     const navLinkHrefHash = new URL(navLink.href).hash
                     const intersectedSectionId = `#${entry.target.id}` 
                     if( intersectedSectionId === navLinkHrefHash ) {
-                        navLinkParentClassList.add('links-sections-list__link-item_watching-section')
+                        navLinkParentClassList.add('nav__desktop-bar-section-link-item_watching-section')
                     }
                 })
             }
@@ -156,8 +143,9 @@ const toggleTheme = () => {
 </script>
 
 <style scoped>
-.nav-mobile,
-.nav-desktop {
+
+.nav {}
+.nav__mobile-bar, .nav__desktop-bar {
     width: 100%;
     height: clamp(10dvh, 100%, 12dvh);
     padding: 1rem;
@@ -171,11 +159,10 @@ const toggleTheme = () => {
     animation: fadeInFromTop .5s ease 3s 1 normal forwards;
 }
 
-.nav-mobile { justify-content: center; }
-.nav-desktop { justify-content: space-between; }
+.nav__mobile-bar {justify-content: center; }
+.nav__desktop-bar {justify-content: space-between; }
 
-
-.mobile-menu {
+.nav__mobile-menu {
     position: absolute;
     top: 0;
     left: 0;
@@ -187,7 +174,7 @@ const toggleTheme = () => {
     overflow-y: hidden;
 }
 
-.mobile-menu_open {
+.nav__mobile-menu_open {
     height: 100dvh;
     display: flex;
     flex-direction: column;
@@ -195,17 +182,7 @@ const toggleTheme = () => {
     gap: 2rem;
 }
 
-.v-enter-active,
-.v-leave-active {
-  transition: opacity 0.5s ease;
-}
-
-.v-enter-from,
-.v-leave-to {
-  opacity: 0;
-}
-
-.mobile-menu-content {
+.nav__mobile-menu-content {
     width: 100%;
     padding: 2rem 1rem;
     border-radius: 0 0 20px 20px;
@@ -217,14 +194,16 @@ const toggleTheme = () => {
     gap: 3rem;
 }
 
-.mobile-nav-button {}
 
-.mobile-nav-button__icon,
-.nav-button__icon{
+.nav__mobile-bar-button,
+.nav__mobile-bar-button-icon {
     color: var(--color-titles);
 }
 
-.mobile-links-sections-list {
+.nav__mobile-bar-button_open-menu {}
+.nav__mobile-bar-button_close-menu {}
+
+.nav__mobile-menu-section-links-list {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -232,39 +211,33 @@ const toggleTheme = () => {
     gap: 2rem;
 }
 
+.nav__mobile-menu-section-link-item {}
 
-.mobile-links-sections-list__link-item {}
-
-.nav-desktop {
-    display: none;
-}
-
-.nav-link,
-.mobile-nav-link {
+.nav__mobile-menu-link,
+.nav__desktop-bar-link {
     font: normal normal 500 2rem var(--display-font, Tahoma);
     text-decoration: none;
 }
+.nav__mobile-menu-togglers {}
+.nav__mobile-bar-button_i18n-toggler {}
+.nav__mobile-bar-button_theme-toggler {}
 
-.nav-button {
-    color: var(--color-font);
-    cursor: pointer;
-    transition: scale .3s ease;
+.nav__desktop-bar {
+    display: none;
 }
 
-.nav-button:hover {
-    scale: 1.2;
-}
+.nav__desktop-bar-section-links-list {}
 
-.links-sections-list__link-item,
-.links-sections-list__link-item_watching-section {
+.nav__desktop-bar-section-link-item,
+.nav__desktop-bar-section-link-item_watching-section {
     display: block;
     height: 100%;
     position: relative;
     transition: all 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-.links-sections-list__link-item:after,
-.links-sections-list__link-item_watching-section:after {
+.nav__desktop-bar-section-link-item:after,
+.nav__desktop-bar-section-link-item_watching-section:after {
     content: "";
     position: absolute;
     width: 0%;
@@ -274,47 +247,74 @@ const toggleTheme = () => {
     bottom: 0%;
 }
 
-.links-sections-list__link-item:hover::after,
-.links-sections-list__link-item_watching-section::after {
+.nav__desktop-bar-section-link-item:hover::after,
+.nav__desktop-bar-section-link-item_watching-section::after {
     width: 100%;
     height: 3px;
     background-color: var(--color-titles);
     border-radius: 10px;
 }
 
-.togglers {
+.nav__mobile-menu-togglers,
+.nav__desktop-bar-togglers {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
 
+.nav__desktop-bar-button {
+    color: var(--color-font);
+    cursor: pointer;
+    transition: scale .3s ease, color .3s ease;
+}
+
+.nav__desktop-bar-button:hover {
+    scale: 1.2;
+    color: var(--color-titles);
+}
+
+.nav__desktop-bar-button_i18n-toggler {}
+.nav__desktop-bar-button-icon {}
+.nav__desktop-bar-button_theme-toggler {}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+
 
 @media (width >= 768px) {
-    .nav-mobile {
+    .nav__mobile-bar {
         display: none;
     }
 
-    .nav-desktop {
+    .nav__desktop-bar {
         display: flex;
         align-items: center;
         justify-content: space-between;
         gap: 1rem;
     }
 
-    .links-sections-list__link-item .nav-link{
+    .nav__desktop-bar-link{
         font: normal normal 500 clamp(1.1rem, 1.5vw, 2rem) var(--display-font, Tahoma);
         text-decoration: none;
     }
 
-    .links-sections-list {
+    .nav__desktop-bar-section-links-list {
         display: flex;
         gap: 0 1.2rem;
     }
 
-    .togglers {
+    .nav__desktop-bar-togglers {
         gap: 0;
     }
 }
+
 
 @keyframes fadeInFromTop {
     0% {
@@ -327,4 +327,6 @@ const toggleTheme = () => {
         transform: translateY(0);
     }
 }
+
+
 </style>
