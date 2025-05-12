@@ -150,9 +150,9 @@ const toggleTheme = () => {
     height: clamp(10dvh, 100%, 12dvh);
     padding: 1rem;
     background: rgb(0, 60, 67);
-    background: linear-gradient(180deg,  var(--color-details), var(--color-bg));
+    background: linear-gradient(180deg, var(--secondary-bg-color), var(--primary-bg-color));
     box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
-    color: var(--color-titles);
+    color: var(--title-color);
     display: flex;
     align-items: center;
     opacity: 0;
@@ -169,7 +169,7 @@ const toggleTheme = () => {
     height: 0;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    color: var(--color-titles);
+    color: var(--title-color);
     display: none;
     overflow-y: hidden;
 }
@@ -186,8 +186,8 @@ const toggleTheme = () => {
     width: 100%;
     padding: 2rem 1rem;
     border-radius: 0 0 20px 20px;
-    background-color: var(--color-details);
-    color: var(--color-titles);
+    background-color: var(--secondary-bg-color);
+    color: var(--title-color);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -197,7 +197,7 @@ const toggleTheme = () => {
 
 .nav__mobile-bar-button,
 .nav__mobile-bar-button-icon {
-    color: var(--color-titles);
+    color: var(--title-color);
 }
 
 .nav__mobile-bar-button_open-menu {}
@@ -228,31 +228,44 @@ const toggleTheme = () => {
 
 .nav__desktop-bar-section-links-list {}
 
-.nav__desktop-bar-section-link-item,
-.nav__desktop-bar-section-link-item_watching-section {
-    display: block;
-    height: 100%;
-    position: relative;
-    transition: all 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
+.nav__desktop-bar-link {
+  position: relative;
+  --on-hover-horizontal-margin: -5px;
+  --on-hover-vertical-margin: -7px;
+  --on-hover-border-width: 3px;
+  --on-hover-border-distance-display: 12px;
 }
 
-.nav__desktop-bar-section-link-item:after,
-.nav__desktop-bar-section-link-item_watching-section:after {
-    content: "";
-    position: absolute;
-    width: 0%;
-    height: 1px;
-    display: block;
-    transition: all 0.3s ease;
-    bottom: 0%;
+.nav__desktop-bar-link::before,
+.nav__desktop-bar-link::after {
+  content: "";
+  position: absolute;
+  display: block;
+  border: 0 solid transparent;
+  width: 0%;
+  height: 0%;
+  transition: all 0.3s ease;
 }
 
-.nav__desktop-bar-section-link-item:hover::after,
-.nav__desktop-bar-section-link-item_watching-section::after {
-    width: 100%;
-    height: 3px;
-    background-color: var(--color-titles);
-    border-radius: 10px;
+.nav__desktop-bar-link::after {
+  left: var(--on-hover-horizontal-margin);
+  top: var(--on-hover-vertical-margin);
+  border-top: var(--on-hover-border-width) solid transparent;
+  border-left: var(--on-hover-border-width) solid transparent;
+}
+
+.nav__desktop-bar-link::before {
+  right: var(--on-hover-horizontal-margin);
+  bottom: var(--on-hover-vertical-margin);
+  border-bottom: var(--on-hover-border-width) solid transparent;
+  border-right: var(--on-hover-border-width) solid transparent;
+}
+
+.nav__desktop-bar-link:hover::before,
+.nav__desktop-bar-link:hover::after {
+  width: var(--on-hover-border-distance-display);
+  height: var(--on-hover-border-distance-display);
+  border-color: var(--title-color);
 }
 
 .nav__mobile-menu-togglers,
@@ -263,14 +276,14 @@ const toggleTheme = () => {
 }
 
 .nav__desktop-bar-button {
-    color: var(--color-font);
+    color: var(--phrase-color);
     cursor: pointer;
     transition: scale .3s ease, color .3s ease;
 }
 
 .nav__desktop-bar-button:hover {
     scale: 1.2;
-    color: var(--color-titles);
+    color: var(--title-color);
 }
 
 .nav__desktop-bar-button_i18n-toggler {}
@@ -301,7 +314,7 @@ const toggleTheme = () => {
     }
 
     .nav__desktop-bar-link{
-        font: normal normal 500 clamp(1.1rem, 1.5vw, 2rem) var(--display-font, Tahoma);
+        font: normal normal 500 clamp(1.1rem, 1.5vw, var(--heading-sm-fs)) var(--display-font, Tahoma);
         text-decoration: none;
     }
 
@@ -327,6 +340,4 @@ const toggleTheme = () => {
         transform: translateY(0);
     }
 }
-
-
 </style>
