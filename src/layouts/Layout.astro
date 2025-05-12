@@ -38,11 +38,26 @@ import Footer from '@components/Footer.astro';
 		--black: #000000;
 		--white: #FFFFFF;
 
+		/* OLD PALETTE */
 		--aqua-green-dark: #003C43;
 		--aqua-green-dark-soft: #135D66;
 		--aqua-green-mid-light: #77B0AA;
 		--aqua-green-light: #E3FEF7;
 		--error-msg: #FF3F3F;
+
+		/* NEW PALETTE */
+		--primary-color-900: #003c43;
+		--primary-color-800: #064850;
+		--primary-color-700: #0e555d;
+		--primary-color-600: #22676e;
+		--primary-color-500: #488687;
+		--primary-color-400: #6ba5a1;
+		--primary-color-300: #92c3bc;
+		--primary-color-200: #bbe0d9;
+		--primary-color-100: #e3fef7;
+		--error-color-900: #AF0000;
+		--error-color-500: #FF3F3F;
+		--error-color-100: #FFB1B1;
 	}
 
 	[data-theme="light"] {
@@ -54,6 +69,18 @@ import Footer from '@components/Footer.astro';
 		--projects-fade-bg: linear-gradient(180deg, rgba(119,176,170,1) 95%, rgba(227,254,247,1) 100%);
 		background-color: var(--color-bg);
 		color: var(--color-font);
+
+		/* NEW COLOR VARS */
+		--title-color: var(--primary-color-900);
+		--subtitle-color: var(--primary-color-700);
+		--phrase-color: var(--primary-color-600);
+		--paragraph-color: var(--primary-color-900);
+		--primary-bg-color: var(--primary-color-100);
+		--secondary-bg-color: var(--primary-color-300);
+		--primary-icon-color: var(--primary-color-900);
+		--link-color: var(--primary-color-900);
+		background-color: var(--primary-bg-color);
+		color: var(--paragraph-color);
 	}
 
 	[data-theme="dark"] {
@@ -65,29 +92,54 @@ import Footer from '@components/Footer.astro';
 		--projects-fade-bg: linear-gradient(180deg, rgba(19,93,102,1) 95%, rgba(0,60,67,1) 100%);
 		background-color: var(--color-bg);
 		color: var(--color-font);
+
+		/* NEW COLOR VARS */
+		--title-color: var(--primary-color-100);
+		--subtitle-color: var(--primary-color-300);
+		--phrase-color: var(--primary-color-400);
+		--paragraph-color: var(--primary-color-100);
+		--primary-bg-color: var(--primary-color-900);
+		--secondary-bg-color: var(--primary-color-700);
+		--primary-icon-color: var(--primary-color-100);
+		--link-color: var(--primary-color-100);
+		background-color: var(--primary-bg-color);
+		color: var(--paragraph-color);
+
+		/* FONT SIZE VARS */
+		--micro-fs: 12px;
+		--caption-fs: 14px;
+		--body-sm-fs: 16px;
+		--body-md-fs: 18px;
+		--body-lg-fs: 20px;
+		--subtitle-fs: 24px;
+		--heading-sm-fs: 30px;
+		--heading-md-fs: 36px;
+		--heading-lg-fs: 48px;
+		--display-sm-fs: 60px;
+		--display-lg-fs: 72px;
 	}
 
 	/* ===== Scrollbar CSS ===== */
-  /* Firefox */
-  * {
-    scrollbar-width: auto;
-    scrollbar-color: var(--color-font) var(--color-bg);
-  }
+	/* Firefox */
+	* {
+		scrollbar-width: auto;
+		scrollbar-color: var(--subtitle-color) var(--primary-bg-color);
+	}
 
-  /* Chrome, Edge, and Safari */
-  *::-webkit-scrollbar {
-    width: 20px;
-  }
+	/* Chrome, Edge, and Safari */
+	*::-webkit-scrollbar {
+		width: 20px;
+	}
 
-  *::-webkit-scrollbar-track {
-    background: var(--color-bg);
-  }
+	*::-webkit-scrollbar-track {
+		background: var(--primary-bg-color);
+	}
 
-  *::-webkit-scrollbar-thumb {
-    background-color: var(--color-font);
-    border-radius: 10px;
-    border: 3px solid var(--color-bg);
-  }
+	*::-webkit-scrollbar-thumb {
+		background-color: var(--paragraph-color);
+		border: 3px solid var(--primary-bg-color);
+		border-radius: 10px;
+	}
 
 	/* RESETS */
 	*, *::before, *::after {
@@ -154,7 +206,7 @@ import Footer from '@components/Footer.astro';
 	}
 
 	strong {
-		color: var(--color-titles);
+		color: var(--title-color);
 	}
 
 	body:has(.mobile-menu_open){
@@ -171,11 +223,11 @@ import Footer from '@components/Footer.astro';
 	}
 	.container-headings__title{
         font: normal normal 700 clamp(2.5rem, 10vw, 4.5rem) var(--display-font, Tahoma);
-        color: var(--color-titles);
+        color: var(--title-color);
     }
     .container-headings__subtitle{
         font: normal normal 400 clamp(1.4rem, 5vw, 2rem) var(--default-font, Arial);
         text-wrap: balance;
-        color: var(--color-font);
+        color: var(--subtitle-color);
     }
 </style>
