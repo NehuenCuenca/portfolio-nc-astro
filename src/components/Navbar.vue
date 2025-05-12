@@ -35,8 +35,8 @@
 
                         <div class="nav__mobile-menu-togglers">
                             <button v-if="currentLanguage" type="button" class="nav__mobile-bar-button nav__mobile-bar-button_i18n-toggler" @click="toggleI18n">
-                                <Icon v-if="currentLanguage === 'es'" width="50" icon="material-symbols:language-us" class="nav__mobile-button-icon"/>
-                                <Icon v-else width="50" icon="material-symbols:language-es" class="nav__mobile-button-icon"/>
+                                <Icon v-if="currentLanguage === 'es'" width="50" icon="material-symbols:language-us" class="nav__mobile-button-icon nav__mobile-button-icon_i18n-US"/>
+                                <Icon v-else width="50" icon="material-symbols:language-es" class="nav__mobile-button-icon nav__mobile-button-icon_i18n-ES"/>
                             </button>
                             <button v-if="currentTheme" type="button" class="nav__mobile-bar-button nav__mobile-bar-button_theme-toggler mobile-nav-button" @click="toggleTheme">
                                 <Icon v-if="currentTheme === 'light'" width="40" icon="bx:moon" class="nav__mobile-bar-button-icon"/>
@@ -70,8 +70,8 @@
 
             <div class="nav__desktop-bar-togglers">
                 <button v-if="currentLanguage" type="button" class="nav__desktop-bar-button nav__desktop-bar-button_i18n-toggler" @click="toggleI18n">
-                    <Icon v-if="currentLanguage === 'es'" width="50" icon="material-symbols:language-us" class="nav__desktop-bar-button-icon"/>
-                    <Icon v-else width="50" icon="material-symbols:language-es" class="nav__desktop-bar-button-icon"/>
+                    <Icon v-if="currentLanguage === 'es'" width="50" icon="material-symbols:language-us" class="nav__desktop-bar-button-icon nav__desktop-bar-button-icon_i18n-US"/>
+                    <Icon v-else width="50" icon="material-symbols:language-es" class="nav__desktop-bar-button-icon nav__desktop-bar-button-icon_i18n-US"/>
                 </button>
                 <button v-if="currentTheme" type="button" class="nav__desktop-bar-button nav__desktop-bar-button_theme-toggler nav-button" @click="toggleTheme">
                     <Icon v-if="currentTheme === 'light'" width="40" icon="bx:moon" class="nav__desktop-bar-button-icon"/>
@@ -230,7 +230,7 @@ const toggleTheme = () => {
 
 .nav__desktop-bar-link {
   position: relative;
-  --on-hover-horizontal-margin: -5px;
+  --on-hover-horizontal-margin: -7px;
   --on-hover-vertical-margin: -7px;
   --on-hover-border-width: 3px;
   --on-hover-border-distance-display: 12px;
@@ -286,9 +286,23 @@ const toggleTheme = () => {
     color: var(--title-color);
 }
 
-.nav__desktop-bar-button_i18n-toggler {}
-.nav__desktop-bar-button-icon {}
-.nav__desktop-bar-button_theme-toggler {}
+.nav__desktop-bar-button_i18n-toggler,
+.nav__desktop-bar-button_theme-toggler {
+    padding: 0;
+}
+
+.nav__desktop-bar-button-icon {
+    --icon-size: var(--heading-sm-fs);
+    width: var(--icon-size);
+    height: var(--icon-size);
+}
+
+.nav__desktop-bar-button-icon_i18n-US,
+.nav__desktop-bar-button-icon_i18n-ES {
+   --icon-size: var(--heading-lg-fs);
+    width: var(--icon-size);
+    height: var(--icon-size); 
+}
 
 .v-enter-active,
 .v-leave-active {
@@ -314,17 +328,18 @@ const toggleTheme = () => {
     }
 
     .nav__desktop-bar-link{
+        font: normal normal 500 clamp(var(--body-sm-fs), 1.5vw, var(--heading-sm-fs)) var(--display-font, Tahoma);
         font: normal normal 500 clamp(1.1rem, 1.5vw, var(--heading-sm-fs)) var(--display-font, Tahoma);
         text-decoration: none;
     }
 
     .nav__desktop-bar-section-links-list {
         display: flex;
-        gap: 0 1.2rem;
+        gap: 0 1.5rem;
     }
 
     .nav__desktop-bar-togglers {
-        gap: 0;
+        gap: .5rem;
     }
 }
 
