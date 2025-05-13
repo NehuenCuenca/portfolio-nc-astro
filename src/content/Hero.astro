@@ -1,60 +1,30 @@
 ---
 import { Icon } from 'astro-icon/components';
 
-import normalFace from '@assets/faces/rounded-face-2.webp'
-import trollFace from '@assets/faces/rounded-face-3.webp'
-import sillyFace from '@assets/faces/rounded-face-4.webp'
-import seriousFace from '@assets/faces/rounded-face-5.webp'
-
-const devFaces = [normalFace, trollFace, sillyFace, seriousFace]
+import devFaceGIF from '@assets/gifs/dev_face_gif.gif'
 
 ---
 <section class="hero-container" id="hero-section">
-    <div class="texts-container">
-        <h1 class="texts-container__title">¡HOLA!<br>SOY <span class="highlighted">NEHUEN</span><span class="highlighted">CUENCA</span><img class="dev-face" src={devFaces[0].src} alt="Cara de Nehuen"></h1>
-        <h2 class="texts-container__subtitle">Desarrollador web enfocado en UX/UI.</h2>
-        <h3 class="texts-container_phrase">“Construyo sitios que no solo funcionan, sino que destacan.”</h3>
+    <div class="hero-container__texts">
+        <h1 class="hero-container__title">
+            ¡HOLA!<br>SOY 
+            <span class="highlighted">NEHUEN</span><span class="highlighted highlighted_with-gif">CUENCA<img class="highlighted__dev-face" src={devFaceGIF.src} alt="Cara de Nehuen"></span>
+            
+        </h1>
+        <h2 class="hero-container__subtitle">Desarrollador web enfocado en UX/UI.</h2>
+        <h3 class="hero-container__phrase">“Construyo sitios que no solo funcionan, sino que destacan.”</h3>
     </div>
-    <div class="divider">
-        <div class="divider__line divider__line_left"></div>
-        <a href="#formation-section" class="arrow-button" aria-label="Next section">
-            <Icon class='arrow-button__icon' name="bx:down-arrow-circle" size={40} />
+    <div class="hero-container__divider">
+        <div class="hero-container__divider-line hero-container__divider-line_left"></div>
+        <a href="#formation-section" class="hero-container__next-section-link" aria-label="Next section">
+            <Icon class='hero-container__next-section-link-icon' name="bx:down-arrow-circle" size={40}/>
         </a>
-        <div class="divider__line divider__line_right"></div>
+        <div class="hero-container__divider-line hero-container__divider-line_right"></div>
     </div>
 </section>
 
-<script define:vars={{ devFaces }}>  
-    const devFaceImage = document.querySelector('.dev-face')
-    let devFaceIndex = 0
-    let devFaceInterval = null
-
-    const changeDevFaceImage = (seconds) => {
-        if (seconds <= 0) throw Error(`Bad argument seconds given (${seconds}) to change a image`)
-
-        devFaceInterval = setInterval(() => {
-            devFaceIndex = (devFaceIndex === devFaces.length-1) ? 0 : ++devFaceIndex
-            devFaceImage.src = devFaces[devFaceIndex].src
-        }, seconds)
-    };
-
-    const observer = new IntersectionObserver( (entries) => {
-        entries.forEach((entry) => {
-            if(!entry.isIntersecting){
-                clearInterval(devFaceInterval)
-            } else {
-                changeDevFaceImage(1_000)
-            }
-        })
-    })
-
-    setTimeout(() => {
-        observer.observe( devFaceImage )
-    }, 2_000);    
-</script>
-
 <style>
-    .hero-container{
+    .hero-container {
         padding: 2rem 1rem;
         height: clamp(470px, 90vh, 90vh);
         display: flex;
@@ -62,105 +32,102 @@ const devFaces = [normalFace, trollFace, sillyFace, seriousFace]
         align-items: center;
         justify-content: space-between;
     }
-
-    .texts-container{
+    .hero-container__texts {
+        width: 80dvw;
         margin: auto 0;
         text-align: center;
     }
-
-    .texts-container__title{
-        font: normal normal 400 clamp(3rem, 12vw, 5rem) var(--display-font, Tahoma);
-        color: var(--color-titles);
+    .hero-container__title {
+        font: normal normal 400 clamp(var(--heading-lg-fs), 12vw, var(--display-lg-fs)) var(--display-font, Tahoma);
+        color: var(--title-color);
         margin: 1rem 0 1.5rem 0;
         animation: fadeFromCenter .5s ease 0s 1 normal forwards;
     }
-
-    .highlighted{
+    .highlighted {
         font-weight: 800;
-	    color: var(--color-bg);
-        background-color: var(--color-titles);
+	    color: var(--primary-bg-color);
+        background-color: var(--title-color);
         padding: 0 10px;
         margin: 5px 0;
         letter-spacing: 2px;
         display: inline-block;
         transition: color .25s ease, background .25s ease;
     }
-
-    .texts-container__subtitle{
-        font: normal normal 600 clamp(2rem, 8vw, 3rem) var(--default-font, Arial);
-        color: var(--color-titles);
+    .highlighted_with-gif {
+        position: relative;
+    }
+    .highlighted__dev-face {
+        height: 0;
+        rotate: 45deg;
+        position: absolute;
+        right: 50%;
+        top: 0;
+        z-index: -1;
+        font: normal normal 150 clamp(1.7rem, 8vw, 2rem) var(--default-font, Arial);
+        animation: entryFromLeft .5s ease 3s 1 normal forwards;
+    }
+    .hero-container__subtitle {
+        font: normal normal 600 clamp(var(--heading-sm-fs), 8vw, 3rem) var(--default-font, Arial);
+        color: var(--subtitle-color);
+        margin-bottom: .5rem;
         animation: fadeFromTop 1s ease .5s 1 normal forwards;
-
     }
-
-    .texts-container_phrase{
-        font: italic normal 300 clamp(1.5rem, 4vw, 2rem) var(--default-font, Arial);
-        color: var(--color-font);
+    .hero-container__phrase {
+        font: italic normal 400 clamp(var(--body-lg-fs), 4vw, 2rem) var(--default-font, Arial);
+        color: var(--phrase-color);
         animation: fadeFromTop 1s ease 1s 1 normal forwards;
-
     }
 
-    .texts-container__subtitle,
-    .texts-container_phrase {
+    .hero-container__subtitle,
+    .hero-container__phrase {
         text-wrap: balance;
         opacity: 0;
     }
 
-    .dev-face{
-        display: inline;
-        height: 0;
-        rotate: 45deg;
-        z-index: -1;
-        position: relative;
-        right: 80px;
-        font: normal normal 150 clamp(1.7rem, 8vw, 2rem) var(--default-font, Arial);
-        animation: entryFromLeft .5s ease 3s 1 normal forwards;
-    }
-
-    .divider{
+    .hero-container__divider {
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 1rem;
-        color: var(--color-titles);
+        color: var(--title-color);
         align-self: flex-end;
     }
-
-    .divider__line{
+    .hero-container__divider-line {
         width: calc(((100% / 2) - 2rem) - 10vw);
         height: 2px;
-        background-color: var(--color-titles);
+        background-color: var(--title-color);
         opacity: 0; 
     }
-
-
-    .divider__line_left{
+    .hero-container__divider-line_left {
         animation: scaleUpFromLeft 1s linear 2s 1 normal forwards;
+
     }
-    .divider__line_right{
+    .hero-container__divider-line_right {
         animation: scaleUpFromRight 1s linear 2s 1 normal forwards;
     }
 
-    .arrow-button__icon{
+    .hero-container__next-section-link {}
+
+    .hero-container__next-section-link-icon {
         width: clamp(40px, 10vw, 70px);
         height: clamp(40px, 10vh, 70px);
         opacity: 0;
         transition: scale .25s ease;
-        animation: 
-            fadeFromCenter 1s ease 3s 1 normal forwards,
-            pulseRegular 1s ease 3s 7 normal forwards;
+        animation: fadeFromCenter 1s ease 3s 1 normal forwards,
+                pulseRegular 1s ease 3s 7 normal forwards;
     }
 
-    .arrow-button__icon:hover{
+    .hero-container__next-section-link-icon:hover{
         scale: 1.1;
         animation-play-state: paused;
     }
 
     @keyframes entryFromLeft {
         100% {
-            height: clamp(3.5rem, 12vw, 5rem);
-            translate: 80px 0;
+            height: clamp(2.5rem, 12vw, 5rem);
+            translate: 100% 0;
+            right: 0;
         }
     }
 
