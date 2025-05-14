@@ -13,8 +13,12 @@ import { Icon } from 'astro-icon/components';
 ---
 
 <Layout title="Portfolio de Nehuen Cuenca">
+	
 	<main class="main-container">
 		<Hero />
+		<a href="#hero-section" class="go-to-top-link go-to-top-link_hidden">
+			<Icon name="bx:arrow-to-top" size={40}/>
+		</a>
 		<FormationSection />
 		<div class="different-bg">
 			<TechnologiesSection />
@@ -29,6 +33,7 @@ import { Icon } from 'astro-icon/components';
 		<ServicesSection />
 		<ContactSection />
 	</main>
+	
 	<dialog id="last-info-project-dialog" class="info-project-dialog" closedby="any">
 		<form class="info-project-dialog-close-form">
 			<button formmethod="dialog" aria-role="Cerrar dialogo" class="info-project-dialog-close-button">
@@ -49,6 +54,47 @@ import { Icon } from 'astro-icon/components';
 </Layout>
 
 <script define:vars={{ projects }}>
+
+	document.addEventListener('DOMContentLoaded', function() {
+		const goToTopLink = document.querySelector('.go-to-top-link');
+		const firstSection = document.querySelector('main').querySelectorAll('section')[0];
+		const tabletMediaQueryPixels = 768;
+		
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				const moreOrEqualThanMinimalMediaQuery = window.innerWidth >= tabletMediaQueryPixels
+				if ((entry.isIntersecting && moreOrEqualThanMinimalMediaQuery) || !moreOrEqualThanMinimalMediaQuery) {
+					goToTopLink.classList.add('go-to-top-link_hidden');
+				} else {
+					goToTopLink.classList.remove('go-to-top-link_hidden');
+				}
+			});
+		}, {threshold: 0});
+
+		observer.observe(firstSection);
+
+		function debounce(func, delay) {
+			let timeoutId;
+			return function(...args) {
+				clearTimeout(timeoutId);
+				timeoutId = setTimeout(() => {
+					func.apply(this, args);
+				}, delay);
+			};
+		}
+
+		const debouncedResizeHandler = debounce(function() {
+			console.log('Window has been resized (debounced)');
+			const moreOrEqualThanMinimalMediaQuery = window.innerWidth >= tabletMediaQueryPixels
+			if (!moreOrEqualThanMinimalMediaQuery) {
+				goToTopLink.classList.add('go-to-top-link_hidden');
+			} else {
+				goToTopLink.classList.remove('go-to-top-link_hidden');
+			}
+		}, 250); // Delay of 250 milliseconds
+
+		window.addEventListener('resize', debouncedResizeHandler);
+	});
 
 	// Find all buttons with the `alert` class on the page.
 	const openInfoProjectButtons = document.querySelectorAll('button.open-info-modal');
@@ -191,6 +237,25 @@ import { Icon } from 'astro-icon/components';
 	}
 	.info-project-content__description {
 		font: normal normal 500 clamp(1.1rem, 5vw, 1.2rem) var(--default-font, Arial);
+	}
+
+	.go-to-top-link{
+		position: fixed;
+		bottom: 15%;
+		right: 5%;
+		padding: 3px;
+		background-color: var(--title-color);
+		color: var(--primary-bg-color);
+		border-radius: 5px;
+		z-index: 1;
+		opacity: 1;
+		transition: opacity .5s ease;
+	}
+
+	.go-to-top-link_hidden{
+		pointer-events: none;
+		opacity: 0;
+		z-index: -1;
 	}
 
 	@media (width >= 768px) {
