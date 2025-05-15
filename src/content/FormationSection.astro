@@ -10,28 +10,29 @@ import CodekiLogo from '@assets/svgs/Formation/codeki-logo.svg'
         <h1 class="container-headings__title">Mi formación</h1>
         <h2 class="container-headings__subtitle">Con quien y donde aprendí mis habilidades de desarrollador</h2>
     </div>
-    <ul class="formation-list">
-        <li class="formation-list-item">
-            <h2 class="formation-list-item__title">Tecnicatura Sup. en Análisis y Desarrollo de Software <br> <span class="sm-font">(2018 - 2022)</span></h2>
-            <p class="formation-list-item__paragraph">Acá <strong>estudie los fundamentos de la programación</strong>, lógica, base de datos y redes. Además <strong>aprendí a desarrollar en equipo</strong> y lograr una experiencia cercana a un proyecto real.</p>
-            <Image src={SedesSapientiaeLogo} alt="Logo de instituto Sedes Sapientie" class="formation-list-item__floated-logo"/>
+    <ul class="formation-container__formation-list formation-list">
+        <li class="formation-container__formation-list-item formation-list-item">
+            <h2 class="formation-container__formation-list-item-title formation-list-item__title">Tecnicatura Sup. en Análisis y Desarrollo de Software <br> <span class="sm-font">(2018 - 2022)</span></h2>
+            <p class="formation-container__formation-list-item-paragraph formation-list-item__paragraph">Acá <strong>estudie los fundamentos de la programación</strong>, lógica, base de datos y redes. Además <strong>aprendí a desarrollar en equipo</strong> y lograr una experiencia cercana a un proyecto real.</p>
+            <Image src={SedesSapientiaeLogo} alt="Logo de instituto Sedes Sapientie" class="formation-container__formation-list-item-floated-logo formation-list-item__floated-logo"/>
         </li>
-        <li class="formation-list-item">
-            <h2 class="formation-list-item__title">Cursos en plataformas online</h2>
-            <p class="formation-list-item__paragraph">Me profesionalizo tomando cursos en plataformas como Udemy, FreeCodeCamp y Youtube. <strong>He reclamado certificaciones de Vue 3, Git y GitHub, Node.js, etc...</strong></p>
-            <Image src={UdemyLogo} alt="Logo de plataforma educativa online Udemy" class="formation-list-item__floated-logo"/>
+        <li class="formation-container__formation-list-item formation-list-item">
+            <h2 class="formation-container__formation-list-item-title formation-list-item__title">Cursos en plataformas online</h2>
+            <p class="formation-container__formation-list-item-paragraph formation-list-item__paragraph">Me profesionalizo tomando cursos en plataformas como Udemy, FreeCodeCamp y Youtube. <strong>He reclamado certificaciones de Vue 3, Git y GitHub, Node.js, etc...</strong></p>
+            <Image src={UdemyLogo} alt="Logo de plataforma educativa online Udemy" class="formation-container__formation-list-item-floated-logo formation-list-item__floated-logo"/>
         </li>
-        <li class="formation-list-item">
-            <h2 class="formation-list-item__title">Aprendizaje continuo</h2>
-            <p class="formation-list-item__paragraph">Hoy <strong>encamino mis estudios como diseñador de estrategias UX/UI</strong> (certif. de UBA y Codeki) para potenciar mi aptitud de Frontend. Además <strong>continuaré con el curso de reparación de PC’s</strong> (Comunidad Reparando).</p>
-            <Image src={CodekiLogo} alt="Logo de plataforma educativa online Codeki" class="formation-list-item__floated-logo formation-list-item__floated-logo_codeki"/>
+        <li class="formation-container__formation-list-item formation-list-item">
+            <h2 class="formation-container__formation-list-item-title formation-list-item__title">Aprendizaje continuo</h2>
+            <p class="formation-container__formation-list-item-paragraph formation-list-item__paragraph">Hoy <strong>encamino mis estudios como diseñador de estrategias UX/UI</strong> (certif. de UBA y Codeki) para potenciar mi aptitud de Frontend. Además <strong>continuaré con el curso de reparación de PC’s</strong> (Comunidad Reparando).</p>
+            <Image src={CodekiLogo} alt="Logo de plataforma educativa online Codeki" class="formation-container__formation-list-item-floated-logo formation-container__formation-list-item-floated-logo_codeki formation-list-item__floated-logo "/>
         </li>
     </ul>
-    <a class="download-cv-button" href="/NehuenCuenca-CV-ESP.pdf" download>Descargar CV</a>
+
+    <a class="formation-container__download-cv-button" href="/NehuenCuenca-CV-ESP.pdf" download>Descargar CV</a>
 </section>
 
 <style>
-    .formation-container{
+    .formation-container {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -43,106 +44,76 @@ import CodekiLogo from '@assets/svgs/Formation/codeki-logo.svg'
         overflow: hidden;
     }
 
-    .formation-list, .formation-list-item{
+    .formation-container__formation-list,
+    .formation-container__formation-list-item {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
-    .formation-list{
-        row-gap: 20dvh;
+    .formation-container__formation-list {
+        row-gap: 25dvh;
     }
-    .formation-list-item{
+
+    .formation-container__formation-list-item {
+        width: 100%;
         position: relative;
         gap: 1rem;
     }
 
-    .formation-list-item__title, .formation-list-item__paragraph{
+    .formation-container__formation-list-item-title,
+    .formation-container__formation-list-item-paragraph {
         padding: 0 2rem;
         text-align: center;
         text-wrap: balance;
-        width: clamp(300px, 100%, 600px);
+        width: clamp(300px, 100%, 700px);
     }
-
-    .formation-list-item__title{
-        font: normal normal 200 clamp(1.8rem, 8vw, 2rem) var(--display-font, Tahoma);
-        color: var(--color-titles);
+    .formation-container__formation-list-item-title {
+        font: normal normal 200 clamp(var(--subtitle-fs), 4vw, 2rem) var(--display-font, Tahoma);
+        color: var(--title-color);
     }
-    .formation-list-item__paragraph{
-        font: normal normal 400 clamp(1.5rem, 7vw, 1.7rem) var(--default-font, Arial);
-    }
-
-    .sm-font{
+    .sm-font {
         font: normal normal 400 clamp(1rem, 8vw, 1.5rem) var(--display-font, Tahoma);
     }
-
-    .formation-list-item__floated-logo{
+    .formation-container__formation-list-item-paragraph {
+        font: normal normal 400 clamp(var(--body-lg-fs), 3vw, 1.7rem) var(--default-font, Arial);
+    }
+    .formation-container__formation-list-item-floated-logo {
         position: absolute;
         height: auto;
-        width: clamp(20dvw, 70%, 60dvw);
+        width: clamp(150px, 25%, 350px);
         opacity: 40%;
-        bottom: -30%;
+        bottom: -20dvh;
         z-index: -1;
     }
 
-    .formation-list-item:nth-child(odd) .formation-list-item__floated-logo{
-        rotate: -30deg;
-        right: -10%;
-    }
-    .formation-list-item:nth-child(even) .formation-list-item__floated-logo{
-        rotate: 30deg;
-        left: -10%;
-
-    }
-
-    .formation-list-item__floated-logo_codeki { 
+    .formation-container__formation-list-item-floated-logo_codeki {
         transform: rotateZ(0.20turn);
         bottom: -20%;
     }
-    
-    .download-cv-button{
+
+    .formation-container__formation-list-item:nth-child(odd) .formation-container__formation-list-item-floated-logo{
+        rotate: -30deg;
+        right: -5%;        
+    }
+    .formation-container__formation-list-item:nth-child(even) .formation-container__formation-list-item-floated-logo{
+        rotate: 30deg;
+        left: -5%;        
+    }
+
+    .formation-container__download-cv-button {
         margin-top: 5rem;
         margin-bottom: 4rem;
         padding: 1rem 2rem;
-        font: normal normal 400 clamp(1.3rem, 6vw, 2rem) var(--display-font, Tahoma);
-        background-color: var(--color-titles);
-        color: var(--color-bg);
+        font: normal normal 400 clamp(var(--subtitle-fs), 3vw, 2rem) var(--display-font, Tahoma);
+        background-color: var(--title-color);
+        color: var(--primary-bg-color);
         border-radius: 10px;
         transition: background .5s ease;
     }
-    .download-cv-button:hover{
-        background-color: var(--color-font);
-    }
-    
-    @media (width >= 700px) {  
-        .formation-list{
-            row-gap: 10dvh;
-        }      
-        .formation-list-item__floated-logo{
-            width: clamp(20dvw, 35%, 40dvw);
-            bottom: -50%;
-        }
 
-        .formation-list-item:nth-child(odd) .formation-list-item__floated-logo{
-            right: -10%;
-        }
-        .formation-list-item:nth-child(even) .formation-list-item__floated-logo{
-            left: -10%;
-        }
-    }
-
-    @media (width >= 1280px) {  
-        .formation-list-item__floated-logo{
-            width: clamp(20dvw, 40%, 25dvw);
-            bottom: -50%;
-        }
-
-        .formation-list-item:nth-child(odd) .formation-list-item__floated-logo{
-            right: -5%;
-        }
-        .formation-list-item:nth-child(even) .formation-list-item__floated-logo{
-            left: -5%;
-        }
+    .formation-container__download-cv-button:hover {
+        background-color: var(--subtitle-color);
     }
 
     @keyframes fadeInWhileScroll {
