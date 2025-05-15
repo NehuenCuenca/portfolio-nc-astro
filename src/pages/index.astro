@@ -57,21 +57,25 @@ import { Icon } from 'astro-icon/components';
 
 	document.addEventListener('DOMContentLoaded', function() {
 		const goToTopLink = document.querySelector('.go-to-top-link');
-		const firstSection = document.querySelector('main').querySelectorAll('section')[0];
+		const heroSection = document.querySelector('main').querySelectorAll('section')[0];
+		
 		const tabletMediaQueryPixels = 768;
+		let isSeeingHeroSection = false
 		
 		const observer = new IntersectionObserver((entries) => {
 			entries.forEach(entry => {
 				const moreOrEqualThanMinimalMediaQuery = window.innerWidth >= tabletMediaQueryPixels
 				if ((entry.isIntersecting && moreOrEqualThanMinimalMediaQuery) || !moreOrEqualThanMinimalMediaQuery) {
+					isSeeingHeroSection = true
 					goToTopLink.classList.add('go-to-top-link_hidden');
 				} else {
+					isSeeingHeroSection = false
 					goToTopLink.classList.remove('go-to-top-link_hidden');
 				}
 			});
 		}, {threshold: 0});
 
-		observer.observe(firstSection);
+		observer.observe(heroSection);
 
 		function debounce(func, delay) {
 			let timeoutId;
@@ -84,9 +88,8 @@ import { Icon } from 'astro-icon/components';
 		}
 
 		const debouncedResizeHandler = debounce(function() {
-			console.log('Window has been resized (debounced)');
 			const moreOrEqualThanMinimalMediaQuery = window.innerWidth >= tabletMediaQueryPixels
-			if (!moreOrEqualThanMinimalMediaQuery) {
+			if (!moreOrEqualThanMinimalMediaQuery || isSeeingHeroSection) {
 				goToTopLink.classList.add('go-to-top-link_hidden');
 			} else {
 				goToTopLink.classList.remove('go-to-top-link_hidden');
