@@ -1,124 +1,6 @@
 ---
 import SkillCard from "@components/SkillCard.astro";
-
-const skills = [
-    {
-        skillIcon: 'bx:desktop',
-        skillName: 'Frontend',
-        skillDescription: 'Creando interfaces dinámicas, responsivas y fáciles de usar con frameworks y librerías modernas.',
-        technologiesList: [
-            {
-                techIcon: 'simple-icons:html5',
-                techName: 'HTML'
-            },
-            {
-                techIcon: 'simple-icons:css',
-                techName: 'CSS'
-            },
-            {
-                techIcon: 'simple-icons:javascript',
-                techName: 'Javascript' 
-            },
-            {
-                techIcon: 'simple-icons:typescript',
-                techName: 'Typescript'
-            },
-            {
-                techIcon: 'simple-icons:vuedotjs',
-                techName: 'Vue'
-            },
-            {
-                techIcon: 'simple-icons:vite',
-                techName: 'Vite'
-            },
-            {
-                techIcon: 'simple-icons:vitest',
-                techName: 'Vitest'
-            },
-            {
-                techIcon: 'simple-icons:react',
-                techName: 'React'
-            },
-            {
-                techIcon: 'simple-icons:astro',
-                techName: 'Astro'
-            },
-        ]
-    },
-    {
-        skillIcon: 'bx:data',
-        skillName: 'Backend',
-        skillDescription: 'Desarrollando lógica de servidor, APIs y bases de datos robustas para aplicaciones web eficientes.',
-        technologiesList: [
-            {
-                techIcon: 'simple-icons:mysql',
-                techName: 'MySQL'
-            },
-            {
-                techIcon: 'simple-icons:postgresql',
-                techName: 'PostgreSQL'
-            },
-            {
-                techIcon: 'simple-icons:php',
-                techName: 'PHP'
-            },
-            {
-                techIcon: 'simple-icons:laravel',
-                techName: 'Laravel'
-            },
-            {
-                techIcon: 'simple-icons:nodedotjs',
-                techName: 'NodeJS'
-            },
-            {
-                techIcon: 'simple-icons:express',
-                techName: 'Express'
-            },
-        ]
-    },
-    {
-        skillIcon: 'bx:paint',
-        skillName: 'Diseño',
-        skillDescription: 'Transformando ideas en diseños intuitivos y visuales pulidos para una experiencia de usuario fluida.',
-        technologiesList: [
-            {
-                techIcon: 'simple-icons:figma',
-                techName: 'Figma'
-            },
-            {
-                techIcon: 'bx:camera',
-                techName: 'Photoscape'
-            },
-        ]
-    },
-    {
-        skillIcon: 'bx:wrench',
-        skillName: 'Otros',
-        skillDescription: 'Herramientas esenciales para flujos de desarrollo, colaboración y gestión de proyectos.',
-        technologiesList: [
-            {
-                techIcon: 'simple-icons:git',
-                techName: 'GIT'
-            },
-            {
-                techIcon: 'simple-icons:github',
-                techName: 'GitHub'
-            },
-            {
-                techIcon: 'simple-icons:postman',
-                techName: 'Postman'
-            },
-            {
-                techIcon: 'simple-icons:netlify',
-                techName: 'Netlify'
-            },
-            {
-                techIcon: 'simple-icons:notion',
-                techName: 'Notion'
-            },
-        ]
-    },
-]
+import { skills } from '@data/skills'
 ---
 
 <section class="technologies-container" id="technologies-section">
@@ -135,7 +17,7 @@ const skills = [
         <h1 class="container-headings__title">Tecnologías</h1>
         <h2 class="container-headings__subtitle">Herramientas con las que me familiarizo</h2>
     </div>
-    <ul class="skills-list">
+    <ul class="technologies-container__skills-list">
         {
             skills.map(({skillIcon, skillName, skillDescription, technologiesList }) => <SkillCard skillIcon={skillIcon} skillName={skillName} skillDescription={skillDescription} technologiesList={technologiesList}/>)
         }
@@ -149,12 +31,11 @@ const skills = [
         align-items: center;
         gap: 2rem;
         background-color: var(--color-details);
-        overflow-x: hidden;
         padding: 0 0 10dvh 0;
     }
     
     .container-headings_tech-section {
-        margin: 10dvh;
+        margin: 10dvh 0 5dvh 0;
     }
 
     .technologies-container__divider {
@@ -162,8 +43,7 @@ const skills = [
         height: 10dvh;
     }
 
-    .skills-list{
-        max-width: 1280px;
+    .technologies-container__skills-list{
         display: flex;
         flex-wrap: wrap;
         align-items: start;

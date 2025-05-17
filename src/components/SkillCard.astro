@@ -5,9 +5,9 @@ const { skillIcon, skillName, skillDescription, technologiesList } = Astro.props
 ---
 
 <li class="skill-card-item">
-    <div class="skill-card-item-heading">
-        <Icon class="skill-card-item-heading__icon" name={skillIcon} size={60}/>
-        <h3 class="skill-card-item-heading__title">{ skillName }</h3>
+    <div class="skill-card-item__heading skill-card-item-heading">
+        <Icon class="skill-card-item__heading-icon skill-card-item-heading__icon" name={skillIcon} size={55}/>
+        <h3 class="skill-card-item__heading-title skill-card-item-heading__title">{ skillName }</h3>
     </div>
     <p class="skill-card-item__description">{ skillDescription }</p>
     <ul class="skill-card-item__technologies-list">
@@ -32,24 +32,26 @@ const { skillIcon, skillName, skillDescription, technologiesList } = Astro.props
         gap: 1rem 0;
     }
 
-    .skill-card-item-heading{
+    .skill-card-item__heading{
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: .5rem;
     }
 
-    .skill-card-item-heading__icon {
+    .skill-card-item__heading-icon {
         color: var(--color-font);
     }
 
-    .skill-card-item-heading__title {
-        font: normal normal 500 clamp(2rem, 8vw, 2.5rem) var(--display-font, Tahoma);
+    .skill-card-item__heading-title {
+        /* font: normal normal 500 clamp(2rem, 8vw, 2.5rem) var(--display-font, Tahoma); */
+        font: normal normal 500 clamp(var(--subtitle-fs), 8vw, var(--heading-sm-fs)) var(--display-font, Tahoma);
         color: var(--color-titles);
     }
 
     .skill-card-item__description {
-        font: normal normal 400 clamp(1.1rem, 5vw, 1.4rem) var(--default-font, Arial);
+        /* font: normal normal 400 clamp(1.1rem, 5vw, 1.4rem) var(--default-font, Arial); */
+        font: normal normal 400 clamp(var(--body-sm-fs), 5vw, var(--body-lg-fs)) var(--default-font, Arial);
         color: var(--color-font);
         text-align: center;
         max-width: 90%;
@@ -57,11 +59,13 @@ const { skillIcon, skillName, skillDescription, technologiesList } = Astro.props
 
     .skill-card-item__technologies-list {
         margin-top: 1rem;
-        min-height: 100px;
-        width: 90%;
+        height: 330px;
+        padding: 0 0 1rem 0;
+        overflow-y: auto;
+        width: 100%;
         display: grid;
         justify-content: center;
-        grid-template-columns: repeat(2, clamp(120px, 45%, 150px));
+        grid-template-columns: repeat(2, clamp(100px, 45%, 150px));
         gap: 1rem;
     }
 
@@ -71,25 +75,27 @@ const { skillIcon, skillName, skillDescription, technologiesList } = Astro.props
         align-items: center;
         justify-content: center;
         gap: .5rem 0;
-        border: 1px solid var(--color-titles);
-        border-radius: 5px;
+        background-color: var(--secondary-bg-color);
+        -webkit-box-shadow: 4px 4px 0px 0px var(--skill-card-shadow);
+        -moz-box-shadow: 4px 4px 0px 0px var(--skill-card-shadow);
+        box-shadow: 4px 4px 0px 0px var(--skill-card-shadow);
         padding: .5rem 0;
     }
     .technology-card-item__icon {
         width: clamp(35px, 30%, 80px);
         height: clamp(35px, 30%, 80px);
         color: var(--color-font);
-
     }
     .technology-card-item__name {
-        font: normal normal 500 1rem var(--display-font, Tahoma);
+        /* font: normal normal 500 1rem var(--display-font, Tahoma); */
+        font: normal normal 500 var(--caption-fs) var(--display-font, Tahoma);
         color: var(--color-titles);
         text-align: center;
         text-transform: capitalize;
     }
 
     @media (width >= 425px) {
-        .skill-card-item-heading{
+        .skill-card-item__heading{
             flex-direction: row;
             gap: 1rem;
         }
