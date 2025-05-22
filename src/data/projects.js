@@ -27,7 +27,7 @@ export const projects = [
             demo: 'https://megagym-gchu.netlify.app/',
             repository: 'https://github.com/NehuenCuenca/megagym-nc'
         },
-        description: '<p>Basado en <strong>un gimnasio local que no posee web page</strong> y solo usa de redes sociales. Diseñar y desarrollar esta landing me sació de conceptos modernos sobre diseño web.</p>',
+        description: '<p>Basado en <strong>un gimnasio local que no posee web page</strong> y solo usa redes sociales. Diseñar y desarrollar esta landing me sació de conceptos modernos sobre diseño web.</p>',
         technologies: [
             {
                 technologyName: 'Astro'
@@ -58,7 +58,7 @@ export const projects = [
             demo: 'https://arena-mobile.vercel.app/',
             repository: 'https://github.com/No-Country/c16-81-t-php'
         },
-        description: '<p>Entre 3 desconocidos ideamos un website que permita crear y gestionar torneos de juegos mobile</strong> (disp. movil). Logramos desarrollar su <strong>Landing page, API y user dashboard</strong>.</p>',
+        description: '<p>Entre 3 desconocidos ideamos una website que permita crear y gestionar torneos de juegos mobile</strong> (disp. movil). Logramos desarrollar su <strong>landing page, API y user dashboard</strong>.</p>',
         technologies: [
             {
                 technologyName: 'Laravel'
@@ -75,7 +75,7 @@ export const projects = [
             demo: 'https://countries-api-vue-nc.netlify.app/',
             repository: 'https://github.com/NehuenCuenca/FM-RestCountriesApiVue'
         },
-        description: '<p>Un <a href="https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca" target="_blank" style="text-decoration:underline;" >challenge</a> que consigue <strong>consultar los países a una API y los exhibe por páginas</strong>. Cuenta con dos filtros<strong>: por nombre de pais y por continente</strong>.</p>',
+        description: '<p>Un <a href="https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca" target="_blank" style="text-decoration:underline;" >challenge</a> que <strong>consulta una lista de países a una API y los exhibe por páginas</strong>. Cuenta con dos filtros<strong>: por nombre de pais y por continente</strong>.</p>',
         technologies: [
             {
                 technologyName: 'Vue'

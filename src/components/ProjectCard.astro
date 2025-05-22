@@ -7,30 +7,30 @@ const hasDemoAvailable = externalLinks.hasOwnProperty('demo')
 ---
 
 <li class="project-card-item">
-    <div class="project-card-item__img-wrapper wrapper-img">
-        <Image class="project-card-item__img wrapper-img__img" alt={`Proyecto de ${nameTitle}`}  src={image}/>
-        <div class="project-card-item__wrapper-overlay demo-action">
+    <div class="project-card-item__img-wrapper">
+        <Image class="project-card-item__img" alt={`Proyecto de ${nameTitle}`}  src={image}/>
+        <div class="project-card-item__wrapper-overlay">
             {
                 (hasDemoAvailable)
-                ? <a class="project-card-item__open-demo-link open-demo-link open-demo-link_available" href={externalLinks.demo} target="_blank">
-                    <Icon class="project-card-item__open-demo-link-icon open-demo-link__icon" name="bx:link-external" size={50}/>
-                    <span class="project-card-item__open-demo-link-text open-demo-link__text">Abrir</span>
+                ? <a class="project-card-item__open-demo-link" href={externalLinks.demo} target="_blank">
+                    <Icon class="project-card-item__open-demo-link-icon" name="bx:link-external" size={50}/>
+                    <span class="project-card-item__open-demo-link-text">Abrir</span>
                   </a>
-                : <div class="project-card-item__open-demo-link open-demo-link open-demo-link_not-available">
-                    <Icon class="project-card-item__open-demo-link-icon open-demo-link__icon" name="bx:x-circle" size={50}/>
-                    <span class="project-card-item__open-demo-link-text open-demo-link__text">No disponible</span>
+                : <div class="project-card-item__open-demo-link project-card-item__open-demo-link_not-available">
+                    <Icon class="project-card-item__open-demo-link-icon" name="bx:x-circle" size={50}/>
+                    <span class="project-card-item__open-demo-link-text">No disponible</span>
                   </div>
             }
         </div>
     </div>
     {
         (hasDemoAvailable) 
-        ? <a class="project-card-item__name-title project-card-item__name-title-link" href={externalLinks.demo} target="_blank">{ nameTitle }</a>
-        : <span class="project-card-item__name-title project-card-item__name-title_not-available project-card-item__name-title-link project-card-item__name-title-link_not-available" title="No disponible">{ nameTitle }</span>
+        ? <a class="project-card-item__name-title" href={externalLinks.demo} target="_blank">{ nameTitle }</a>
+        : <span class="project-card-item__name-title project-card-item__name-title_not-available" title="No disponible">{ nameTitle }</span>
     }
-    <div class="project-card-item__aux-actions auxiliar-actions">
-        <button type="button" class="project-card-item__more-info-btn open-info-modal" data-idx={idx} title="Mostrar mas información" aria-role="Mostrar información">
-            <Icon class="project-card-item__more-info-btn-icon open-info-modal__icon" name="bx:info-circle" size={25}/>
+    <div class="project-card-item__aux-actions">
+        <button type="button" class="project-card-item__more-info-btn" data-idx={idx} title="Mostrar mas información" aria-role="Mostrar información">
+            <Icon class="project-card-item__more-info-btn-icon" name="bx:info-circle" size={25}/>
         </button>
         <a href={externalLinks.repository} target="_blank" class="project-card-item__open-repository-link" title="Abrir repositorio de GitHub" aria-role="Abrir repositorio de GitHub">
             <Icon class="project-card-item__open-repository-link-icon" name="simple-icons:github" size={25}/>
@@ -106,6 +106,7 @@ const hasDemoAvailable = externalLinks.hasOwnProperty('demo')
         display: flex;
         flex-direction: column;
         align-items: center;
+        color: var(--primary-color-100);
     }
     .project-card-item__open-demo-link-icon {
         opacity: 0.8;
@@ -122,10 +123,7 @@ const hasDemoAvailable = externalLinks.hasOwnProperty('demo')
         opacity: 1;
     }
 
-    .open-demo-link_available {
-        color: var(--primary-color-100);
-    }
-    .open-demo-link_not-available {
+    .project-card-item__open-demo-link_not-available {
         color: var(--error-color-500);
         pointer-events: none;
     }
