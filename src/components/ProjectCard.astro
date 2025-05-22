@@ -7,33 +7,33 @@ const hasDemoAvailable = externalLinks.hasOwnProperty('demo')
 ---
 
 <li class="project-card-item">
-    <div class="wrapper-img">
-        <Image class="wrapper-img__img" alt="Proyecto de buscaminas" src={image}/>
-        <div class="demo-action">
+    <div class="project-card-item__img-wrapper wrapper-img">
+        <Image class="project-card-item__img wrapper-img__img" alt={`Proyecto de ${nameTitle}`}  src={image}/>
+        <div class="project-card-item__wrapper-overlay demo-action">
             {
                 (hasDemoAvailable)
-                ? <a class="open-demo-link open-demo-link_available" href={externalLinks.demo} target="_blank">
-                    <Icon class="open-demo-link__icon" name="bx:link-external" size={50}/>
-                    <span class="open-demo-link__text">Abrir</span>
+                ? <a class="project-card-item__open-demo-link open-demo-link open-demo-link_available" href={externalLinks.demo} target="_blank">
+                    <Icon class="project-card-item__open-demo-link-icon open-demo-link__icon" name="bx:link-external" size={50}/>
+                    <span class="project-card-item__open-demo-link-text open-demo-link__text">Abrir</span>
                   </a>
-                : <div class="open-demo-link open-demo-link_not-available">
-                    <Icon class="open-demo-link__icon" name="bx:x-circle" size={50}/>
-                    <span class="open-demo-link__text">No disponible</span>
+                : <div class="project-card-item__open-demo-link open-demo-link open-demo-link_not-available">
+                    <Icon class="project-card-item__open-demo-link-icon open-demo-link__icon" name="bx:x-circle" size={50}/>
+                    <span class="project-card-item__open-demo-link-text open-demo-link__text">No disponible</span>
                   </div>
             }
         </div>
     </div>
     {
         (hasDemoAvailable) 
-        ? <a class="project-card-item__name-title-link" href={externalLinks.demo} target="_blank">{ nameTitle }</a>
-        : <span class="project-card-item__name-title-link project-card-item__name-title-link_not-available" title="No disponible">{ nameTitle }</span>
+        ? <a class="project-card-item__name-title project-card-item__name-title-link" href={externalLinks.demo} target="_blank">{ nameTitle }</a>
+        : <span class="project-card-item__name-title project-card-item__name-title_not-available project-card-item__name-title-link project-card-item__name-title-link_not-available" title="No disponible">{ nameTitle }</span>
     }
-    <div class="auxiliar-actions">
-        <button type="button" class="open-info-modal" data-idx={idx} title="Mostrar mas información" aria-role="Mostrar información">
-            <Icon class="open-info-modal__icon" name="bx:info-circle" size={25}/>
+    <div class="project-card-item__aux-actions auxiliar-actions">
+        <button type="button" class="project-card-item__more-info-btn open-info-modal" data-idx={idx} title="Mostrar mas información" aria-role="Mostrar información">
+            <Icon class="project-card-item__more-info-btn-icon open-info-modal__icon" name="bx:info-circle" size={25}/>
         </button>
-        <a href={externalLinks.repository} target="_blank" class="open-repository-link" title="Abrir repositorio de GitHub" aria-role="Abrir repositorio de GitHub">
-            <Icon class="open-repository-link__icon" name="simple-icons:github" size={25}/>
+        <a href={externalLinks.repository} target="_blank" class="project-card-item__open-repository-link" title="Abrir repositorio de GitHub" aria-role="Abrir repositorio de GitHub">
+            <Icon class="project-card-item__open-repository-link-icon" name="simple-icons:github" size={25}/>
         </a>
     </div>
 </li>
@@ -58,17 +58,21 @@ const hasDemoAvailable = externalLinks.hasOwnProperty('demo')
         gap: 1rem;
     }
 
-    .wrapper-img {
+    .project-card-item__img-wrapper {
         grid-area: projectImg;
         position: relative;
-        background-color: var(--color-bg);
+        background-color: var(--primary-bg-color);
         border-radius: var(--wrapper-border-radius);
         box-shadow: 10px 10px 20px -5px var(--color-shadow);
         -webkit-box-shadow: 10px 10px 20px -5px var(--color-shadow);
         -moz-box-shadow: 10px 10px 20px -5px var(--color-shadow);
     }
 
-    .demo-action {
+    .project-card-item__img {
+        object-fit: cover;
+    }
+
+    .project-card-item__wrapper-overlay {
         border-radius: var(--wrapper-border-radius);
         position: absolute;
         top: 0;
@@ -83,96 +87,98 @@ const hasDemoAvailable = externalLinks.hasOwnProperty('demo')
         /* z-index: -1; */
     }
 
-    .wrapper-img:hover .demo-action {
+    .project-card-item__img-wrapper:hover .project-card-item__wrapper-overlay {
         opacity: 1;
-        color: var(--color-bg);
+        color: var(--primary-color-100);
         background-color: rgba(0, 0, 0, 0.7);
         backdrop-filter: blur(3px);
         /* z-index: 1; */
     }
 
-    .open-demo-link {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .open-demo-link__icon {
-        opacity: 0.8;
-    }
-    .wrapper-img:hover .demo-action .open-demo-link__icon {
-        opacity: 1;
-    }
-
-    .open-demo-link__text {
-        opacity: 0;
-        font: normal normal 500 clamp(1.4rem, 6vw, 1.6rem) var(--display-font, Tahoma);
-    }
-    .wrapper-img:hover .demo-action .open-demo-link__text{
-        opacity: 1;
-    }
-
-    .open-demo-link_available {
-        color: var(--aqua-green-light);
-    }
-    .open-demo-link_not-available {
-        color: var(--error-msg);
-        pointer-events: none;
-    }
-
-    .project-card-item__name-title-link {
-        grid-area: projectName;
-        font: normal normal 500 clamp(1.4rem, 5vw, 1.6rem) var(--display-font, Tahoma);
-        color: var(--color-titles);
-        text-align: center;
-    }
-
-    .project-card-item__name-title-link_not-available{
-        cursor: not-allowed;
-    }
-
-    :is(.wrapper-img__img, .demo-action) {
+    .project-card-item__img, 
+    .project-card-item__wrapper-overlay {
         height: var(--wrapperImg-max-height);
         width: var(--wrapperImg-max-width);
         border-radius: var(--wrapper-border-radius);
     }
 
-    .wrapper-img__img {
-        object-fit: cover;
+    .project-card-item__open-demo-link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .project-card-item__open-demo-link-icon {
+        opacity: 0.8;
+    }
+    .project-card-item__img-wrapper:hover .project-card-item__wrapper-overlay .project-card-item__open-demo-link-icon {
+        opacity: 1;
     }
 
-    .project-card-item__name-title-link:hover {
+    .project-card-item__open-demo-link-text {
+        opacity: 0;
+        font: normal normal 500 var(--subtitle-fs) var(--display-font, Tahoma);
+    }
+    .project-card-item__img-wrapper:hover .project-card-item__wrapper-overlay .project-card-item__open-demo-link-text{
+        opacity: 1;
+    }
+
+    .open-demo-link_available {
+        color: var(--primary-color-100);
+    }
+    .open-demo-link_not-available {
+        color: var(--error-color-500);
+        pointer-events: none;
+    }
+
+    .project-card-item__name-title {
+        grid-area: projectName;
+        font: normal normal 500 var(--subtitle-fs) var(--display-font, Tahoma);
+        color: var(--title-color);
+        text-align: center;
+        transition: color .3s ease;
+        line-height: 150%;
+    }
+
+    .project-card-item__name-title:hover {
+        color: var(--subtitle-color);
         text-decoration: underline;
+        text-underline-offset: 6px
     }
 
-    .auxiliar-actions {
+    .project-card-item__name-title_not-available{
+        cursor: not-allowed;
+    }
+    .project-card-item__name-title_not-available:hover {
+        color: var(--error-text-color);
+    } 
+
+    .project-card-item__aux-actions {
         grid-area: projectAuxActions;
         display: flex;
         gap: 1.5rem;
     }
 
-    .open-info-modal {
+    .project-card-item__more-info-btn {
         padding: 0;
-
     }
-    .open-repository-link {}
+    .project-card-item__open-repository-link {}
 
-    .open-info-modal__icon,
-    .open-repository-link__icon {
-        color: var(--color-font);
+    .project-card-item__more-info-btn-icon,
+    .project-card-item__open-repository-link-icon {
+        color: var(--phrase-color);
         --icon-size: 35px;
         width: var(--icon-size);
         height: var(--icon-size);
         transition: color .3s ease;
     }
 
-    :is( .open-info-modal__icon, .open-repository-link__icon ):hover{
-        color: var(--color-titles)
+    :is( .project-card-item__more-info-btn-icon, .project-card-item__open-repository-link-icon ):hover{
+        color: var(--title-color)
     }
 
     @media (width >= 768px) {
         .project-card-item{
             width: var(--wrapperImg-max-width);
-            /* grid-template-columns: minmax(min-content, var(--wrapperImg-max-width)) 30%; */
             grid-template-columns: 60% 40%;
             grid-template-rows: var(--wrapperImg-max-height) auto;
             grid-template-areas: 
@@ -183,26 +189,25 @@ const hasDemoAvailable = externalLinks.hasOwnProperty('demo')
             justify-items: normal;
         }        
 
-        .project-card-item__name-title-link {
-            font: normal normal 500 clamp(1rem, 5vw, 1.4rem) var(--display-font, Tahoma);
+        .project-card-item__name-title {
             text-align: start;
         }
 
-        .auxiliar-actions {
+        .project-card-item__aux-actions {
             gap: .5rem;
             align-items: start;
             justify-self: end;
         }
 
-        .open-info-modal__icon,
-        .open-repository-link__icon {
-            --icon-size: 30px;
+        .project-card-item__more-info-btn-icon,
+        .project-card-item__open-repository-link-icon {
+            --icon-size: 25px;
             width: var(--icon-size);
             height: var(--icon-size);
         }
 
-        :is( .open-info-modal__icon, .open-repository-link__icon ):hover{
-            color: var(--color-titles)
+        :is( .project-card-item__more-info-btn-icon, .project-card-item__open-repository-link-icon ):hover{
+            color: var(--title-color);
         }
     }
 </style>
