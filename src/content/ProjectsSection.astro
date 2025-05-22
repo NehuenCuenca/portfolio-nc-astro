@@ -8,8 +8,8 @@
     </div>
     <slot class="projects-list" name="projects-list"/>
     <svg class="projects-container__divider" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1000 100">
-        <g fill="var(--color-details)">
-            <rect fill="var(--color-bg)" width="100%" height="100%"/>
+        <g fill="var(--secondary-bg-color)">
+            <rect fill="var(--primary-bg-color)" width="100%" height="100%"/>
             <path d="M0 1v99c134.3 0 153.7-99 296-99H0Z" opacity=".5"></path>
             <path d="M1000 4v86C833.3 90 833.3 3.6 666.7 3.6S500 90 333.3 90 166.7 4 0 4h1000Z" opacity=".5"></path>
             <path d="M617 1v86C372 119 384 1 196 1h421Z" opacity=".5"></path>
@@ -20,8 +20,8 @@
 
 <style is:global>
     .projects-container{
-        background: var(--color-details);
-        background: linear-gradient(180deg, var(--color-details) 99%, var(--color-bg) 100%);
+        background: var(--secondary-bg-color);
+        background: linear-gradient(180deg, var(--secondary-bg-color) 99%, var(--primary-bg-color) 100%);
         display: flex;
         flex-direction: column;
         align-items: center;
