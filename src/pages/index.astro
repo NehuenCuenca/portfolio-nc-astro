@@ -34,27 +34,31 @@ import { Icon } from 'astro-icon/components';
 		<ContactSection />
 	</main>
 	
-	<dialog id="last-info-project-dialog" class="info-project-dialog" closedby="any">
-		<form class="info-project-dialog-close-form">
-			<button formmethod="dialog" aria-role="Cerrar dialogo" class="info-project-dialog-close-button">
-				<Icon name="bx:x" size={35} class='info-project-dialog-close-button__icon'/>
+	<dialog id="last-info-project-dialog" class="info-project-dialog" closedby="closerequest">
+		<form class="info-project-dialog__close-form">
+			<button formmethod="dialog" aria-role="Cerrar dialogo" class="info-project-dialog__close-button ">
+				<Icon name="bx:x" size={35} class='info-project-dialog__close-icon'/>
 			</button>
 		</form>
-		<div class="info-project-header">
-			<div class="header-img-wrapper">
-				<img src="" alt="Una imagen de proyecto no establecida" class="header-img-wrapper__img">
-				<div class="header-img-wrapper__fade-bg"></div>
-			</div>
-			<h3 class="info-project-header__name"></h3>
+		<div class="info-project-dialog__header">
+			<img src="" alt="Una imagen de proyecto no establecida" class="info-project-dialog__header-project-img ">
+			<h3 class="info-project-dialog__header-name-title"></h3>
+			<ul class="info-project-dialog__header-technologies-list">
+				<li class="technology-item">
+					<h4 class="technology-item__technology-name"></h4>
+				</li>
+				<li class="technology-item">
+					<h4 class="technology-item__technology-name"></h4>
+				</li>
+			</ul>
 		</div>
-		<div class="info-project-content">
-			<p class="info-project-content__description"></p>
+		<div class="info-project-dialog__content">
+			<p class="info-project-dialog__content-description"></p>
 		</div>
 	</dialog>
 </Layout>
 
 <script define:vars={{ projects }}>
-
 	document.addEventListener('DOMContentLoaded', function() {
 		const goToTopLink = document.querySelector('.go-to-top-link');
 		const heroSection = document.querySelector('main').querySelectorAll('section')[0];
@@ -100,23 +104,28 @@ import { Icon } from 'astro-icon/components';
 	});
 
 	// Find all buttons with the `alert` class on the page.
-	const openInfoProjectButtons = document.querySelectorAll('button.open-info-modal');
+	const openInfoProjectButtons = document.querySelectorAll('button.project-card-item__more-info-btn');
 	const infoProjectDialog = document.querySelector("#last-info-project-dialog");
 
 	// Handle clicks on each button.
 	openInfoProjectButtons.forEach((button) => {
 		button.addEventListener('click', () => {
 			const idxProject = button.getAttribute('data-idx')
-			const { nameTitle, image, description } = projects[idxProject]
+			const { nameTitle, image, description, technologies } = projects[idxProject]
 
-			const projectImg = infoProjectDialog.querySelector('.header-img-wrapper__img')
-			const projectName = infoProjectDialog.querySelector('.info-project-header__name')
-			const projectDescription = infoProjectDialog.querySelector('.info-project-content__description')
+			const projectImg = infoProjectDialog.querySelector('.info-project-dialog__header-project-img')
+			const projectName = infoProjectDialog.querySelector('.info-project-dialog__header-name-title')
+			const projectDescription = infoProjectDialog.querySelector('.info-project-dialog__content-description')
+			const projectTechnologiesList = infoProjectDialog.querySelector('.info-project-dialog__header-technologies-list')
+			const technologiesItems = projectTechnologiesList.querySelectorAll('.technology-item')
 
 			projectImg.src = image.src
 			projectImg.alt = `Proyecto ${nameTitle}`
 			projectName.textContent = nameTitle
 			projectDescription.innerHTML = description
+			technologiesItems.forEach((technologyItemElement, idxItemElement) => {
+				technologyItemElement.innerHTML = `<h4 class="technology-item__technology-name">${technologies[idxItemElement]?.technologyName || ''}</h4>`
+			})
 
   			infoProjectDialog.showModal();
 		});
@@ -124,18 +133,24 @@ import { Icon } from 'astro-icon/components';
 
 	infoProjectDialog.addEventListener('close', () => {
 		setTimeout( () => {
-			const projectImg = infoProjectDialog.querySelector('.header-img-wrapper__img')
-			const projectName = infoProjectDialog.querySelector('.info-project-header__name')
-			const projectDescription = infoProjectDialog.querySelector('.info-project-content__description')
+			const projectImg = infoProjectDialog.querySelector('.info-project-dialog__header-project-img')
+			const projectName = infoProjectDialog.querySelector('.info-project-dialog__header-name-title')
+			const projectDescription = infoProjectDialog.querySelector('.info-project-dialog__content-description')
+			const projectTechnologiesList = infoProjectDialog.querySelector('.info-project-dialog__header-technologies-list')
+			const technologiesItems = projectTechnologiesList.querySelectorAll('.technology-item')
+			
 			projectImg.src = ''
 			projectImg.alt = `Imagen de proyecto a detallar...`
 			projectName.textContent = 'Titulo de proyecto a detallar'
 			projectDescription.innerHTML = 'Descripcion del proyecto...'
+			technologiesItems.forEach((technologyItemElement) => {
+				technologyItemElement.innerHTML = `<h4 class="technology-item__technology-name"></h4>`
+			})
 		}, 500)
 	})
 </script>
 
-<style >
+<style>
 	.main-container, .different-bg{
 		display: flex;
 		flex-direction: column;
@@ -143,7 +158,7 @@ import { Icon } from 'astro-icon/components';
 	}
 
 	.different-bg{
-		background-color: var(--color-details);
+		background-color: var(--secondary-bg-color);
 	}
 
 	.info-project-dialog{
@@ -151,16 +166,16 @@ import { Icon } from 'astro-icon/components';
 		max-height: 75dvh;
 		max-width: 100%;
 		padding: 0;
-		color: var(--color-font);
-    	background-color: var(--color-bg);
-    	border-top: 8px solid var(--color-titles);
-    	border-right: 8px solid var(--color-titles);
-    	border-left: 8px solid var(--color-titles);
+		color: var(--color-paragraph);
+    	background-color: var(--primary-bg-color);
+    	border-top: 8px solid var(--title-color);
+    	border-right: 8px solid var(--title-color);
+    	border-left: 8px solid var(--title-color);
 		border-bottom: none;
     	border-radius: 10px 10px 0px 0px;
 		margin: auto 0 0 0;
 		opacity: 0;
-		--dialog-entrance-exit-timing: .5s;
+		--dialog-entrance-exit-timing: 500ms;
 		transition:
 			display var(--dialog-entrance-exit-timing) allow-discrete,
 			overlay var(--dialog-entrance-exit-timing) allow-discrete,
@@ -192,8 +207,8 @@ import { Icon } from 'astro-icon/components';
 		opacity: 0;
 	}
 
-	.info-project-dialog-close-form {
-		background-color: var(--color-titles);
+	.info-project-dialog__close-form {
+		background-color: var(--title-color);
 		width: fit-content;
 		border-radius: 0 0 0 10px;
 		position: absolute;
@@ -202,44 +217,59 @@ import { Icon } from 'astro-icon/components';
 		z-index: 1;
 	}
 
-	.info-project-dialog-close-button {
-		color: var(--color-bg);
+	.info-project-dialog__close-button {
+		color: var(--primary-bg-color);
 	}
-	.info-project-dialog-close-button__icon {}
+	.info-project-dialog__close-icon {}
 
-	.info-project-header{}
-
-	.header-img-wrapper {
-		position: relative;
-		--headerImgWrapper-max-height: 25dvh;
-		--headerImgWrapper-max-width: 100%;
+	.info-project-dialog__header {
+		background-color: var(--title-color);
+		color: var(--primary-bg-color);
+		display: grid;
+		grid-template-columns: 60% 40%;
+		grid-template-areas: 
+			"projectImg projectImg"
+			"projectNameTitle projectTechnologiesList"
+		;
 	}
-	.header-img-wrapper__img {
-		width: var(--headerImgWrapper-max-width);
-		height: var(--headerImgWrapper-max-height);
+
+	.info-project-dialog__header-project-img {
+		grid-area: projectImg;
+		width: 100%;
+		height: 25dvh;
 		object-fit: cover;
 		object-position: center;
 	}
-	.header-img-wrapper__fade-bg {
-		height: var(--headerImgWrapper-max-height);
-		width: var(--headerImgWrapper-max-width);
-		position: absolute;
-		top: 0;
+
+	.info-project-dialog__header-name-title {
+		grid-area: projectNameTitle;
+		padding: .5rem;
+		font: normal normal 500 clamp(var(--body-lg-fs), 5vw, var(--subtitle-fs)) var(--display-font, Tahoma);
+		align-self: center;
 	}
 
-	.info-project-header__name {
-		padding: 1rem .5rem;
-		font: normal normal 500 clamp(1.4rem, 5vw, 1.6rem) var(--display-font, Tahoma);
-		background-color: var(--color-titles);
-		color: var(--color-bg);
+	.info-project-dialog__header-technologies-list {
+		grid-area: projectTechnologiesList;
+		padding: 1rem .5rem 1rem 0;
+		place-self: end;
+		display: flex;
+		gap: 10px;
 	}
-	.info-project-content {
+	.technology-item {}
+	.technology-item__technology-name {
+		font: normal normal 500 clamp(var(--micro-fs), 5vw, var(--body-lg-fs)) var(--default-font, Arial);
+	}
+
+	.info-project-dialog__content {
 		padding: 1rem 1rem 1.5rem 1rem;
-		max-height: 30dvh;
+		max-height: 35dvh;
 		overflow-y: auto;
+		border-radius: 2px;
 	}
-	.info-project-content__description {
-		font: normal normal 500 clamp(1.1rem, 5vw, 1.2rem) var(--default-font, Arial);
+
+	.info-project-dialog__content-description {
+		font: normal normal 500 clamp(var(--body-sm-fs), 5vw, var(--body-lg-fs)) var(--default-font, Arial);
+		line-height: 1.8rem;
 	}
 
 	.go-to-top-link{
@@ -252,7 +282,7 @@ import { Icon } from 'astro-icon/components';
 		border-radius: 5px;
 		z-index: 1;
 		opacity: 1;
-		transition: opacity .5s ease;
+		transition: opacity .5s ease, background-color .5s ease;
 	}
 
 	.go-to-top-link_hidden{
@@ -261,50 +291,29 @@ import { Icon } from 'astro-icon/components';
 		z-index: -1;
 	}
 
+	.go-to-top-link:hover {
+		background-color: var(--subtitle-color);
+	}
+
 	@media (width >= 768px) {
 		.info-project-dialog{
 			overflow-y: hidden;
 			max-height: 80dvh;
-			max-width: 45dvw;
+			/* max-width: 45dvw; */
+			width: clamp(350px, 50%, 450px);
 			padding: 0;
-			border: 8px solid var(--color-titles);
+			border: 8px solid var(--title-color);
 			border-radius: 10px;
 			margin: auto ;
 		}
 		
-		.info-project-dialog-close-button {
-			color: var(--color-bg);
+		.info-project-dialog__close-button {
+			color: var(--primary-bg-color);
 		}
-		.info-project-dialog-close-button__icon {
+		.info-project-dialog__close-button-icon {
 			--iconSize: 40px;
 			width: var(--iconSize);
 			height: var(--iconSize);
-		}
-
-
-		.header-img-wrapper {
-			--headerImgWrapper-max-height: 30dvh;
-		}
-		.header-img-wrapper__img {
-			width: var(--headerImgWrapper-max-width);
-			height: var(--headerImgWrapper-max-height);
-			object-fit: cover;
-			object-position: center;
-		}
-		.header-img-wrapper__fade-bg {
-			height: var(--headerImgWrapper-max-height);
-			width: var(--headerImgWrapper-max-width);
-			position: absolute;
-			top: 0;
-		}
-
-		/* .info-project-content {
-			max-height: 25dvh;
-		} */
-		
-		.info-project-content__description {
-			font: normal normal 500 clamp(1.2rem, 5vw, 1.4rem) var(--default-font, Arial);
-			line-height: 2rem;
 		}
 	}
 </style>
