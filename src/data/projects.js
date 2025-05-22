@@ -13,25 +13,43 @@ export const projects = [
             demo: 'https://buscaminas-nc.netlify.app/',
             repository: 'https://github.com/NehuenCuenca/buscaminas-vue'
         },
-        description: '<p>Desarrollé una recreacion de este clasico juego usando <strong>Vue 3 y su Composition API.</strong></p><p>El juego <strong>cuenta con 3 niveles</strong> de dificultad y ademas, <strong>almacena los 3 mejores tiempos</strong> segun el nivel de dificultad.</p>'
+        description: '<p>Desarrollé una recreación de este clásico juego manteniendo <strong>3 niveles de dificultad</strong> y además, <strong>almacena los 3 mejores tiempos</strong> según el nivel de dificultad.</p>',
+        technologies: [
+            {
+                technologyName: 'Vue'
+            },
+        ]
     },
     { 
-        nameTitle: 'Landing page para gym',
+        nameTitle: 'Gym landing page',
         image: MegaGymLogoImg,
         externalLinks: { 
             demo: 'https://megagym-gchu.netlify.app/',
             repository: 'https://github.com/NehuenCuenca/megagym-nc'
         },
-        description: '<p>Proyecto que trata sobre <strong>un gimnasio local el cual no cuenta con una pagina web</strong> y solo hace uso de redes sociales.</p><p>El diseñar y desarrollar esta landing page me ayudo a <strong>sacarle mejor provecho a la herramienta Figma</strong> y tambien me hizo dar cuenta de varios conceptos sobre diseño web.</p><p>Aqui usé <strong>Astro con</strong> la integracion de <strong>React</strong>.</p>'
+        description: '<p>Basado en <strong>un gimnasio local que no posee web page</strong> y solo usa de redes sociales. Diseñar y desarrollar esta landing me sació de conceptos modernos sobre diseño web.</p>',
+        technologies: [
+            {
+                technologyName: 'Astro'
+            },
+            {
+                technologyName: 'Vue'
+            },
+        ]
     },
     { 
-        nameTitle: 'Minijuego de matematicas',
+        nameTitle: 'Minijuego matematico',
         image: MinijuegoMatematicasImg,
         externalLinks: { 
             demo: 'https://math-minigame-rework-nc.netlify.app/',
             repository: 'https://github.com/NehuenCuenca/math-minigame-rework'
         },
-        description: '<p>Este es otro juego el cual se podia disfrutar en la Nintendo DS.</p><p>Se trata de <strong>realizar 10 cuentas matematicas en el menor tiempo posible</strong>. Las cuentas incluyen: <strong>suma, resta y multiplicacion.</strong></p><p><strong>Rediseñe</strong> su version anterior, <strong>mejorando la experiencia de usuario</strong> en los distintos tipos de pantallas y añadiendo un tema claro/oscuro.</p>'
+        description: '<p>Es un juego de la Nintendo DS sobre <strong>realizar 10 cuentas matemáticas (suma, resta y multiplicación) en el menor tiempo posible</strong>. Rediseñe su versión anterior, <strong>mejorando la UX.</strong></p>',
+        technologies: [
+            {
+                technologyName: 'Vue'
+            }
+        ]
     },
     { 
         nameTitle: 'ArenaMobile',
@@ -40,16 +58,29 @@ export const projects = [
             demo: 'https://arena-mobile.vercel.app/',
             repository: 'https://github.com/No-Country/c16-81-t-php'
         },
-        description: '<p>La idea principal de este proyecto era realizar una <strong>plataforma que permita crear y gestionar torneos de juegos mobile</strong> (para dispositivos moviles).</p><p>Fue para una <strong>simulación de No Country</strong>, donde <strong>entre 3 personas</strong>, totalmente desconocidas, <strong>tuvimos que adaptarnos</strong> ante los inconvenientes como equipo, organizarnos <strong>y lograr parte del desarrollo de la plataforma</strong> (Landing page, API y dashboard de usuario).</p>'
+        description: '<p>Entre 3 desconocidos ideamos un website que permita crear y gestionar torneos de juegos mobile</strong> (disp. movil). Logramos desarrollar su <strong>Landing page, API y user dashboard</strong>.</p>',
+        technologies: [
+            {
+                technologyName: 'Laravel'
+            },
+            {
+                technologyName: 'React'
+            },
+        ]
     },
     { 
-        nameTitle: 'Buscador de paises',
+        nameTitle: 'Buscador de países',
         image: BuscadorPaisesImg,
         externalLinks: { 
             demo: 'https://countries-api-vue-nc.netlify.app/',
             repository: 'https://github.com/NehuenCuenca/FM-RestCountriesApiVue'
         },
-        description: '<p>Se trata de un <strong>challenge de <a href="https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca" target="_blank">FrontendMentor</a></strong> el cual consiste en un buscador de paises.</p><p>La pagina consigue los datos de los paises mediante una </strong>llamada a su respectiva API y los renderiza de manera paginada</strong>. El proyecto </trong>cuenta con dos filtros</strong>: por nombre de pais y por región; <strong>además del interruptor entre tema claro y oscuro</strong>.</p><p>Fue realizado con <strong>HTML, CSS y Vue</strong>.</p>'
+        description: '<p>Un <a href="https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca" target="_blank" style="text-decoration:underline;" >challenge</a> que consigue <strong>consultar los países a una API y los exhibe por páginas</strong>. Cuenta con dos filtros<strong>: por nombre de pais y por continente</strong>.</p>',
+        technologies: [
+            {
+                technologyName: 'Vue'
+            }
+        ]
     },
     { 
         nameTitle: 'CuentaClara',
@@ -57,6 +88,14 @@ export const projects = [
         externalLinks: { 
             repository: 'https://github.com/NehuenCuenca/morosos-anahi-frontend'
         },
-        description: '<p>CuentaClara es una aplicacion web desarrollada para la <strong>gestion de fiados que se lleva a cabo en un negocio</strong>.</p><p><strong>Permite visualizar a los clientes con su respectivo balance</strong> acumulado (ya sea de deuda o a su favor). Para ello <strong>se registra una deuda</strong> describiendo un monto, cantidad y detalle con fecha y hora. Estas deudas <strong>pueden ser editadas, saldadas y hasta borradas del historial de un cliente</strong>.</p><p>Tambien <strong>es posible descargar un archivo excel</strong> sobre las deudas y los respectivos balances transcurridos en un mes/año seleccionado.</p>'
+        description: '<p>Facilita la <strong>gestión de fiados</strong> realizados en un negocio. <strong>Es un CRUD de los balances acumulados</strong>. Permite <strong>descargar un .excel</strong> de los balances dados en una fecha.</p>',
+        technologies: [
+            {
+                technologyName: 'Vue'
+            },
+            {
+                technologyName: 'Laravel'
+            },
+        ]
     },
 ]
