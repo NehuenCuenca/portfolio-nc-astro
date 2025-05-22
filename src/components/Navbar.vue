@@ -109,13 +109,14 @@ onMounted(() => {
             if(entry.isIntersecting){
                 const navLinks = Array.from(navbarRootElement.value.querySelectorAll('.nav__desktop-bar-link'))
                 navLinks.forEach((navLink) => {
-                    const navLinkParentClassList= navLink.parentElement.classList
-                    if( navLinkParentClassList.contains('nav__desktop-bar-section-link-item_watching-section') ){ navLinkParentClassList.remove('nav__desktop-bar-section-link-item_watching-section')}
+                    // const navLinkParentClassList= navLink.parentElement.classList
+                    const linkContainsWatchingSectionClass = navLink.classList.contains('nav__desktop-bar-link_watching-section')
+                    if( linkContainsWatchingSectionClass ){ navLink.classList.remove('nav__desktop-bar-link_watching-section')}
                 
                     const navLinkHrefHash = new URL(navLink.href).hash
                     const intersectedSectionId = `#${entry.target.id}` 
                     if( intersectedSectionId === navLinkHrefHash ) {
-                        navLinkParentClassList.add('nav__desktop-bar-section-link-item_watching-section')
+                        navLink.classList.add('nav__desktop-bar-link_watching-section')
                     }
                 })
             }
@@ -228,7 +229,8 @@ const toggleTheme = () => {
 
 .nav__desktop-bar-section-links-list {}
 
-.nav__desktop-bar-link {
+.nav__desktop-bar-link,
+.nav__desktop-bar-link_watching-section {
   position: relative;
   --on-hover-horizontal-margin: -7px;
   --on-hover-vertical-margin: -7px;
@@ -261,8 +263,8 @@ const toggleTheme = () => {
   border-right: var(--on-hover-border-width) solid transparent;
 }
 
-.nav__desktop-bar-link:hover::before,
-.nav__desktop-bar-link:hover::after {
+:is( .nav__desktop-bar-link:hover, .nav__desktop-bar-link_watching-section )::before,
+:is( .nav__desktop-bar-link:hover, .nav__desktop-bar-link_watching-section )::after {
   width: var(--on-hover-border-distance-display);
   height: var(--on-hover-border-distance-display);
   border-color: var(--title-color);
