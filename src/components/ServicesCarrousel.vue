@@ -7,10 +7,10 @@
       <ul class="services-carrousel__header-services-list">
         <li class="services-carrousel__header-service-item" v-for="({name, icon}, idxService) in services" :class="(idxService === currentIdxService) ? 'services-carrousel__header-service-item_current' : ''">
           <button type="button" class="services-carrousel__header-service-item-card" @click="handleCurrentIdxService(idxService)">
-            <Icon class="services-carrousel__header-service-item-card-icon" :icon="icon" width="80" />
+            <Icon class="services-carrousel__header-service-item-card-icon" :icon="icon" width="65" />
             <span class="services-carrousel__header-service-item-card-name">{{ name }}</span>
           </button>
-          <div class="progress-bar">
+          <div class="progress-bar" ref="progressBarRefs">
             <div class="progress-bar__current-progress"></div>
           </div>
         </li>
@@ -26,21 +26,29 @@
       </li>
     </ol>
   </div>
-  
-  
 </template>
 
 <script setup>
 import { Icon } from '@iconify/vue';
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 
 const props = defineProps({
   services: Array
 })
 
-const currentIdxService = ref(0)
+const progressBarRefs = ref([])
 
+onMounted(() => {
+  progressBarRefs.value.forEach((progressBar) => {
+    progressBar.addEventListener('animationend', (animationEvent) => {
+      handleCurrentIdxService(currentIdxService.value+1) 
+    })
+  })
+})
+
+const currentIdxService = ref(0)
 const handleCurrentIdxService = (nextIdxService) => {
+  if(nextIdxService === currentIdxService) return
   if( nextIdxService >= 0 && nextIdxService < props.services.length ) return currentIdxService.value = nextIdxService; 
   
   currentIdxService.value = (nextIdxService >= props.services.length) 
@@ -57,22 +65,26 @@ const handleCurrentIdxService = (nextIdxService) => {
   align-items: center;
   gap: 2rem;
 }
+
 .services-carrousel__header {
   display: flex;
   width: 100%;
   justify-content: space-evenly;
 }
-.services-carrousel__header-control-button {
-}
-.services-carrousel__header-control-button_previous {
-}
+
+.services-carrousel__header-control-button {}
+.services-carrousel__header-control-button_previous {}
+.services-carrousel__header-control-button_next {}
+
 .services-carrousel__header-control-button-icon {
-  color: var(--color-titles);
+  color: var(--title-color);
 }
-.services-carrousel__header-services-list {
-}
+
+.services-carrousel__header-services-list {}
+
 .services-carrousel__header-service-item {
   display: none;
+  transition: color .3s ease, background-color .3s ease;
 }
 .services-carrousel__header-service-item_current {
   display: flex;
@@ -80,39 +92,54 @@ const handleCurrentIdxService = (nextIdxService) => {
   align-items: center;
   gap: 1rem; 
 }
+
+.services-carrousel__header-service-item-card {
+  transition: background-color .3s ease, color .3s ease;
+}
 .services-carrousel__header-service-item_current .services-carrousel__header-service-item-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: .5rem;
   padding: 1.2rem;
-  background: var(--color-font);
-  background: linear-gradient(45deg, var(--color-titles) 0%, var(--color-font) 100%);
+  background-color: var(--paragraph-color);
   border-radius: 10px 40px;
 }
+.services-carrousel__header-control-button,
+.services-carrousel__header-service-item-card {
+  -webkit-tap-highlight-color: transparent;
+}
+
 .services-carrousel__header-service-item-card-icon {
-  color: var(--color-details);
+  color: var(--secondary-bg-color);
 }
+
 .services-carrousel__header-service-item-card-name {
-  font: normal normal 400 clamp(1.1rem, 5vh, 1.3rem) var(--display-font, Tahoma);
-  color: var(--color-bg);
+  font: normal normal 400 clamp(var(--body-md-fs), 3.5vw, var(--subtitle-fs)) var(--display-font, Tahoma);
+  color: var(--primary-bg-color);
 }
+
 .progress-bar {
-  background-color: var(--color-details);
+  background-color: var(--secondary-bg-color);
   min-width: 100%;
 }
+
 .progress-bar__current-progress {
   min-height: 3px;
-  width: 60%;
-  background-color: var(--color-titles);
+  width: 0%;
+  background-color: var(--title-color);
+  animation: growProgressBar 16s linear .3s 1 normal;
 }
-.services-carrousel__header-control-button_next {
+
+@keyframes growProgressBar {
+  0% {width: 0%;}
+  100% {width: 100%;}
 }
+
 .services-carrousel__content-service-list {
-  width: 90%;
-  max-width: 700px;
-  background: var(--color-font);
-  background: linear-gradient(45deg, var(--color-titles) 0%, var(--color-font) 100%);
+  width: 90dvw;
+  background: var(--paragraph-color);
+  background: linear-gradient(0deg, var(--title-color) 0%, var(--subtitle-color)70%);
   border-radius: 10px 50px;
   padding: 1.5rem;
   display: flex;
@@ -120,88 +147,67 @@ const handleCurrentIdxService = (nextIdxService) => {
   align-items: center;
   gap: 2rem;
 }
+
 .services-carrousel__content-service-item {
-  color: var(--color-bg);
+  color: var(--primary-bg-color);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: .5rem;
 }
+
 .services-carrousel__content-service-item-number {
-  font: normal normal 400 clamp(1.3rem, 5vh, 1.6rem) var(--display-font, Tahoma);
+  font: normal normal 400 clamp(var(--body-lg-fs), 8vw, var(--heading-sm-fs)) var(--display-font, Tahoma);
+  color: var(--secondary-bg-color);
 }
+
 .services-carrousel__content-service-item-text {
   text-align: center;
-  font: normal normal 400 clamp(1rem, 5vh, 1.2rem) var(--default-font, Arial);
+  font: normal normal 400 clamp(var(--caption-fs), 5vw, var(--body-md-fs)) var(--default-font, Arial);
 }
 
 .services-carrousel__content-service-item-text:deep(strong) { 
-  font-weight:800;
-  color: var(--color-bg) 
+  font-weight: 800;
+  color: var(--primary-bg-color) 
 }
 
 @media (width >= 425px) {
-  .services-carrousel {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-  }
-  .services-carrousel__header {
-    display: flex;
+  .services-carrousel{
     width: 100%;
-    justify-content: space-evenly;
   }
-  .services-carrousel__header-control-button {
-    display: none;
 
-  }
-  .services-carrousel__header-control-button_previous {
-  }
-  .services-carrousel__header-control-button-icon {
-    color: var(--color-titles);
-  }
+  .services-carrousel__header-control-button { display: none; }
+
   .services-carrousel__header-services-list {
-    width: 100%;
+    width: clamp(425px, 100%, 768px);
     display: flex;
     justify-content: space-evenly;
   }
+
   .services-carrousel__header-service-item {
-    /* display: none; */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem; 
-  }
-  .services-carrousel__header-service-item_current {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem; 
   }
 
-  .services-carrousel__header-service-item_current, .services-carrousel__header-service-item-card {
+  .services-carrousel__header-service-item-card {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: .5rem;
+    border-radius: 10px 40px;
   }
-
+  .services-carrousel__header-service-item_current .services-carrousel__header-service-item-card,
   .services-carrousel__header-service-item-card {
-    padding: 1.2rem 0;
-  }
-
-  .services-carrousel__header-service-item-card-icon {
-    color: var(--color-details);
-  }
-
-  .services-carrousel__header-service-item-card-name {
-    font: normal normal 400 clamp(1.1rem, 2.8vh, 2rem) var(--display-font, Tahoma);
-    color: var(--color-details);
+    padding: 1rem;
   }
 
   .services-carrousel__header-service-item_current .services-carrousel__header-service-item-card-name {
-    color: var(--color-bg);
+    color: var(--primary-bg-color);
+  }
+  .services-carrousel__header-service-item-card-name {
+    color: var(--phrase-color);
   }
 
   .progress-bar {
@@ -210,33 +216,53 @@ const handleCurrentIdxService = (nextIdxService) => {
 
   .services-carrousel__header-service-item_current .progress-bar {
     display: block;
-    background-color: var(--color-details);
-    min-width: 100%;
   }
 
   .services-carrousel__content-service-list {
-    width: 90%;
-    border-radius: 10px 50px;
     padding: 2rem;
-    display: flex;
-    flex-direction: column;
     align-items: start;
-    gap: 2rem;
   }
   .services-carrousel__content-service-item {
-    color: var(--color-bg);
-    display: flex;
     flex-direction: row;
-    align-items: center;
     gap: 1.5rem;
-  }
-  .services-carrousel__content-service-item-number {
-    font: normal normal 400 2rem var(--display-font, Tahoma);
   }
   .services-carrousel__content-service-item-text {
     text-align: start;
-    font: normal normal 400 clamp(1rem, 3vh, 1.3rem) var(--default-font, Arial);
+  }
+}
+
+@media (width >= 650px) {
+  .services-carrousel__content-service-list {
+    border-radius: 0;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 1.5rem 2rem;
   }
 
+  .services-carrousel__content-service-item {
+    width: 35%;
+    max-width: 300px;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .services-carrousel__content-service-item-text {
+    text-align: center;
+  }
 }
+
+@media (width >= 1024px) {
+  .services-carrousel__header-service-item-card{
+    transition: background-color .3s ease, color .3s ease;
+  }
+  .services-carrousel__header-service-item-card:hover {
+    background-color: var(--paragraph-color);
+  }
+
+  .services-carrousel__header-service-item-card:hover .services-carrousel__header-service-item-card-name {
+    color: var(--primary-bg-color);
+  }
+}
+
 </style>

@@ -1,37 +1,7 @@
 ---
 import ServicesCarrousel from '@components/ServicesCarrousel.vue'
+import { services } from '@data/services'
 
-// * move this to data folder
-const services = [
-    {
-        name: 'Diseño',
-        icon: 'bx:palette',
-        content: [
-            `<strong>Identificar productos</strong> de la competencia <strong>y las tendencias</strong> de la industria.`,
-            `<strong>Desarrollar prototipos y flujos de tareas</strong> basados en las necesidades del usuario.`,
-            `<strong>Lograr un boceto inicial</strong> de acuerdo a las especificaciones dadas.`,
-        ]
-    },
-    {
-        name: 'Frontend',
-        icon: 'bx:news',
-        content: [
-            `<strong>Aplicar un diseño adaptable</strong> a distintos tipos de dispositivos y versiones de navegadores.`,
-            `<strong>Programacion, modificacion y mantenimiento</strong> de un sitio web.`,
-            `Consultar API's para conseguir una <strong>conexion entre diferentes servicios y sistemas disponibles</strong>.`,
-        ]
-    },
-    {
-        name: 'Backend',
-        icon: 'bx:terminal',
-        content: [
-            `<strong>Definicion, configuracion y mantenimiento</strong> de base de datos.`,
-            `<strong>Establecer conexion e interaccion entre la base de datos</strong> y las soluciones operativas.`,
-            `<strong>Desarrollo de API</strong> propia y acoplamiento con otras.`,
-            `<strong>Configurar y mantener</strong> los servidores.`,
-        ]
-    }    
-]
 ---
 <section class="services-container" id="services-section">
     <div class="container-headings">
