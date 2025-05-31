@@ -44,22 +44,19 @@
 
 <style scoped>
     .form-contact{
-        /* width: clamp(250px, 100%, 400px); */
-        width: clamp(300px, 100%, 35vw);
-        padding: 4rem 1rem 1rem 1rem;
-        border: 3px solid var(--color-bg);
-        border-radius: 10px 100px 10px 10px ;
+        width: clamp(300px, 50%, 500px);
+        padding: 0 1rem 1rem 1rem;
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 1rem;
-        transition: border .2s ease;
+        gap: 5dvh;
     }
     .field{
         width: 100%;
         padding: .5rem;
         border-radius: 10px;
-        border: 3px solid var(--color-bg);
+        border: 3px solid transparent;
+        background-color: var(--secondary-bg-color);
         transition: border .2s ease;
     }
     .field__label{
@@ -95,7 +92,6 @@
     }
 
     .form-contact__submit-button{
-        margin: auto 0 0 0;
         background-color: var(--color-titles);
         color: var(--color-bg);
         border: none;

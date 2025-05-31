@@ -2,156 +2,109 @@
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 
-import dev_ilustration from '../assets/ilustrations/dev-ilustration.png'
+import dev_ilustration from '@assets/ilustrations/solve-it-dev-converted.png'
 import ContactForm from "@components/ContactForm.vue";
 
 ---
 
 <section class="contact-container" id="contact-section">
-    <div class="contact-container__divider">
-        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M1200,0H0V120H281.94C572.9,116.24,602.45,3.86,602.45,3.86h0S632,116.24,923,120h277Z" class="shape-fill"></path>
-        </svg>
-    </div>
     <div class="container-headings">
         <h1 class="container-headings__title">¡Contáctame!</h1>
         <!-- <h2 class="container-headings__subtitle"></h2> -->
     </div>
-    <div class="content-container">
+
+    <div class="contact-container__content content-container">
         <ContactForm client:load/>
-        <div class="ways-to-contact">
-            <h2 class="ways-to-contact__title">Otras vías <br> de contacto</h2>
-            <h3 class="ways-to-contact__subtitle">También podés <br> hablar conmigo por acá</h3>
-            <ul class="contact-ways-list">
-                <li class="contact-ways-list-item">
-                    <Icon class="contact-ways-list-item__way-icon" name="bx:mail-send" size={40} />
-                    <span class="contact-ways-list-item__way-name">Email</span>
-                    <a href="mailto:nehuen.cuenca@yahoo.com" class="contact-ways-list-item__way-keyword">nehuen.cuenca@yahoo.com</a>
+
+        <div class="contact-container__formal-links ways-to-contact">
+            <ul class="contact-container__formal-links-list contact-ways-list">
+                <li class="contact-container__formal-link-item contact-ways-list-item">
+                    <Icon class="contact-container__formal-link-item-icon contact-ways-list-item__way-icon" name="bx:mail-send" size={40} />
+                    <span class="contact-container__formal-link-item-text contact-ways-list-item__way-name">Email</span>
+                    <a href="mailto:nehuen.cuenca@yahoo.com" class="contact-container__formal-link-item-link contact-ways-list-item__way-keyword">nehuen.cuenca@yahoo.com</a>
                 </li>
-                <li class="contact-ways-list-item">
-                    <Icon class="contact-ways-list-item__way-icon" name="mdi:linkedin" size={40} />
-                    <span class="contact-ways-list-item__way-name">LinkedIn</span>
-                    <a href="https://www.linkedin.com/in/nehuen-cuenca/" target="_blank" class="contact-ways-list-item__way-keyword">Nehuen Cuenca</a>
+                <li class="contact-container__formal-link-item contact-ways-list-item">
+                    <Icon class="contact-container__formal-link-item-icon contact-ways-list-item__way-icon" name="mdi:linkedin" size={40} />
+                    <span class="contact-container__formal-link-item-text contact-ways-list-item__way-name">LinkedIn</span>
+                    <a href="https://www.linkedin.com/in/nehuen-cuenca/" target="_blank" class="contact-container__formal-link-item-link contact-ways-list-item__way-keyword">Nehuen Cuenca</a>
                 </li>
             </ul>
-            <Image src={dev_ilustration} alt="Ilustracion de un programador saludando desde su escritorio" class="ways-to-contact__dev-image">
+            <Image src={dev_ilustration} alt="Ilustracion de un programador saludando desde su escritorio" class="contact-container__dev-img ways-to-contact__dev-image">
         </div>
     </div>
 </section>
 
 <style>
     .contact-container{
-        background-color: var(--color-details);
-        color: var(--color-titles);
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 2rem;
-        padding-bottom: 5rem;
+        padding-bottom: 15dvh;
     }
 
-    .contact-container__divider {
+    .contact-container__content{
         width: 100%;
-        overflow: hidden;
-        line-height: 0;
-        margin-bottom: 2rem;
-    }
-
-    .contact-container__divider svg {
-        position: relative;
-        display: block;
-        width: calc(100% + 1.3px);
-        height: clamp(70px,10vh,200px);
-    }
-
-    .contact-container__divider .shape-fill {
-        fill: var(--color-bg);
-    }
-
-    .content-container{
-        width: 90%;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 4rem 2rem;
+        gap: 4rem 1rem;
     }
 
-    .ways-to-contact{
-        width: clamp(300px, 100%, 40vw);
-        /* padding: 0 3rem; */
+    .contact-container__formal-links{
+        width: clamp(300px, 50%, 450px);
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 1.5rem;
-    }
-    .ways-to-contact__title{
-        font: normal normal 400 clamp(1.8rem, 10vw, 2.2rem) var(--display-font, Tahoma);
-    }
-    .ways-to-contact__title,
-    .ways-to-contact__subtitle{
-        text-align: center;
+        gap: 5dvh;
     }
 
-    .ways-to-contact__subtitle{
-        text-wrap: balance;
-        font: normal normal 200 clamp(1.5rem, 8vw, 1.8rem) var(--default-font, Arial);
-        color: var(--color-font)
-    }
-
-    .contact-ways-list{
+    .contact-container__formal-links-list{
         display: flex;
         flex-direction: column;
-        gap: 1rem;
+        gap: 5dvh;
     }
-    .contact-ways-list-item{
+
+    .contact-container__formal-link-item {
         display: grid;
         grid-template-areas: 
             "icon name"
-            "icon keyword"
+            "icon link"
         ;
         grid-template-columns: 40px 1fr;
-        gap: .5rem;
+        gap: 1dvh 1dvw;
+        padding: .5rem 0 ;
     }
-    .contact-ways-list-item__way-icon{
+    .contact-container__formal-link-item-icon{
         grid-area: icon;
     }
-    .contact-ways-list-item__way-icon,
-    .contact-ways-list-item__way-name{
-        color: var(--color-titles);
-        align-self: center;
+    .contact-container__formal-link-item-icon,
+    .contact-container__formal-link-item-text{
+        color: var(--title-color);
     }
-    .contact-ways-list-item__way-name{
+    .contact-container__formal-link-item-text{
         grid-area: name;
-        font: normal normal 200 clamp(1.5rem, 6vw, 1.7rem) var(--display-font, Tahoma);
+        font: normal normal 300 clamp(var(--subtitle-fs), 7vw, var(--heading-sm-fs)) var(--display-font, Tahoma);
     }
-    .contact-ways-list-item__way-keyword{
-        grid-area: keyword;
-        font: normal normal 200 clamp(1.3rem, 6vw, 1.5rem) var(--default-font, Arial);
+    .contact-container__formal-link-item-link {
+        grid-area: link;
+        font: normal normal 300 clamp(var(--body-sm-fs), 6vw, var(--subtitle-fs)) var(--default-font, Arial);
         color: var(--color-font);
     }
 
-    .ways-to-contact__dev-image{
+    .contact-container__dev-img{
         object-fit: contain;
-        height: 45vh;
+        width: clamp(200px, 100%, 250px);
+        height: min-content;
+        border-radius: 10px;
+        box-shadow: 4px 4px 10px var(--color-shadow);
+        background: var(--primary-bg-color);
+        background: linear-gradient(180deg, var(--primary-bg-color) 0%, var(--title-color) 100%);
     }
 
     @media (width >= 768px){
-        .content-container{
+        .contact-container__content{
             flex-direction: row-reverse;
-        }
-
-        .contact-container__divider svg {
-            height: clamp(80px, 15vh, 140px);
-        }
-
-        .ways-to-contact__dev-image{
-            height: 25vh;
-        }
-    }
-    
-    @media (width >= 1024px){
-        .ways-to-contact__dev-image{
-            height: 45vh;
         }
     }
 </style>
