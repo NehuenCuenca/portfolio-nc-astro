@@ -13,23 +13,23 @@ import ContactForm from "@components/ContactForm.vue";
         <!-- <h2 class="container-headings__subtitle"></h2> -->
     </div>
 
-    <div class="contact-container__content content-container">
+    <div class="contact-container__content">
         <ContactForm client:load/>
 
-        <div class="contact-container__formal-links ways-to-contact">
-            <ul class="contact-container__formal-links-list contact-ways-list">
-                <li class="contact-container__formal-link-item contact-ways-list-item">
-                    <Icon class="contact-container__formal-link-item-icon contact-ways-list-item__way-icon" name="bx:mail-send" size={40} />
-                    <span class="contact-container__formal-link-item-text contact-ways-list-item__way-name">Email</span>
-                    <a href="mailto:nehuen.cuenca@yahoo.com" class="contact-container__formal-link-item-link contact-ways-list-item__way-keyword">nehuen.cuenca@yahoo.com</a>
+        <div class="contact-container__formal-links">
+            <ul class="contact-container__formal-links-list">
+                <li class="contact-container__formal-link-item">
+                    <Icon class="contact-container__formal-link-item-icon" name="bx:mail-send" size={40} />
+                    <span class="contact-container__formal-link-item-text">Email</span>
+                    <a href="mailto:nehuen.cuenca@yahoo.com" class="contact-container__formal-link-item-link">nehuen.cuenca@yahoo.com</a>
                 </li>
                 <li class="contact-container__formal-link-item contact-ways-list-item">
-                    <Icon class="contact-container__formal-link-item-icon contact-ways-list-item__way-icon" name="mdi:linkedin" size={40} />
-                    <span class="contact-container__formal-link-item-text contact-ways-list-item__way-name">LinkedIn</span>
-                    <a href="https://www.linkedin.com/in/nehuen-cuenca/" target="_blank" class="contact-container__formal-link-item-link contact-ways-list-item__way-keyword">Nehuen Cuenca</a>
+                    <Icon class="contact-container__formal-link-item-icon" name="mdi:linkedin" size={40} />
+                    <span class="contact-container__formal-link-item-text">LinkedIn</span>
+                    <a href="https://www.linkedin.com/in/nehuen-cuenca/" target="_blank" class="contact-container__formal-link-item-link">Nehuen Cuenca</a>
                 </li>
             </ul>
-            <Image src={dev_ilustration} alt="Ilustracion de un programador saludando desde su escritorio" class="contact-container__dev-img ways-to-contact__dev-image">
+            <Image src={dev_ilustration} alt="Ilustracion de un programador saludando desde su escritorio" class="contact-container__dev-img">
         </div>
     </div>
 </section>
