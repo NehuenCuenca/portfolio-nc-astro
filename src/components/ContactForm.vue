@@ -48,9 +48,16 @@
         const inputValidity = inputElement.validity
         const inputValidationMsg = inputElement.validationMessage
         //console.log({inputValidity, inputValidationMsg});
+        
+        const trimmedInputValue = inputElement.value.trim()
+        const mininumLengthOfInput = Number(inputElement.getAttribute('minlength'))
+        if( trimmedInputValue.length < mininumLengthOfInput ) {
+            return setValidationError({ inputElement, inputValidationMsg: `La cantidad minima de caracteres es de ${mininumLengthOfInput}` }) 
+        } else {
+            setValidationError({ inputElement, inputValidationMsg: '' })
+        }
     
-        toggleDisableAttributeForSubmitButton() 
-        if( !inputValidity.valid ) return setValidationError({ inputElement, inputValidationMsg: `Error: ${inputValidationMsg}` }) 
+        if( !inputValidity.valid ) return setValidationError({ inputElement, inputValidationMsg }) 
         setValidationError({ inputElement, inputValidationMsg: '' })
     }
 
@@ -61,14 +68,15 @@
     }
 
     const setValidationError = ({ inputElement, inputValidationMsg }) => { 
+        inputElement.setCustomValidity(inputValidationMsg)
         const fieldElement = inputElement.parentElement.parentElement
         fieldElement.querySelector('.contact-form__field-error-msg').textContent = inputValidationMsg
+        toggleDisableAttributeForSubmitButton() 
     }
    
     const isSendingEmail = ref(false)
     const sendEmail = async(event) => {
-        const { interested_name, interested_email, interested_matter, interested_message } = Object.fromEntries(new FormData(event.target));
-        
+        const { interested_name, interested_email, interested_matter, interested_message } = Object.fromEntries(new FormData(event.target)); 
         var templateParams = {
             from_name: interested_name,
             from_email: interested_email,
@@ -154,6 +162,7 @@
     }
     .contact-form__field-label-input-wrapper:has(:user-invalid){
         border-color: var(--error-color-500);
+        animation: shakeHorizontal .4s ease 0s 1 normal forwards;
     }
 
     .contact-form__field-error-msg{
@@ -227,5 +236,33 @@
         align-items: center;
         text-align: center;
         gap: 1rem;
+    }
+
+    @keyframes shakeHorizontal {
+        0%,
+        100% {
+            transform: translateX(0);
+        }
+
+        10%,
+        30%,
+        50%,
+        70% {
+            transform: translateX(-3px);
+        }
+
+        20%,
+        40%,
+        60% {
+            transform: translateX(3px);
+        }
+
+        80% {
+            transform: translateX(1px);
+        }
+
+        90% {
+            transform: translateX(-1px);
+        }
     }
 </style>
