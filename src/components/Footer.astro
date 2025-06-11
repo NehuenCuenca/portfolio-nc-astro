@@ -28,8 +28,8 @@ const currentYear = new Date().getFullYear()
 .footer-container{
     width: 100%;
     padding: 1rem;
-    background-color: var(--color-titles);
-    color: var(--color-bg);
+    background-color: var(--title-color);
+    color: var(--primary-bg-color);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -49,7 +49,7 @@ const currentYear = new Date().getFullYear()
     transition: color .5s ease;
 }
 .footer-container__contact-link-list-item:hover{
-    color: var(--color-details);
+    color: var(--subtitle-color);
 }
 
 @media (width >= 768px) {

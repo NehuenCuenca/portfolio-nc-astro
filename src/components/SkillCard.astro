@@ -23,7 +23,7 @@ const { skillIcon, skillName, skillDescription, technologiesList } = Astro.props
 <style>
     .skill-card-item {
         width: clamp(340px, 100%, 400px);
-        background-color: var(--color-bg);
+        background-color: var(--primary-bg-color);
         padding: 2rem 1rem;
         border-radius: 10px;
         display: flex;
@@ -40,19 +40,19 @@ const { skillIcon, skillName, skillDescription, technologiesList } = Astro.props
     }
 
     .skill-card-item__heading-icon {
-        color: var(--color-font);
+        color: var(--paragraph-color);
     }
 
     .skill-card-item__heading-title {
         /* font: normal normal 500 clamp(2rem, 8vw, 2.5rem) var(--display-font, Tahoma); */
         font: normal normal 500 clamp(var(--subtitle-fs), 8vw, var(--heading-sm-fs)) var(--display-font, Tahoma);
-        color: var(--color-titles);
+        color: var(--title-color);
     }
 
     .skill-card-item__description {
         /* font: normal normal 400 clamp(1.1rem, 5vw, 1.4rem) var(--default-font, Arial); */
         font: normal normal 400 clamp(var(--body-sm-fs), 5vw, var(--body-lg-fs)) var(--default-font, Arial);
-        color: var(--color-font);
+        color: var(--paragraph-color);
         text-align: center;
         max-width: 90%;
     }
@@ -85,12 +85,12 @@ const { skillIcon, skillName, skillDescription, technologiesList } = Astro.props
     .technology-card-item__icon {
         width: clamp(35px, 30%, 80px);
         height: clamp(35px, 30%, 80px);
-        color: var(--color-font);
+        color: var(--paragraph-color);
     }
     .technology-card-item__name {
         /* font: normal normal 500 1rem var(--display-font, Tahoma); */
         font: normal normal 500 var(--caption-fs) var(--display-font, Tahoma);
-        color: var(--color-titles);
+        color: var(--title-color);
         text-align: center;
         text-transform: capitalize;
     }

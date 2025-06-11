@@ -194,7 +194,7 @@
         transition: background-color .3s ease;
     }
     .contact-form__submit-button:hover{
-        background-color: var(--color-font);
+        background-color: var(--paragraph-color);
     }
     .contact-form__submit-button:disabled{
         color: var(--phrase-color);

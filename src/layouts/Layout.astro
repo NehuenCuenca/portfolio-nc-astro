@@ -35,17 +35,7 @@ import Footer from '@components/Footer.astro';
 	:root {
 		--display-font: 'Lemon', Tahoma;
 		--default-font: 'Nunito Variable', sans-serif, Arial;
-		--black: #000000;
-		--white: #FFFFFF;
 
-		/* OLD PALETTE */
-		--aqua-green-dark: #003C43;
-		--aqua-green-dark-soft: #135D66;
-		--aqua-green-mid-light: #77B0AA;
-		--aqua-green-light: #E3FEF7;
-		--error-msg: #FF3F3F;
-
-		/* NEW PALETTE */
 		--primary-color-900: #003c43;
 		--primary-color-800: #064850;
 		--primary-color-700: #0e555d;
@@ -74,16 +64,6 @@ import Footer from '@components/Footer.astro';
 	}
 
 	[data-theme="light"] {
-		--color-bg: var(--aqua-green-light);
-		--color-font: var(--aqua-green-dark-soft);
-		--color-titles: var(--aqua-green-dark);
-		--color-details: var(--aqua-green-mid-light);
-		--color-shadow: rgba(0,0,0, 0.4);
-		--projects-fade-bg: linear-gradient(180deg, rgba(119,176,170,1) 95%, rgba(227,254,247,1) 100%);
-		background-color: var(--color-bg);
-		color: var(--color-font);
-
-		/* NEW COLOR VARS */
 		--title-color: var(--primary-color-900);
 		--subtitle-color: var(--primary-color-700);
 		--phrase-color: var(--primary-color-600);
@@ -91,6 +71,7 @@ import Footer from '@components/Footer.astro';
 		--primary-bg-color: var(--primary-color-100);
 		--secondary-bg-color: var(--primary-color-300);
 		--primary-icon-color: var(--primary-color-900);
+		--shadow-color: rgba(0,0,0, 0.4);
 		--link-color: var(--primary-color-900);
 		--error-text-color: var(--error-color-900);
 		--input-placeholder-color: var(--primary-color-600);
@@ -101,16 +82,6 @@ import Footer from '@components/Footer.astro';
 	}
 
 	[data-theme="dark"] {
-		--color-bg: var(--aqua-green-dark);
-		--color-font: var(--aqua-green-mid-light);
-		--color-titles: var(--aqua-green-light);
-		--color-details: var(--aqua-green-dark-soft);
-		--color-shadow: transparent;
-		--projects-fade-bg: linear-gradient(180deg, rgba(19,93,102,1) 95%, rgba(0,60,67,1) 100%);
-		background-color: var(--color-bg);
-		color: var(--color-font);
-
-		/* NEW COLOR VARS */
 		--title-color: var(--primary-color-100);
 		--subtitle-color: var(--primary-color-300);
 		--phrase-color: var(--primary-color-400);
@@ -118,6 +89,7 @@ import Footer from '@components/Footer.astro';
 		--primary-bg-color: var(--primary-color-900);
 		--secondary-bg-color: var(--primary-color-700);
 		--primary-icon-color: var(--primary-color-100);
+		--shadow-color: transparent;
 		--link-color: var(--primary-color-100);
 		--error-text-color: var(--error-color-100);
 		--input-placeholder-color: var(--primary-color-400);

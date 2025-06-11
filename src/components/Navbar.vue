@@ -34,11 +34,11 @@
                         </ul>
 
                         <div class="nav__mobile-menu-togglers">
-                            <button v-if="currentLanguage" type="button" class="nav__mobile-bar-button nav__mobile-bar-button_i18n-toggler" @click="toggleI18n">
+                            <button v-if="currentLanguage" type="button" class="nav__mobile-bar-button nav__mobile-bar-button_i18n-toggler" @click="toggleI18n" title="Cambiar idioma">
                                 <Icon v-if="currentLanguage === 'es'" width="50" icon="material-symbols:language-us" class="nav__mobile-button-icon nav__mobile-button-icon_i18n-US"/>
                                 <Icon v-else width="50" icon="material-symbols:language-es" class="nav__mobile-button-icon nav__mobile-button-icon_i18n-ES"/>
                             </button>
-                            <button v-if="currentTheme" type="button" class="nav__mobile-bar-button nav__mobile-bar-button_theme-toggler mobile-nav-button" @click="toggleTheme">
+                            <button v-if="currentTheme" type="button" class="nav__mobile-bar-button nav__mobile-bar-button_theme-toggler mobile-nav-button" @click="toggleTheme" title="Cambiar tema">
                                 <Icon v-if="currentTheme === 'light'" width="40" icon="bx:moon" class="nav__mobile-bar-button-icon"/>
                                 <Icon v-else width="40" icon="bx:sun" class="nav__mobile-bar-button-icon"/>
                             </button>
