@@ -10,8 +10,13 @@
             <Icon class="services-carrousel__header-service-item-card-icon" :icon="icon" width="65" />
             <span class="services-carrousel__header-service-item-card-name">{{ name }}</span>
           </button>
-          <div class="progress-bar" ref="progressBarRefs">
-            <div class="progress-bar__current-progress"></div>
+          <div class="progress-bar-container">
+            <button type="button" class="progress-bar-container__control-button" @click="toggleProgressBarAnimation(idxService)">
+              <Icon :icon="isPlaying[idxService] ? 'bx:pause' : 'bx:play'" width="40" class="progress-bar-container__control-button-icon"/>
+            </button>
+            <div class="progress-bar" ref="progressBarRefs">
+              <div class="progress-bar__current-progress" :class="{ 'progress-bar__current-progress_paused': !isPlaying[idxService] }"></div>
+            </div>
           </div>
         </li>
       </ul>
@@ -37,11 +42,14 @@ const props = defineProps({
 })
 
 const progressBarRefs = ref([])
+const isPlaying = ref(props.services.map(() => true))
 
 onMounted(() => {
-  progressBarRefs.value.forEach((progressBar) => {
+  progressBarRefs.value.forEach((progressBar, index) => {
     progressBar.addEventListener('animationend', (animationEvent) => {
-      handleCurrentIdxService(currentIdxService.value+1) 
+      if (isPlaying.value[index]) {
+        handleCurrentIdxService(currentIdxService.value+1)
+      }
     })
   })
 })
@@ -49,13 +57,19 @@ onMounted(() => {
 const currentIdxService = ref(0)
 const handleCurrentIdxService = (nextIdxService) => {
   if(nextIdxService === currentIdxService) return
-  if( nextIdxService >= 0 && nextIdxService < props.services.length ) return currentIdxService.value = nextIdxService; 
+  if( nextIdxService >= 0 && nextIdxService < props.services.length ) {
+    isPlaying.value = props.services.map(() => true)
+    return currentIdxService.value = nextIdxService
+  }
   
   currentIdxService.value = (nextIdxService >= props.services.length) 
                             ? 0
                             : props.services.length-1
 }
 
+const toggleProgressBarAnimation = (index) => {
+  isPlaying.value[index] = !isPlaying.value[index]
+}
 </script>
 
 <style scoped>
@@ -119,9 +133,34 @@ const handleCurrentIdxService = (nextIdxService) => {
   color: var(--primary-bg-color);
 }
 
+.progress-bar-container {
+  display: flex;
+  align-items: center;
+  /* gap: 1rem; */
+  min-width: fit-content;
+}
+
 .progress-bar {
   background-color: var(--secondary-bg-color);
-  min-width: 100%;
+  min-width: 60px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.progress-bar-container__control-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.progress-bar-container__control-button-icon {
+  color: var(--title-color);
 }
 
 .progress-bar__current-progress {
@@ -129,6 +168,10 @@ const handleCurrentIdxService = (nextIdxService) => {
   width: 0%;
   background-color: var(--title-color);
   animation: growProgressBar 16s linear .3s 1 normal;
+}
+
+.progress-bar__current-progress_paused {
+  animation-play-state: paused;
 }
 
 @keyframes growProgressBar {
@@ -210,12 +253,12 @@ const handleCurrentIdxService = (nextIdxService) => {
     color: var(--phrase-color);
   }
 
-  .progress-bar {
+  .services-carrousel__header-service-item .progress-bar-container {
     display: none;
   }
 
-  .services-carrousel__header-service-item_current .progress-bar {
-    display: block;
+  .services-carrousel__header-service-item_current .progress-bar-container {
+    display: flex;
   }
 
   .services-carrousel__content-service-list {
