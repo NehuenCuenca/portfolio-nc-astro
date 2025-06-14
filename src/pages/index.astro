@@ -16,7 +16,7 @@ import { Icon } from 'astro-icon/components';
 	<main class="main-container">
 		<Hero />
 		<a href="#hero-section" class="go-to-top-link go-to-top-link_hidden">
-			<Icon name="bx:arrow-to-top" size={40}/>
+			<Icon name="bx:arrow-to-top" size={40} title='Ir a la parte superior'/>
 		</a>
 		<FormationSection />
 		<div class="different-bg">
@@ -35,7 +35,7 @@ import { Icon } from 'astro-icon/components';
 	
 	<dialog id="last-info-project-dialog" class="info-project-dialog" closedby="closerequest">
 		<form class="info-project-dialog__close-form">
-			<button formmethod="dialog" aria-role="Cerrar dialogo" class="info-project-dialog__close-button ">
+			<button formmethod="dialog" type="button" class="info-project-dialog__close-button">
 				<Icon name="bx:x" size={35} class='info-project-dialog__close-icon'/>
 			</button>
 		</form>

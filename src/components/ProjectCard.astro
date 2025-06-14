@@ -29,11 +29,11 @@ const hasDemoAvailable = externalLinks.hasOwnProperty('demo')
         : <span class="project-card-item__name-title project-card-item__name-title_not-available" title="No disponible">{ nameTitle }</span>
     }
     <div class="project-card-item__aux-actions">
-        <button type="button" class="project-card-item__more-info-btn" data-idx={idx} title="Mostrar mas información" aria-role="Mostrar información">
-            <Icon class="project-card-item__more-info-btn-icon" name="bx:info-circle" size={25}/>
+        <button type="button" class="project-card-item__more-info-btn" data-idx={idx}>
+            <Icon class="project-card-item__more-info-btn-icon" name="bx:info-circle" size={25} title="Mostrar mas información"/>
         </button>
-        <a href={externalLinks.repository} target="_blank" class="project-card-item__open-repository-link" title="Abrir repositorio de GitHub" aria-role="Abrir repositorio de GitHub">
-            <Icon class="project-card-item__open-repository-link-icon" name="simple-icons:github" size={25}/>
+        <a href={externalLinks.repository} target="_blank" class="project-card-item__open-repository-link" >
+            <Icon class="project-card-item__open-repository-link-icon" name="simple-icons:github" size={25} title="Abrir repositorio de GitHub"/>
         </a>
     </div>
 </li>
