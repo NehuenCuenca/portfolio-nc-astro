@@ -34,10 +34,10 @@
                         </ul>
 
                         <div class="nav__mobile-menu-togglers">
-                            <button v-if="currentLanguage" type="button" class="nav__mobile-bar-button nav__mobile-bar-button_i18n-toggler" @click="toggleI18n" title="Cambiar idioma">
+                            <!-- <button v-if="currentLanguage" type="button" class="nav__mobile-bar-button nav__mobile-bar-button_i18n-toggler" @click="toggleI18n" title="Cambiar idioma">
                                 <Icon v-if="currentLanguage === 'es'" width="50" icon="material-symbols:language-us" class="nav__mobile-button-icon nav__mobile-button-icon_i18n-US"/>
                                 <Icon v-else width="50" icon="material-symbols:language-es" class="nav__mobile-button-icon nav__mobile-button-icon_i18n-ES"/>
-                            </button>
+                            </button> -->
                             <button v-if="currentTheme" type="button" class="nav__mobile-bar-button nav__mobile-bar-button_theme-toggler mobile-nav-button" @click="toggleTheme" title="Cambiar tema">
                                 <Icon v-if="currentTheme === 'light'" width="40" icon="bx:moon" class="nav__mobile-bar-button-icon"/>
                                 <Icon v-else width="40" icon="bx:sun" class="nav__mobile-bar-button-icon"/>
@@ -69,10 +69,10 @@
             </ul>
 
             <div class="nav__desktop-bar-togglers">
-                <button v-if="currentLanguage" type="button" class="nav__desktop-bar-button nav__desktop-bar-button_i18n-toggler" @click="toggleI18n">
+                <!-- <button v-if="currentLanguage" type="button" class="nav__desktop-bar-button nav__desktop-bar-button_i18n-toggler" @click="toggleI18n">
                     <Icon v-if="currentLanguage === 'es'" width="50" icon="material-symbols:language-us" class="nav__desktop-bar-button-icon nav__desktop-bar-button-icon_i18n-US"/>
                     <Icon v-else width="50" icon="material-symbols:language-es" class="nav__desktop-bar-button-icon nav__desktop-bar-button-icon_i18n-US"/>
-                </button>
+                </button> -->
                 <button v-if="currentTheme" type="button" class="nav__desktop-bar-button nav__desktop-bar-button_theme-toggler nav-button" @click="toggleTheme">
                     <Icon v-if="currentTheme === 'light'" width="40" icon="bx:moon" class="nav__desktop-bar-button-icon"/>
                     <Icon v-else width="40" icon="bx:sun" class="nav__desktop-bar-button-icon"/>
