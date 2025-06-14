@@ -11,8 +11,8 @@
             <span class="services-carrousel__header-service-item-card-name">{{ name }}</span>
           </button>
           <div class="progress-bar-container">
-            <button type="button" class="progress-bar-container__control-button" @click="toggleProgressBarAnimation(idxService)">
-              <Icon :icon="isPlaying[idxService] ? 'bx:pause' : 'bx:play'" width="40" class="progress-bar-container__control-button-icon" title="Pausa/Continuar"/>
+            <button type="button" class="progress-bar-container__control-button" @click="toggleProgressBarAnimation(idxService)" aria-label="Pausar/Continuar">
+              <Icon :icon="isPlaying[idxService] ? 'bx:pause' : 'bx:play'" width="40" class="progress-bar-container__control-button-icon" title="Pausar/Continuar"/>
             </button>
             <div class="progress-bar" ref="progressBarRefs">
               <div class="progress-bar__current-progress" :class="{ 'progress-bar__current-progress_paused': !isPlaying[idxService] }"></div>
