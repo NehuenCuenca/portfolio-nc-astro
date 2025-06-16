@@ -105,6 +105,10 @@ import { Icon } from 'astro-icon/components';
 	// Find all buttons with the `alert` class on the page.
 	const openInfoProjectButtons = document.querySelectorAll('button.project-card-item__more-info-btn');
 	const infoProjectDialog = document.querySelector("#last-info-project-dialog");
+	const projectImg = infoProjectDialog.querySelector('.info-project-dialog__header-project-img')
+	projectImg.addEventListener('load', () => {
+		infoProjectDialog.showModal();
+	});
 
 	// Handle clicks on each button.
 	openInfoProjectButtons.forEach((button) => {
@@ -125,8 +129,6 @@ import { Icon } from 'astro-icon/components';
 			technologiesItems.forEach((technologyItemElement, idxItemElement) => {
 				technologyItemElement.innerHTML = `<h4 class="technology-item__technology-name">${technologies[idxItemElement]?.technologyName || ''}</h4>`
 			})
-
-  			infoProjectDialog.showModal();
 		});
 	});
 
@@ -238,6 +240,7 @@ import { Icon } from 'astro-icon/components';
 		height: 25dvh;
 		object-fit: cover;
 		object-position: center;
+		background-color: var(--phrase-color);
 	}
 
 	.info-project-dialog__header-name-title {
